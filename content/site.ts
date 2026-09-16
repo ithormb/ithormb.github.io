@@ -1,4 +1,6 @@
 import type { Text } from "@/lib/i18n";
+import { hub } from "./hub";
+import { automacoes } from "./automacoes";
 
 export const site = {
   name: "Thomas Barbosa",
@@ -18,8 +20,8 @@ export const site = {
   metrics: [
     { value: "3", label: { pt: "unidades industriais", en: "industrial plants" } },
     { value: "~215", label: { pt: "colaboradores no escopo", en: "employees in scope" } },
-    { value: "dezenas", label: { pt: "de automações em produção", en: "of automations in production" } },
-    { value: "5,3s → 186ms", label: { pt: "resposta de rota após otimização", en: "route response after optimization" } },
+    { value: String(hub.agentes.length), label: { pt: "agentes no hub", en: "agents in the hub" } },
+    { value: String(automacoes.itens.length), label: { pt: "automações em produção", en: "automations in production" } },
   ] as { value: string; label: Text }[],
   principles: [
     {
