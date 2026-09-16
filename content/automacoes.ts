@@ -15,11 +15,75 @@ export type Automacao = {
 
 const p = (tipo: Passo["tipo"], pt: string, en = pt): Passo => ({ tipo, label: { pt, en } });
 
+// Medido na instância do n8n pela API pública. Atualize os números e a data juntos.
+export const numeros = {
+  medidoEm: "2026-09-16",
+  workflows: 135,
+  ativos: 53,
+  nos: 2880, // nós funcionais, sem as anotações (sticky notes)
+  tiposDeNo: 43,
+  credenciais: 25,
+  mediaNosPorWorkflow: 24,
+  maiorWorkflow: 59,
+};
+
+// Os 12 tipos de nó mais usados — quantidade de instâncias em todos os workflows.
+export const tiposDeNo: { nome: string; qtd: number; grupo: "logica" | "dados" | "integracao" | "controle" }[] = [
+  { nome: "Code (JS)", qtd: 794, grupo: "logica" },
+  { nome: "HTTP Request", qtd: 362, grupo: "integracao" },
+  { nome: "Google Sheets", qtd: 224, grupo: "dados" },
+  { nome: "Set", qtd: 178, grupo: "logica" },
+  { nome: "If", qtd: 176, grupo: "logica" },
+  { nome: "Merge", qtd: 162, grupo: "logica" },
+  { nome: "Microsoft Excel", qtd: 157, grupo: "dados" },
+  { nome: "WhatsApp (Evolution)", qtd: 100, grupo: "integracao" },
+  { nome: "Filter", qtd: 80, grupo: "logica" },
+  { nome: "Outlook", qtd: 77, grupo: "integracao" },
+  { nome: "Schedule Trigger", qtd: 77, grupo: "controle" },
+  { nome: "Wait", qtd: 58, grupo: "controle" },
+  { nome: "Split Out", qtd: 55, grupo: "logica" },
+  { nome: "Execute Workflow", qtd: 98, grupo: "controle" },
+  { nome: "Loop (batches)", qtd: 44, grupo: "controle" },
+  { nome: "Data Table", qtd: 35, grupo: "dados" },
+];
+
+export const plataformas: { categoria: Text; itens: string[] }[] = [
+  {
+    categoria: { pt: "Dados da empresa", en: "Company data" },
+    itens: ["ERP (REST e SQL, leitura)", "MES em BigQuery", "PostgreSQL do hub", "Microsoft Fabric"],
+  },
+  {
+    categoria: { pt: "Microsoft 365", en: "Microsoft 365" },
+    itens: ["Graph API", "SharePoint", "OneDrive", "Excel Online", "Outlook"],
+  },
+  {
+    categoria: { pt: "Google", en: "Google" },
+    itens: ["Sheets", "Drive", "BigQuery", "Gmail", "Gemini"],
+  },
+  {
+    categoria: { pt: "Mensageria e entrega", en: "Messaging and delivery" },
+    itens: ["WhatsApp (Evolution API)", "e-mail transacional", "gerenciador de tarefas (API)"],
+  },
+  {
+    categoria: { pt: "IA e documentos", en: "AI and documents" },
+    itens: ["Gemini", "Mistral (OCR)", "Gotenberg (PDF)", "HTML → imagem", "Puppeteer"],
+  },
+  {
+    categoria: { pt: "Consultas públicas e cadastrais", en: "Public and registry lookups" },
+    itens: ["BrasilAPI", "OpenCNPJ", "DataJud (CNJ)", "Serasa Experian", "InfoSimples"],
+  },
+];
+
 export const automacoes = {
   nome: { pt: "Automações em n8n", en: "n8n automations" } satisfies Text,
   resumo: {
     pt: "Rotinas que rodam sozinhas, em dia útil, e levam o dado até onde a pessoa já está: WhatsApp, e-mail, ou uma tarefa com prazo no gerenciador. Cada uma é idempotente — rodar duas vezes não duplica nada — e falha em voz alta, num workflow de erro que avisa quem cuida.",
     en: "Routines that run on their own, on business days, and take the data to where people already are: WhatsApp, e-mail, or a task with a deadline in the task manager. Each one is idempotent — running twice duplicates nothing — and fails loudly, through an error workflow that alerts whoever is on call.",
+  } satisfies Text,
+  amostraTitulo: { pt: "Uma amostra", en: "A sample" } satisfies Text,
+  amostraResumo: {
+    pt: "Treze das que rodam todo dia, para dar ideia do formato: o que faz, quando roda e por onde passa o dado.",
+    en: "Thirteen of the ones that run every day, to give a sense of the shape: what it does, when it runs and where the data flows.",
   } satisfies Text,
   itens: [
     {
