@@ -15,7 +15,7 @@ export function Hero({ locale }: { locale: Locale }) {
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link
-            href={`/${locale}/#projetos`}
+            href={`/${locale}/#hub`}
             className="inline-flex min-h-10 items-center bg-ink px-4 text-sm text-paper transition-colors hover:bg-accent hover:text-accent-ink active:scale-95"
           >
             {t("hero_cta_projects", locale)}

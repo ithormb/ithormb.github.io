@@ -11,11 +11,11 @@ export function Header({ locale }: { locale: Locale }) {
         {site.name}
       </Link>
       <nav aria-label="principal" className="flex items-center gap-1 text-sm">
-        <Link
-          href={`/${locale}/#projetos`}
-          className="link-ul inline-flex min-h-10 items-center px-2 active:scale-95"
-        >
-          {t("nav_projects", locale)}
+        <Link href={`/${locale}/hub/`} className="link-ul inline-flex min-h-10 items-center px-2 active:scale-95">
+          {t("nav_hub", locale)}
+        </Link>
+        <Link href={`/${locale}/automacoes/`} className="link-ul inline-flex min-h-10 items-center px-2 active:scale-95">
+          {t("nav_automations", locale)}
         </Link>
         <Link
           href={`/${locale}/sobre/`}
