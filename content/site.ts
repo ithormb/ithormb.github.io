@@ -1,6 +1,6 @@
 import type { Text } from "@/lib/i18n";
 import { hub } from "./hub";
-import { automacoes } from "./automacoes";
+import { numeros } from "./automacoes";
 
 export const site = {
   name: "Thomas Barbosa",
@@ -21,7 +21,7 @@ export const site = {
     { value: "3", label: { pt: "unidades industriais", en: "industrial plants" } },
     { value: "~215", label: { pt: "colaboradores no escopo", en: "employees in scope" } },
     { value: String(hub.agentes.length), label: { pt: "agentes no hub", en: "agents in the hub" } },
-    { value: String(automacoes.itens.length), label: { pt: "automações em produção", en: "automations in production" } },
+    { value: String(numeros.workflows), label: { pt: `workflows no n8n, ${numeros.ativos} ativos`, en: `n8n workflows, ${numeros.ativos} active` } },
   ] as { value: string; label: Text }[],
   principles: [
     {

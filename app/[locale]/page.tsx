@@ -11,6 +11,7 @@ import { Section } from "@/components/ui/Section";
 import { Showcase } from "@/components/catalogo/Showcase";
 import { AgentList } from "@/components/catalogo/AgentList";
 import { AutomationList } from "@/components/catalogo/AutomationList";
+import { Numbers } from "@/components/catalogo/Numbers";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -45,7 +46,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           href={`/${l}/automacoes/`}
           linkLabel={t("see_all_automations", l)}
         >
-          <AutomationList locale={l} limite={4} />
+          <Numbers locale={l} />
+          <div className="mt-10">
+            <AutomationList locale={l} limite={2} />
+          </div>
         </Showcase>
       </Section>
       <Section numero="03" titulo={t("section_principles", l)}>
