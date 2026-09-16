@@ -1,15 +1,12 @@
 import type { NextConfig } from "next";
 
-// O GitHub Pages serve este repositório em /my_portfolio/.
-// Se um dia o repositório virar `ithormb.github.io`, apague o basePath.
-const basePath = "/my_portfolio";
-
+// Repositório ithormb.github.io: o site é servido na raiz do domínio,
+// então não há basePath. Se um dia mudar para um repositório de projeto,
+// volte a declarar basePath com o nome dele.
 const nextConfig: NextConfig = {
   output: "export",
-  basePath,
   trailingSlash: true,
   images: { unoptimized: true },
-  env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };
 
 export default nextConfig;
