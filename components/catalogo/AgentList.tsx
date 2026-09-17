@@ -8,35 +8,28 @@ const canalLabel: Record<Canal, { pt: string; en: string }> = {
   tarefa: { pt: "tarefa", en: "task" },
 };
 
-export function AgentList({ locale, limite }: { locale: Locale; limite?: number }) {
-  const itens = limite ? hub.agentes.slice(0, limite) : hub.agentes;
+export function AgentList({ locale }: { locale: Locale }) {
   return (
-    <ol>
-      {itens.map((a) => (
-        <li
-          key={a.nome.pt}
-          className="grid gap-2 border-b border-rule py-5 last:border-b-0 sm:grid-cols-[120px_1fr_auto] sm:gap-6"
-        >
-          <span className="eyebrow pt-1">{a.area[locale]}</span>
-          <div>
-            <h3 className="font-serif text-xl leading-snug">
+    <ol className="space-y-10">
+      {hub.agentes.map((a) => (
+        <li key={a.nome.pt} className="grid sm:grid-cols-8 sm:gap-8 md:gap-4">
+          <p className="mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted sm:col-span-2">{a.area[locale]}</p>
+          <div className="sm:col-span-6">
+            <h3 className="font-medium leading-snug text-ink">
               {a.nome[locale]}
               {a.ia && (
-                <span
-                  title={locale === "pt" ? "conversa em linguagem natural" : "talks in natural language"}
-                  className="ml-2 align-middle font-mono text-[0.65rem] uppercase tracking-[0.12em] text-accent"
-                >
-                  ia
+                <span className="ml-2 rounded-full bg-accent-soft px-2 py-0.5 align-middle text-[0.65rem] font-semibold uppercase tracking-wider text-accent">
+                  IA
                 </span>
               )}
             </h3>
-            <p className="mt-1 max-w-[46rem] text-[0.95rem] leading-relaxed text-ink-2">{a.faz[locale]}</p>
+            <p className="mt-2 text-sm leading-normal">{a.faz[locale]}</p>
+            <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="canais">
+              {a.canais.map((c) => (
+                <li key={c} className="rounded-full border border-rule px-3 py-1 text-xs text-ink-2">{canalLabel[c][locale]}</li>
+              ))}
+            </ul>
           </div>
-          <ul className="flex gap-1.5 self-start font-mono text-[0.7rem] text-muted sm:flex-col sm:items-end sm:gap-0.5">
-            {a.canais.map((c) => (
-              <li key={c}>{canalLabel[c][locale]}</li>
-            ))}
-          </ul>
         </li>
       ))}
     </ol>
