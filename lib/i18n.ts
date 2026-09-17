@@ -4,12 +4,19 @@ export type Locale = (typeof locales)[number];
 export type Text = { pt: string; en: string };
 
 export const ui = {
-  nav_hub: { pt: "Hub", en: "Hub" },
-  nav_automations: { pt: "Automações", en: "Automations" },
+  skip: { pt: "Pular para o conteúdo", en: "Skip to content" },
   nav_about: { pt: "Sobre", en: "About" },
-  toggle_theme: { pt: "Alternar tema", en: "Toggle theme" },
-  hero_cta_projects: { pt: "Ver o trabalho", en: "See the work" },
-  hero_cta_linkedin: { pt: "LinkedIn", en: "LinkedIn" },
+  nav_experience: { pt: "Experiência", en: "Experience" },
+  nav_projects: { pt: "Projetos", en: "Projects" },
+  nav_numbers: { pt: "Em números", en: "In numbers" },
+  back_home: { pt: "Thomas Barbosa", en: "Thomas Barbosa" },
+  see_details: { pt: "Ver em detalhe", en: "See in detail" },
+  see_automations: { pt: "Ver as automações em detalhe", en: "See the automations in detail" },
+  study: { pt: "estudo", en: "study" },
+  footer: {
+    pt: "Feito à mão em Next.js e Tailwind, publicado no GitHub Pages. Sem rastreadores.",
+    en: "Hand-built with Next.js and Tailwind, published on GitHub Pages. No trackers.",
+  },
   section_hub: { pt: "Hub de agentes", en: "Agents hub" },
   section_automations: { pt: "Automações", en: "Automations" },
   section_guarantees: { pt: "Garantias", en: "Guarantees" },
@@ -19,19 +26,6 @@ export const ui = {
   section_platforms: { pt: "Plataformas", en: "Platforms" },
   section_sample: { pt: "Amostra", en: "Sample" },
   measured_on: { pt: "medido em", en: "measured on" },
-  see_all_agents: { pt: "Ver todos os agentes", en: "See all agents" },
-  see_all_automations: { pt: "Ver todas as automações", en: "See all automations" },
-  section_principles: { pt: "Princípios", en: "Principles" },
-  section_contact: { pt: "Contato", en: "Contact" },
-  contact_title: { pt: "Vamos conversar?", en: "Let's talk?" },
-  contact_body: {
-    pt: "Se você tem uma operação onde os dados estão presos em sistemas que não conversam, provavelmente já resolvi um problema parecido.",
-    en: "If you run an operation where data is stuck in systems that don't talk to each other, I've probably solved a similar problem.",
-  },
-  footer_note: {
-    pt: "Feito à mão, sem framework de site pronto. Estático, sem rastreadores.",
-    en: "Handmade, no site builder. Static, no trackers.",
-  },
 } satisfies Record<string, Text>;
 
 export type UiKey = keyof typeof ui;

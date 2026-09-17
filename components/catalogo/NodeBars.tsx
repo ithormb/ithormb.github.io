@@ -7,35 +7,29 @@ const grupoLabel = {
   integracao: { pt: "integração externa", en: "external integration" },
   controle: { pt: "controle de fluxo", en: "flow control" },
 };
-// Paleta validada para daltonismo: teal · índigo · rosa · cinza.
-const grupoCor = { logica: "#0d9488", dados: "#4f46e5", integracao: "#e11d48", controle: "var(--muted)" };
+const grupoCor = { logica: "var(--c1)", dados: "var(--c2)", integracao: "var(--c3)", controle: "var(--muted)" };
 
-// Barras horizontais em SVG inline: uma linha por tipo de nó, ordenadas por uso.
+// Barras em HTML: o rótulo quebra no mobile e o texto segue o tamanho da página.
 export function NodeBars({ locale }: { locale: Locale }) {
   const itens = [...tiposDeNo].sort((a, b) => b.qtd - a.qtd);
   const max = itens[0].qtd;
-  const row = 26, labelW = 170, barW = 420, numW = 50;
-  const W = labelW + barW + numW, H = itens.length * row;
   return (
     <div>
-      <div className="overflow-x-auto">
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ minWidth: 520, maxWidth: W }} className="font-mono text-[11px]" role="img" aria-label={locale === "pt" ? "Tipos de nó mais usados" : "Most used node types"}>
-          {itens.map((it, i) => {
-            const y = i * row, w = (it.qtd / max) * barW;
-            return (
-              <g key={it.nome} transform={`translate(0 ${y})`}>
-                <text x={labelW - 10} y={row / 2 + 4} textAnchor="end" fill="currentColor">{it.nome}</text>
-                <rect x={labelW} y={6} width={w} height={row - 12} fill={grupoCor[it.grupo]} />
-                <text x={labelW + w + 8} y={row / 2 + 4} className="fill-muted">{it.qtd}</text>
-              </g>
-            );
-          })}
-        </svg>
-      </div>
-      <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[0.7rem] text-muted">
+      <ul className="space-y-2" aria-label={locale === "pt" ? "Tipos de nó mais usados" : "Most used node types"}>
+        {itens.map((it) => (
+          <li key={it.nome} className="grid grid-cols-[9.5rem_1fr] items-center gap-3 text-xs sm:grid-cols-[11rem_1fr]">
+            <span className="truncate text-right text-ink-2">{it.nome}</span>
+            <span className="flex items-center gap-2">
+              <span className="h-3 rounded-sm" style={{ width: `${(it.qtd / max) * 100}%`, background: grupoCor[it.grupo] }} />
+              <span className="font-mono text-muted">{it.qtd}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-1 text-xs text-ink-2">
         {(Object.keys(grupoLabel) as (keyof typeof grupoLabel)[]).map((g) => (
           <li key={g} className="flex items-center gap-2">
-            <span className="inline-block size-2.5" style={{ background: grupoCor[g] }} aria-hidden="true" />
+            <span className="inline-block size-2.5 rounded-sm" style={{ background: grupoCor[g] }} aria-hidden="true" />
             {grupoLabel[g][locale]}
           </li>
         ))}

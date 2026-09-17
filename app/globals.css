@@ -1,80 +1,52 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
-  --paper: #f6f3ec;
-  --paper-2: #ece8de;
-  --ink: #1b1a17;
-  --ink-2: #4e4a42;
-  --muted: #7d7870;
-  --rule: #d6d0c3;
-  --accent: #a83c26;
-  --accent-ink: #ffffff;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Charter, Georgia, serif;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-}
-
-.dark {
-  --paper: #161511;
-  --paper-2: #1f1d18;
-  --ink: #ebe6da;
-  --ink-2: #b8b2a4;
-  --muted: #837d70;
-  --rule: #33302a;
-  --accent: #e2694e;
-  --accent-ink: #161511;
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --ink: #e2e8f0;
+  --ink-2: #94a3b8;
+  --muted: #64748b;
+  --rule: #1e293b;
+  --accent: #fcd34d;
+  --accent-soft: rgba(251, 191, 36, 0.1);
+  /* paleta de dados validada para daltonismo, clareada para fundo escuro */
+  --c1: #2dd4bf;
+  --c2: #818cf8;
+  --c3: #fb7185;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-2: var(--paper-2);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
   --color-rule: var(--rule);
   --color-accent: var(--accent);
-  --color-accent-ink: var(--accent-ink);
-  --font-serif: var(--font-serif);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --color-accent-soft: var(--accent-soft);
+  --color-c1: var(--c1);
+  --color-c2: var(--c2);
+  --color-c3: var(--c3);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
-html {
-  color-scheme: light;
-  scroll-behavior: smooth;
-}
-html.dark { color-scheme: dark; }
+html { color-scheme: dark; scroll-behavior: smooth; }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--ink-2);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
-::selection { background: var(--accent); color: var(--accent-ink); }
+::selection { background: var(--accent); color: var(--bg); }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
-
-.rule { border-top: 1px solid var(--rule); }
-
-.link-ul {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  text-decoration-color: var(--rule);
-  transition: text-decoration-color 150ms;
-}
-.link-ul:hover { text-decoration-color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
