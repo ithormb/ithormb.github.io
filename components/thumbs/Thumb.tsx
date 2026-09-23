@@ -3,14 +3,28 @@ import type { Thumb as Kind } from "@/content/site";
 // Miniaturas ilustrativas desenhadas à mão — nenhum dado real, nenhuma captura de tela.
 const W = 200, H = 120;
 
+// A página é clara; a miniatura imita uma tela de sistema escura.
+const TELA = {
+  "--surface": "#16202e",
+  "--rule": "#2b3a4f",
+  "--muted": "#6b7a90",
+  "--ink": "#e2e8f0",
+  "--accent": "#fb923c",
+  "--c1": "#2dd4bf",
+  "--c2": "#818cf8",
+  "--c3": "#fb7185",
+} as React.CSSProperties;
+
 function Frame({ children, label }: { children: React.ReactNode; label: string }) {
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
       role="img"
       aria-label={label}
-      className="w-full rounded border-2 border-rule bg-surface transition group-hover:border-ink-2/40 motion-reduce:transition-none"
+      className="w-full rounded-lg shadow-[0_10px_24px_-12px_rgba(23,18,14,0.45)]"
+      style={TELA}
     >
+      <rect width={W} height={H} fill="var(--surface)" />
       {children}
     </svg>
   );
@@ -22,7 +36,7 @@ const soft = "var(--muted)";
 function Hub() {
   return (
     <Frame label="Ilustração: painel do hub de agentes">
-      <rect x="0" y="0" width="46" height={H} fill="#0d1526" />
+      <rect x="0" y="0" width="46" height={H} fill="#101824" />
       {[18, 32, 46, 60, 74].map((y, i) => (
         <rect key={y} x="10" y={y} width={i === 1 ? 28 : 22} height="5" rx="2" fill={i === 1 ? "var(--accent)" : soft} opacity={i === 1 ? 0.9 : 0.5} />
       ))}
@@ -45,7 +59,7 @@ function Hub() {
 function WhatsApp() {
   return (
     <Frame label="Ilustração: conversa com o agente no WhatsApp">
-      <rect x="0" y="0" width={W} height="20" fill="#0d1526" />
+      <rect x="0" y="0" width={W} height="20" fill="#101824" />
       <circle cx="14" cy="10" r="5" fill="var(--c1)" opacity="0.8" />
       <rect x="24" y="7" width="40" height="5" rx="2" fill="var(--ink)" opacity="0.7" />
       <g>
@@ -54,7 +68,7 @@ function WhatsApp() {
         <rect x="88" y="43" width="56" height="4" rx="2" fill="var(--ink)" opacity="0.5" />
       </g>
       <g>
-        <rect x="10" y="58" width="120" height="52" rx="6" fill="#1e293b" />
+        <rect x="10" y="58" width="120" height="52" rx="6" fill="#223044" />
         <rect x="18" y="65" width="70" height="4" rx="2" fill="var(--accent)" opacity="0.9" />
         {[0, 1, 2].map((i) => (
           <g key={i} transform={`translate(18 ${76 + i * 10})`}>
@@ -87,7 +101,7 @@ function N8n() {
       })}
       {nodes.map((n, i) => (
         <g key={i} transform={`translate(${n.x} ${n.y})`}>
-          <rect width="30" height="20" rx="4" fill="#0d1526" stroke={n.c} strokeWidth="1.5" />
+          <rect width="30" height="20" rx="4" fill="#101824" stroke={n.c} strokeWidth="1.5" />
           <rect x="7" y="8" width="16" height="4" rx="2" fill={n.c} opacity="0.8" />
         </g>
       ))}
@@ -118,7 +132,7 @@ function Clusters() {
 function Bi() {
   const panel = (x: number, c: string) => (
     <g transform={`translate(${x} 12)`}>
-      <rect width="86" height="96" rx="4" fill="#0d1526" stroke={line} />
+      <rect width="86" height="96" rx="4" fill="#101824" stroke={line} />
       <rect x="8" y="8" width="30" height="5" rx="2" fill={c} />
       {[0, 1, 2].map((i) => (
         <rect key={i} x={8 + i * 25} y="20" width="20" height="14" rx="2" fill="none" stroke={line} />

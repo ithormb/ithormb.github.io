@@ -11,13 +11,13 @@ export function Experience({ locale }: { locale: Locale }) {
           const [atual, ...anteriores] = e.cargos;
           return (
             <li key={e.onde.pt} className="relative">
-              <span aria-hidden="true" className={`absolute -left-[39px] top-1.5 size-3.5 rounded-full border-2 ${i === 0 ? "border-accent bg-accent shadow-[0_0_0_4px_rgba(139,92,246,0.2)]" : "border-rule bg-bg"}`} />
+              <span aria-hidden="true" className={`absolute -left-[39px] top-1.5 size-3.5 rounded-full border-2 ${i === 0 ? "border-accent bg-accent shadow-[0_0_0_5px_rgba(242,106,27,0.18)]" : "border-rule bg-bg"}`} />
               <div className="grid gap-2 md:grid-cols-[170px_1fr] md:gap-8">
                 <div>
                   <p className="text-sm font-semibold text-accent-ink">{e.periodo[locale]}</p>
                   {e.local && <p className="text-xs text-muted">{e.local[locale]}</p>}
                 </div>
-                <div className="rounded-2xl border border-rule bg-surface p-5">
+                <div className="rounded-2xl border border-rule bg-bg p-5">
                   <h3 className="font-semibold leading-snug text-ink">{atual.titulo[locale]}</h3>
                   <p className="text-sm text-ink-2">{e.onde[locale]}</p>
                   {anteriores.length > 0 && (

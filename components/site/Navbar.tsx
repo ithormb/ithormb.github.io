@@ -13,10 +13,10 @@ export function Navbar({ locale, path = "/" }: { locale: Locale; path?: string }
     { href: `${home}#contato`, label: t("nav_contact", locale) },
   ];
   return (
-    <header className="sticky top-0 z-40 border-b border-rule/60 bg-bg/80 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-rule bg-bg/85 backdrop-blur">
       <nav aria-label="principal" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <Link href={home} className="flex items-center gap-2 font-bold tracking-tight text-ink">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-2 text-xs text-white">TB</span>
+          <span className="flex size-8 items-center justify-center rounded-lg bg-ink text-xs text-white">T<span className="text-accent">B</span></span>
           <span className="hidden sm:inline">{site.name}</span>
         </Link>
         <ul className="hidden items-center gap-7 text-sm md:flex">
@@ -38,7 +38,7 @@ export function Navbar({ locale, path = "/" }: { locale: Locale; path?: string }
             href={site.links.linkedin}
             target="_blank"
             rel="noreferrer noopener"
-            className="hidden h-10 items-center gap-1.5 rounded-lg bg-accent px-4 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95 sm:flex"
+            className="hidden h-10 items-center gap-1.5 rounded-full bg-ink px-5 text-sm font-semibold text-white transition-colors hover:bg-accent active:scale-95 sm:flex"
           >
             LinkedIn <span aria-hidden="true">↗</span>
           </a>

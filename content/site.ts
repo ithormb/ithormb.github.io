@@ -35,8 +35,8 @@ export const site = {
   name: "Thomas Barbosa",
   role: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" } satisfies Text,
   tagline: {
-    pt: "Mais de 5 anos transformando dados dispersos em decisão de negócio — do pricing na Coca-Cola ao chão de fábrica. Hoje lidero o time de Dados e IA de um grupo industrial com três fábricas: 10 agentes de IA e 135 automações em produção ligando ERP, MES e BI a quem decide.",
-    en: "5+ years turning scattered data into business decisions — from pricing at Coca-Cola to the factory floor. Today I lead the Data & AI team of a manufacturing group with three plants: 10 AI agents and 135 automations in production connecting ERP, MES and BI to decision-makers.",
+    pt: "Há mais de 5 anos transformo dados dispersos em decisões de negócio — com passagens pela Arco Educação, pela Solar Coca-Cola e, hoje, pela indústria. No Grupo Raposo Plásticos, lidero o time de Dados e IA que atende cinco fábricas: mais de 130 automações em produção orquestram o pipeline de ponta a ponta, da alimentação do ERP e do MES até painéis de BI e agentes de IA analíticos que direcionam o olhar estratégico do grupo.",
+    en: "For 5+ years I've turned scattered data into business decisions — at Arco Educação, Solar Coca-Cola and now in manufacturing. At Grupo Raposo Plásticos I lead the Data & AI team serving five plants: 130+ automations in production orchestrate the pipeline end to end, from ERP and MES data entry to BI dashboards and analytical AI agents that steer the group's strategy.",
   } satisfies Text,
   // Foto em public/img. Sem ela, o retrato mostra as iniciais.
   foto: "/img/foto.webp" as string | null,
@@ -62,7 +62,7 @@ export const site = {
     { valor: "5+", rotulo: { pt: "anos em dados e BI", en: "years in data and BI" }, icone: "chart" },
     { valor: String(hub.agentes.length), rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" },
     { valor: String(numeros.workflows), rotulo: { pt: "workflows no n8n", en: "n8n workflows" }, icone: "flow" },
-    { valor: "3", rotulo: { pt: "fábricas atendidas", en: "plants served" }, icone: "factory" },
+    { valor: "5", rotulo: { pt: "fábricas atendidas", en: "plants served" }, icone: "factory" },
   ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" }[],
 
   tecnologias: [
@@ -82,8 +82,8 @@ export const site = {
 
   sobre: [
     {
-      pt: `Trabalho onde dados, IA e operação se encontram. Hoje lidero o time de Dados e IA de um grupo industrial com três fábricas: construímos um hub com ${hub.agentes.length} agentes de IA e a malha de automações que leva o dado do ERP, do MES e das planilhas até quem decide — pela tela, pelo WhatsApp, por e-mail ou como tarefa com prazo.`,
-      en: `I work where data, AI and operations meet. I lead the Data & AI team of a manufacturing group with three plants: we built a hub of ${hub.agentes.length} AI agents and the web of automations that takes data from the ERP, the MES and spreadsheets to the people who decide — on screen, on WhatsApp, by e-mail or as a task with a deadline.`,
+      pt: `Trabalho onde dados, IA e operação se encontram. Hoje lidero o time de Dados e IA de um grupo industrial com cinco fábricas: construímos um hub com ${hub.agentes.length} agentes de IA e a malha de automações que leva o dado do ERP, do MES e das planilhas até quem decide — pela tela, pelo WhatsApp, por e-mail ou como tarefa com prazo.`,
+      en: `I work where data, AI and operations meet. I lead the Data & AI team of a manufacturing group with five plants: we built a hub of ${hub.agentes.length} AI agents and the web of automations that takes data from the ERP, the MES and spreadsheets to the people who decide — on screen, on WhatsApp, by e-mail or as a task with a deadline.`,
     },
     {
       pt: "Sou engenheiro mecânico pela UFC e fiz MBA em Data Science e Analytics na USP/ESALQ. Antes disso foram mais de cinco anos em dados: BI e projetos numa plataforma de educação, depois inteligência de mercado e pricing na Solar Coca-Cola. De lá trouxe duas regras que guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
@@ -124,7 +124,7 @@ export const site = {
     },
     {
       periodo: { pt: "2020 — 2024", en: "2020 — 2024" },
-      onde: { pt: "SAS Plataforma de Educação", en: "SAS Education Platform" },
+      onde: { pt: "SAS Plataforma de Educação · Arco Educação", en: "SAS Education Platform · Arco Educação" },
       local: { pt: "Fortaleza", en: "Fortaleza, Brazil" },
       cargos: [
         { titulo: { pt: "Analista Pleno de Projetos e BI", en: "Projects and BI Analyst" }, periodo: { pt: "dez 2023 — mar 2024", en: "Dec 2023 — Mar 2024" } },
