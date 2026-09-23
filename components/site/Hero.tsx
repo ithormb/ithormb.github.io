@@ -1,0 +1,42 @@
+import Link from "next/link";
+import { site } from "@/content/site";
+import { t, type Locale } from "@/lib/i18n";
+import { Portrait } from "./Portrait";
+import { TechBadge } from "./Icon";
+
+const DESTAQUE = ["n8n", "Python", "SQL", "BigQuery", "Power BI", "Looker", "Pandas", "PostgreSQL"];
+
+export function Hero({ locale }: { locale: Locale }) {
+  return (
+    <section className="relative overflow-x-clip">
+      <div aria-hidden="true" className="pointer-events-none absolute -top-40 right-0 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl" />
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-14 sm:px-8 md:grid-cols-[1.1fr_1fr] md:pt-20">
+        <div>
+          <span className="inline-flex items-center rounded-md border border-accent/30 bg-accent-soft px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-widest text-accent-ink">
+            {t("role_pill", locale)}
+          </span>
+          <p className="mt-6 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+            {site.saudacao[locale]} <span className="text-gradient">{site.primeiroNome}</span>
+          </p>
+          <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">{site.headline[locale]}</h1>
+          <p className="mt-5 max-w-lg text-lg leading-relaxed">{site.tagline[locale]}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href={`/${locale}/#projetos`} className="inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95">
+              {t("cta_work", locale)} <span aria-hidden="true">↗</span>
+            </Link>
+            <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="inline-flex h-11 items-center gap-2 rounded-lg border border-rule px-5 text-sm font-semibold text-ink transition-colors hover:border-ink-2 active:scale-95">
+              {t("cta_linkedin", locale)}
+            </a>
+          </div>
+          <p className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">{t("tech_i_use", locale)}</p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {DESTAQUE.map((n) => (
+              <li key={n}><TechBadge nome={n} /></li>
+            ))}
+          </ul>
+        </div>
+        <Portrait />
+      </div>
+    </section>
+  );
+}

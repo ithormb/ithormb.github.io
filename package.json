@@ -12,7 +12,8 @@
     "@tailwindcss/oxide-linux-x64-gnu": "^4.3.3",
     "next": "15.5.25",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "simple-icons": "^16.32.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

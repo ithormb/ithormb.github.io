@@ -35,14 +35,50 @@ export const site = {
   name: "Thomas Barbosa",
   role: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" } satisfies Text,
   tagline: {
-    pt: "Construo agentes de IA e automações que rodam em produção dentro da indústria.",
-    en: "I build AI agents and automations that run in production inside manufacturing.",
+    pt: "Especialista de dados com MBA pela USP. Ligo ERP, MES e planilhas a agentes de IA e automações que entregam o número certo — com data e origem — pelo WhatsApp, por e-mail ou na tela.",
+    en: "Data specialist with an MBA from USP. I connect ERP, MES and spreadsheets to AI agents and automations that deliver the right number — with date and source — on WhatsApp, by e-mail or on screen.",
+  } satisfies Text,
+  // Foto em public/img. Sem ela, o retrato mostra as iniciais.
+  foto: null as string | null,
+  local: { pt: "Fortaleza, Ceará", en: "Fortaleza, Brazil" } satisfies Text,
+  saudacao: { pt: "Olá, sou o", en: "Hi, I'm" } satisfies Text,
+  primeiroNome: "Thomas",
+  headline: {
+    pt: "Construo agentes de IA que rodam em produção.",
+    en: "I build AI agents that run in production.",
   } satisfies Text,
   links: {
     linkedin: "https://www.linkedin.com/in/thomas-barbosa-silva/",
     github: "https://github.com/ithormb",
     email: null as string | null,
   },
+
+  sobreTitulo: {
+    pt: "Dados que viram decisão — e decisão que vira ação.",
+    en: "Data that becomes decisions — and decisions that become action.",
+  } satisfies Text,
+
+  stats: [
+    { valor: "5+", rotulo: { pt: "anos em dados e BI", en: "years in data and BI" }, icone: "chart" },
+    { valor: String(hub.agentes.length), rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" },
+    { valor: String(numeros.workflows), rotulo: { pt: "workflows no n8n", en: "n8n workflows" }, icone: "flow" },
+    { valor: "3", rotulo: { pt: "fábricas atendidas", en: "plants served" }, icone: "factory" },
+  ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" }[],
+
+  tecnologias: [
+    {
+      grupo: { pt: "IA e automação", en: "AI and automation" },
+      itens: ["n8n", "LLMs", "Gemini", "Whisper", "WhatsApp", "APIs REST"],
+    },
+    {
+      grupo: { pt: "Dados e BI", en: "Data and BI" },
+      itens: ["SQL", "Python", "Pandas", "scikit-learn", "BigQuery", "Power BI", "Looker"],
+    },
+    {
+      grupo: { pt: "Engenharia de dados", en: "Data engineering" },
+      itens: ["PostgreSQL", "SQL Server", "Google Cloud", "ETL", "Docker", "Git"],
+    },
+  ] as { grupo: Text; itens: string[] }[],
 
   sobre: [
     {
@@ -70,7 +106,7 @@ export const site = {
         pt: "Construo o hub de agentes de IA e a malha de automações desta página: leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n, para três fábricas.",
         en: "I build the AI agents hub and the automation web shown on this page: ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows, for three plants.",
       },
-      tags: ["n8n", "NestJS", "Python", "BigQuery", "PostgreSQL", "LLM"],
+      tags: ["n8n", "Python", "SQL", "BigQuery", "PostgreSQL", "LLMs"],
     },
     {
       periodo: { pt: "2024 — 2025", en: "2024 — 2025" },
@@ -154,7 +190,7 @@ export const site = {
         pt: `Plataforma web com ${hub.agentes.length} agentes de RH, tesouraria, contabilidade, bancos e indústria. Toda resposta diz de quando é o dado e de onde veio; a IA endereça, o código executa.`,
         en: `Web platform with ${hub.agentes.length} agents for HR, treasury, accounting, banking and manufacturing. Every answer states when the data is from and where it came from; AI routes, code executes.`,
       },
-      tags: ["Next.js", "NestJS", "FastAPI", "PostgreSQL", "Docker"],
+      tags: ["Python", "LLMs", "SQL", "PostgreSQL", "Docker"],
       ano: "2026",
       thumb: "hub",
       href: "/hub/",
@@ -165,7 +201,7 @@ export const site = {
         pt: "Texto ou áudio viram tarefa real no gerenciador corporativo — criar, editar e concluir — com eco do que o sistema entendeu antes de gravar qualquer coisa.",
         en: "Text or voice become real tasks in the corporate task manager — create, edit, complete — echoing what the system understood before writing anything.",
       },
-      tags: ["NestJS", "Evolution API", "Whisper", "LLM"],
+      tags: ["LLMs", "Whisper", "WhatsApp", "n8n"],
       ano: "2026",
       thumb: "whatsapp",
       href: "/hub/",
