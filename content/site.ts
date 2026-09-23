@@ -53,12 +53,12 @@ export const site = {
   // Onde a trajetória foi construída: a faixa de credibilidade logo abaixo do hero.
   // Logos oficiais dos sites de cada instituição (USP e UFC pela Wikimedia Commons).
   trajetoria: [
-    { nome: "Grupo Raposo Plásticos", logo: "/logos/raposo.webp", legenda: { pt: "Especialista de Dados", en: "Data Specialist" } },
-    { nome: "Solar Coca-Cola", logo: "/logos/solar.webp", legenda: { pt: "Pricing e Inteligência de Mercado", en: "Pricing and Market Intelligence" } },
-    { nome: "Arco Educação", logo: "/logos/arco.svg", legenda: { pt: "SAS Educação · Projetos e BI", en: "SAS Educação · Projects and BI" } },
-    { nome: "USP / ESALQ", logo: "/logos/usp.svg", legenda: { pt: "MBA em Data Science e Analytics", en: "MBA in Data Science and Analytics" } },
-    { nome: "Universidade Federal do Ceará", logo: "/logos/ufc.webp", legenda: { pt: "Engenharia Mecânica · UFC", en: "Mechanical Engineering · UFC" } },
-  ] as { nome: string; logo: string; legenda: Text }[],
+    { tipo: "carreira", nome: "Grupo Raposo Plásticos", logo: "/logos/raposo.webp", legenda: { pt: "Especialista de Dados", en: "Data Specialist" } },
+    { tipo: "carreira", nome: "Solar Coca-Cola", logo: "/logos/solar.webp", legenda: { pt: "Pricing e Inteligência de Mercado", en: "Pricing and Market Intelligence" } },
+    { tipo: "carreira", nome: "Arco Educação", logo: "/logos/arco.svg", legenda: { pt: "SAS Educação · Projetos e BI", en: "SAS Educação · Projects and BI" } },
+    { tipo: "formacao", nome: "USP / ESALQ", logo: "/logos/usp.svg", legenda: { pt: "MBA em Data Science e Analytics", en: "MBA in Data Science and Analytics" } },
+    { tipo: "formacao", nome: "Universidade Federal do Ceará", logo: "/logos/ufc.webp", legenda: { pt: "Engenharia Mecânica · UFC", en: "Mechanical Engineering · UFC" } },
+  ] as { tipo: "carreira" | "formacao"; nome: string; logo: string; legenda: Text }[],
   links: {
     linkedin: "https://www.linkedin.com/in/thomas-barbosa-silva/",
     github: "https://github.com/ithormb",

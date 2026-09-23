@@ -2,23 +2,34 @@ import { site } from "@/content/site";
 import { withBase } from "@/lib/paths";
 import { t, type Locale } from "@/lib/i18n";
 
-// Faixa de credibilidade: logo de cada instituição, com o papel que tive nela.
+// Faixa baixa com dois blocos separados: onde trabalhei e onde estudei.
+// O papel em cada lugar fica no title (aparece ao passar o mouse).
+function Grupo({ rotulo, itens, locale }: { rotulo: string; itens: typeof site.trajetoria; locale: Locale }) {
+  return (
+    <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+      <span className="text-[0.7rem] font-bold uppercase tracking-[0.18em] text-accent-ink">{rotulo}</span>
+      <ul className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+        {itens.map((i) => (
+          <li key={i.nome} title={`${i.nome} · ${i.legenda[locale]}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={withBase(i.logo)} alt={`${i.nome} — ${i.legenda[locale]}`} className="h-7 w-auto max-w-[110px] object-contain sm:h-8" loading="lazy" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function TrustBar({ locale }: { locale: Locale }) {
+  const carreira = site.trajetoria.filter((i) => i.tipo === "carreira");
+  const formacao = site.trajetoria.filter((i) => i.tipo === "formacao");
   return (
     <section className="border-y border-rule bg-surface">
-      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.18em] text-accent-ink">{t("trust_label", locale)}</p>
-        <ul className="mt-8 grid grid-cols-2 items-end gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
-          {site.trajetoria.map((i) => (
-            <li key={i.nome} className="flex flex-col items-center text-center">
-              <span className="flex h-14 items-center">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={withBase(i.logo)} alt={i.nome} className="max-h-14 w-auto max-w-[170px] object-contain" loading="lazy" />
-              </span>
-              <span className="mt-3 text-xs leading-snug text-ink-2">{i.legenda[locale]}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-6 px-5 py-6 sm:px-8 lg:flex-row lg:gap-10">
+        <Grupo rotulo={t("trust_career", locale)} itens={carreira} locale={locale} />
+        <span aria-hidden="true" className="hidden h-8 w-px bg-rule lg:block" />
+        <span aria-hidden="true" className="h-px w-16 bg-rule lg:hidden" />
+        <Grupo rotulo={t("trust_edu", locale)} itens={formacao} locale={locale} />
       </div>
     </section>
   );
