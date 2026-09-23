@@ -15,6 +15,7 @@ export type Projeto = {
 };
 
 export type Experiencia = {
+  logo?: string;
   periodo: Text;
   onde: Text;
   local?: Text;
@@ -25,6 +26,7 @@ export type Experiencia = {
 };
 
 export type Formacao = {
+  logo?: string;
   periodo: Text;
   titulo: Text;
   onde: Text;
@@ -45,11 +47,18 @@ export const site = {
   primeiroNome: "Thomas",
   // O título do hero: a palavra em destaque ganha o marcador laranja.
   headline: {
-    pt: { antes: "Dados e IA que viram ", destaque: "resultado", depois: " na indústria." },
-    en: { antes: "Data and AI that turn into ", destaque: "results", depois: " on the factory floor." },
+    pt: { antes: "Dados e IA que viram ", destaque: "resultado", depois: "." },
+    en: { antes: "Data and AI that turn into ", destaque: "results", depois: "." },
   },
   // Onde a trajetória foi construída: a faixa de credibilidade logo abaixo do hero.
-  trajetoria: ["Arco Educação", "Solar Coca-Cola", "Grupo Raposo Plásticos", "USP / ESALQ", "UFC"],
+  // Logos oficiais dos sites de cada instituição (USP e UFC pela Wikimedia Commons).
+  trajetoria: [
+    { nome: "Grupo Raposo Plásticos", logo: "/logos/raposo.webp", legenda: { pt: "Especialista de Dados", en: "Data Specialist" } },
+    { nome: "Solar Coca-Cola", logo: "/logos/solar.webp", legenda: { pt: "Pricing e Inteligência de Mercado", en: "Pricing and Market Intelligence" } },
+    { nome: "Arco Educação", logo: "/logos/arco.svg", legenda: { pt: "SAS Educação · Projetos e BI", en: "SAS Educação · Projects and BI" } },
+    { nome: "USP / ESALQ", logo: "/logos/usp.svg", legenda: { pt: "MBA em Data Science e Analytics", en: "MBA in Data Science and Analytics" } },
+    { nome: "Universidade Federal do Ceará", logo: "/logos/ufc.webp", legenda: { pt: "Engenharia Mecânica · UFC", en: "Mechanical Engineering · UFC" } },
+  ] as { nome: string; logo: string; legenda: Text }[],
   links: {
     linkedin: "https://www.linkedin.com/in/thomas-barbosa-silva/",
     github: "https://github.com/ithormb",
@@ -115,6 +124,7 @@ export const site = {
   // Do LinkedIn, lido em 23/09/2026. A empresa atual aparece pelo nome a pedido do Thomas (23/09/2026).
   experiencia: [
     {
+      logo: "/logos/raposo.webp",
       periodo: { pt: "2025 — hoje", en: "2025 — present" },
       onde: { pt: "Grupo Raposo Plásticos", en: "Grupo Raposo Plásticos" },
       local: { pt: "remoto", en: "remote" },
@@ -126,6 +136,7 @@ export const site = {
       tags: ["Liderança de time", "n8n", "Python", "SQL", "BigQuery", "LLMs"],
     },
     {
+      logo: "/logos/solar.webp",
       periodo: { pt: "2024 — 2025", en: "2024 — 2025" },
       onde: { pt: "Solar Coca-Cola", en: "Solar Coca-Cola" },
       local: { pt: "Fortaleza", en: "Fortaleza, Brazil" },
@@ -140,6 +151,7 @@ export const site = {
       tags: ["SQL", "Power BI", "ETL", "Pricing"],
     },
     {
+      logo: "/logos/arco.svg",
       periodo: { pt: "2020 — 2024", en: "2020 — 2024" },
       onde: { pt: "SAS Plataforma de Educação · Arco Educação", en: "SAS Education Platform · Arco Educação" },
       local: { pt: "Fortaleza", en: "Fortaleza, Brazil" },
@@ -172,6 +184,7 @@ export const site = {
 
   formacao: [
     {
+      logo: "/logos/usp.svg",
       periodo: { pt: "2024 — 2025", en: "2024 — 2025" },
       titulo: { pt: "MBA em Data Science e Analytics", en: "MBA in Data Science and Analytics" },
       onde: { pt: "USP / ESALQ", en: "University of São Paulo (USP/ESALQ)" },
@@ -190,6 +203,7 @@ export const site = {
       },
     },
     {
+      logo: "/logos/ufc.webp",
       periodo: { pt: "2016 — 2021", en: "2016 — 2021" },
       titulo: { pt: "Engenharia Mecânica", en: "B.Eng. in Mechanical Engineering" },
       onde: { pt: "Universidade Federal do Ceará", en: "Federal University of Ceará" },
