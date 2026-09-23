@@ -4,6 +4,7 @@ import { isLocale, type Locale } from "@/lib/i18n";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
+import { TrustBar } from "@/components/site/TrustBar";
 import { Skills } from "@/components/site/Skills";
 import { Experience } from "@/components/site/Experience";
 import { Projects } from "@/components/site/Projects";
@@ -25,6 +26,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <Navbar locale={l} />
       <main id="conteudo">
         <Hero locale={l} />
+        <TrustBar locale={l} />
         <About locale={l} />
         <Skills locale={l} />
         <Experience locale={l} />

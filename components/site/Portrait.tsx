@@ -1,65 +1,48 @@
 import { site } from "@/content/site";
+import { hub } from "@/content/hub";
+import { numeros } from "@/content/automacoes";
 import { withBase } from "@/lib/paths";
+import { t, type Locale } from "@/lib/i18n";
+import { StatIcon } from "./Icon";
 
-// Quadrado que vai de 8% acima da caixa até a base do círculo: nele o círculo tem
-// centro em (50%, 58%) e raio de 42%, os mesmos números dos dois clip-paths.
-function FotoCamada({ estilo }: { estilo: React.CSSProperties }) {
+// Selo flutuante com um número que vende: ícone laranja, número grande, rótulo curto.
+function Chip({ valor, rotulo, icone, className, delay }: { valor: string; rotulo: string; icone: "chart" | "bot" | "flow"; className: string; delay: string }) {
   return (
-    <div className="absolute inset-x-0 bottom-[8%] top-[-8%]" style={estilo} aria-hidden={estilo.clipPath?.toString().startsWith("circle") ? undefined : true}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={withBase(site.foto!)}
-        alt={estilo.clipPath?.toString().startsWith("circle") ? site.name : ""}
-        className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2"
-        width={400}
-        height={400}
-      />
+    <div
+      className={`float absolute z-20 flex items-center gap-2 rounded-xl border border-rule bg-surface px-2.5 py-2 shadow-[0_18px_40px_-16px_rgba(23,18,14,0.35)] sm:gap-3 sm:rounded-2xl sm:px-4 sm:py-3 ${className}`}
+      style={{ animationDelay: delay }}
+    >
+      <span className="flex size-8 items-center justify-center rounded-lg bg-accent text-white sm:size-10 sm:rounded-xl"><StatIcon kind={icone} /></span>
+      <span className="leading-tight">
+        <span className="block font-display text-lg font-semibold text-ink sm:text-2xl">{valor}</span>
+        <span className="block text-[0.65rem] text-ink-2 sm:text-xs">{rotulo}</span>
+      </span>
     </div>
   );
 }
 
-// Foto sobre o círculo em degradê; sem foto, as iniciais ocupam o mesmo lugar.
-export function Portrait() {
+// Foto em um arco laranja: a cabeça passa do topo do arco e a base apoia na base dele.
+export function Portrait({ locale }: { locale: Locale }) {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[420px]">
-      <div aria-hidden="true" className="dots absolute -right-2 top-4 h-28 w-28 opacity-60" />
-      <div aria-hidden="true" className="absolute inset-[8%] rounded-full bg-gradient-to-br from-[#ffd2ae] via-[#ff9a5a] to-accent" />
-      <div aria-hidden="true" className="absolute inset-[8%] rounded-full shadow-[0_30px_80px_-20px_rgba(242,106,27,0.45)]" />
+    <div className="relative mx-auto aspect-[4/5] w-full max-w-[300px] sm:max-w-[380px] md:max-w-[440px]">
+      <div aria-hidden="true" className="dots absolute -left-6 top-6 h-32 w-32 opacity-70" />
+      <div aria-hidden="true" className="absolute inset-x-[2%] bottom-[-3%] top-[6%] rounded-t-full border-2 border-dashed border-accent/35" />
+      <div aria-hidden="true" className="absolute inset-x-[8%] bottom-0 top-[14%] rounded-t-full bg-gradient-to-b from-[#ffb37a] via-accent to-accent-2 shadow-[0_40px_80px_-30px_rgba(242,106,27,0.6)]" />
       {site.foto ? (
-        <>
-          {/* Duas cópias da mesma foto na mesma posição: a de cima mostra tudo acima do
-              centro do círculo (cabeça e ombros sem corte); a de baixo, só o que cai
-              dentro do círculo. A união dá o recorte do modelo, sem aresta reta. */}
-          <FotoCamada estilo={{ clipPath: "inset(0 0 42% 0)" }} />
-          <FotoCamada estilo={{ clipPath: "circle(42% at 50% 58%)" }} />
-        </>
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={withBase(site.foto)}
+          alt={site.name}
+          width={400}
+          height={400}
+          className="absolute bottom-0 left-1/2 z-10 h-[92%] w-auto max-w-none -translate-x-1/2 drop-shadow-[0_20px_30px_rgba(23,18,14,0.25)]"
+        />
       ) : (
-        <div className="absolute inset-[8%] flex items-center justify-center rounded-full text-7xl font-bold tracking-tight text-white/90">TB</div>
+        <div className="absolute inset-x-[8%] bottom-0 top-[14%] z-10 flex items-center justify-center rounded-t-full text-7xl font-bold text-white/90">TB</div>
       )}
-
-      {/* card de "código": a regra do hub escrita como objeto */}
-      <div className="absolute -right-1 top-[50%] hidden w-52 rounded-xl bg-[#17120e] p-3 font-mono text-[11px] leading-5 text-[#d6cfc7] shadow-2xl sm:block lg:-right-8">
-        <div className="mb-1.5 flex items-center justify-between text-[#8a7f76]">
-          <span>{"</>"} agente.py</span>
-          <span className="flex gap-1">
-            <span className="size-2 rounded-full bg-[#fb7185]" />
-            <span className="size-2 rounded-full bg-[#fbbf24]" />
-            <span className="size-2 rounded-full bg-[#34d399]" />
-          </span>
-        </div>
-        <div><span className="text-white">agente</span> = {"{"}</div>
-        <div className="pl-3"><span className="text-[#fdba74]">&quot;fonte&quot;</span>: <span className="text-[#fdba74]">&quot;ERP · MES&quot;</span>,</div>
-        <div className="pl-3"><span className="text-[#fdba74]">&quot;sugere&quot;</span>: <span className="text-[#fdba74]">&quot;modelo&quot;</span>,</div>
-        <div className="pl-3"><span className="text-[#fdba74]">&quot;decide&quot;</span>: <span className="text-[#fdba74]">&quot;código&quot;</span>,</div>
-        <div className="pl-3"><span className="text-[#fdba74]">&quot;confirma&quot;</span>: <span className="text-[#fdba74]">&quot;pessoa&quot;</span>,</div>
-        <div>{"}"}</div>
-      </div>
-
-      {/* selo de números */}
-      <div className="absolute bottom-[10%] -left-1 flex items-center gap-3 rounded-xl border border-rule bg-surface px-4 py-3 shadow-[0_12px_30px_-10px_rgba(23,18,14,0.25)] lg:-left-6">
-        <span className="font-mono text-2xl font-semibold text-ink">135</span>
-        <span className="text-xs leading-tight text-ink-2">workflows<br />em produção</span>
-      </div>
+      <Chip valor="8+" rotulo={t("chip_years", locale)} icone="chart" className="-left-10 top-[28%] sm:-left-10" delay="0s" />
+      <Chip valor={`${Math.floor(numeros.workflows / 10) * 10}+`} rotulo={t("chip_auto", locale)} icone="flow" className="-right-10 top-[52%] sm:-right-10" delay="1.2s" />
+      <Chip valor={String(hub.agentes.length)} rotulo={t("chip_agents", locale)} icone="bot" className="-left-8 bottom-[6%] sm:-left-6" delay="2.4s" />
     </div>
   );
 }

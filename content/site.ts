@@ -35,18 +35,21 @@ export const site = {
   name: "Thomas Barbosa",
   role: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" } satisfies Text,
   tagline: {
-    pt: "Há mais de 5 anos transformo dados dispersos em decisões de negócio — com passagens pela Arco Educação, pela Solar Coca-Cola e, hoje, pela indústria. No Grupo Raposo Plásticos, lidero o time de Dados e IA que atende cinco fábricas: mais de 130 automações em produção orquestram o pipeline de ponta a ponta, da alimentação do ERP e do MES até painéis de BI e agentes de IA analíticos que direcionam o olhar estratégico do grupo.",
-    en: "For 5+ years I've turned scattered data into business decisions — at Arco Educação, Solar Coca-Cola and now in manufacturing. At Grupo Raposo Plásticos I lead the Data & AI team serving five plants: 130+ automations in production orchestrate the pipeline end to end, from ERP and MES data entry to BI dashboards and analytical AI agents that steer the group's strategy.",
+    pt: "Há mais de 8 anos transformo dados dispersos em decisões de negócio — com passagens pela Arco Educação, pela Solar Coca-Cola e, hoje, pela indústria. No Grupo Raposo Plásticos, lidero o time de Dados e IA que atende cinco fábricas: mais de 130 automações em produção orquestram o pipeline de ponta a ponta, da alimentação do ERP e do MES até painéis de BI e agentes de IA analíticos que direcionam o olhar estratégico do grupo.",
+    en: "For 8+ years I've turned scattered data into business decisions — at Arco Educação, Solar Coca-Cola and now in manufacturing. At Grupo Raposo Plásticos I lead the Data & AI team serving five plants: 130+ automations in production orchestrate the pipeline end to end, from ERP and MES data entry to BI dashboards and analytical AI agents that steer the group's strategy.",
   } satisfies Text,
   // Foto em public/img. Sem ela, o retrato mostra as iniciais.
   foto: "/img/foto.webp" as string | null,
   local: { pt: "Fortaleza, Ceará", en: "Fortaleza, Brazil" } satisfies Text,
   saudacao: { pt: "Olá, sou o", en: "Hi, I'm" } satisfies Text,
   primeiroNome: "Thomas",
+  // O título do hero: a palavra em destaque ganha o marcador laranja.
   headline: {
-    pt: "Construo agentes de IA que rodam em produção.",
-    en: "I build AI agents that run in production.",
-  } satisfies Text,
+    pt: { antes: "Dados e IA que viram ", destaque: "resultado", depois: " na indústria." },
+    en: { antes: "Data and AI that turn into ", destaque: "results", depois: " on the factory floor." },
+  },
+  // Onde a trajetória foi construída: a faixa de credibilidade logo abaixo do hero.
+  trajetoria: ["Arco Educação", "Solar Coca-Cola", "Grupo Raposo Plásticos", "USP / ESALQ", "UFC"],
   links: {
     linkedin: "https://www.linkedin.com/in/thomas-barbosa-silva/",
     github: "https://github.com/ithormb",
@@ -59,7 +62,7 @@ export const site = {
   } satisfies Text,
 
   stats: [
-    { valor: "5+", rotulo: { pt: "anos em dados e BI", en: "years in data and BI" }, icone: "chart" },
+    { valor: "8+", rotulo: { pt: "anos com dados", en: "years in data" }, icone: "chart" },
     { valor: String(hub.agentes.length), rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" },
     { valor: String(numeros.workflows), rotulo: { pt: "workflows no n8n", en: "n8n workflows" }, icone: "flow" },
     { valor: "5", rotulo: { pt: "fábricas atendidas", en: "plants served" }, icone: "factory" },
@@ -100,8 +103,8 @@ export const site = {
       en: `I work where data, AI and operations meet. I lead the Data & AI team of a manufacturing group with five plants: we built a hub of ${hub.agentes.length} AI agents and the web of automations that takes data from the ERP, the MES and spreadsheets to the people who decide — on screen, on WhatsApp, by e-mail or as a task with a deadline.`,
     },
     {
-      pt: "Sou engenheiro mecânico pela UFC e fiz MBA em Data Science e Analytics na USP/ESALQ. Antes disso foram mais de cinco anos em dados: BI e projetos numa plataforma de educação, depois inteligência de mercado e pricing na Solar Coca-Cola. De lá trouxe duas regras que guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
-      en: "I'm a mechanical engineer from UFC with an MBA in Data Science and Analytics from USP/ESALQ. Before this came more than five years in data: BI and projects at an education platform, then market intelligence and pricing at Solar Coca-Cola. From there I brought two rules that guide what I build: a number without a date and a source is useless for decisions, and the language model advises — code executes, with a person confirming.",
+      pt: "Sou engenheiro mecânico pela UFC, com MBA em Data Science e Analytics pela USP/ESALQ. São mais de oito anos com dados — BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. Desse caminho trouxe duas regras que guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
+      en: "I'm a mechanical engineer from UFC with an MBA in Data Science and Analytics from USP/ESALQ. That's more than eight years in data — BI and projects at Arco Educação, market intelligence and pricing at Solar Coca-Cola and, now, manufacturing. From that path I brought two rules that guide what I build: a number without a date and a source is useless for decisions, and the language model advises — code executes, with a person confirming.",
     },
     {
       pt: `Em seis meses foram ${numeros.workflows} workflows no n8n, integrando ERP, BigQuery, Microsoft 365, Google, WhatsApp e APIs públicas. Os projetos de estudo em BI e machine learning estão logo abaixo.`,

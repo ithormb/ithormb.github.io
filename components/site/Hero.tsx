@@ -7,25 +7,40 @@ import { TechBadge } from "./Icon";
 const DESTAQUE = ["n8n", "Python", "SQL", "Power BI", "Microsoft Fabric", "BigQuery", "OpenAI", "Claude Code", "LangChain"];
 
 export function Hero({ locale }: { locale: Locale }) {
+  const h = site.headline[locale];
   return (
     <section className="relative overflow-x-clip">
-      <div aria-hidden="true" className="pointer-events-none absolute -top-40 right-0 h-[520px] w-[520px] rounded-full bg-[#ffe4d0] opacity-60 blur-3xl" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-14 sm:px-8 md:grid-cols-[1.1fr_1fr] md:pt-20">
+      <div aria-hidden="true" className="pointer-events-none absolute -top-40 right-[-10%] h-[640px] w-[640px] rounded-full bg-[#ffe4d0] opacity-70 blur-3xl" />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-10 md:gap-14 sm:px-8 md:grid-cols-[1.15fr_1fr] md:pt-16">
         <div>
-          <span className="inline-flex items-center rounded-full bg-accent-soft px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-widest text-accent-ink">
-            {t("role_pill", locale)}
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#bbf7d0] bg-[#f0fdf4] px-3.5 py-1.5 text-xs font-semibold text-[#166534]">
+            <span className="relative flex size-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22c55e] opacity-60 motion-reduce:animate-none" />
+              <span className="relative inline-flex size-2.5 rounded-full bg-[#16a34a]" />
+            </span>
+            {t("open_to_work", locale)}
           </span>
-          <p className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-            {site.saudacao[locale]} <span className="text-gradient">{site.primeiroNome}</span>
+          <p className="mt-6 text-lg text-ink-2">
+            {t("hello", locale)} <span className="font-semibold text-ink">{site.name}</span>
           </p>
-          <h1 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">{site.headline[locale]}</h1>
-          <p className="mt-5 max-w-lg text-lg leading-relaxed">{site.tagline[locale]}</p>
+          <p className="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-accent-ink">{t("role_pill", locale)}</p>
+          <h1 className="mt-3 text-5xl font-semibold leading-[1.02] text-ink sm:text-6xl lg:text-[4.4rem]">
+            {h.antes}
+            <span className="relative whitespace-nowrap text-accent">
+              {h.destaque}
+              <svg aria-hidden="true" viewBox="0 0 220 18" preserveAspectRatio="none" className="absolute -bottom-2 left-0 h-3 w-full text-accent/60">
+                <path d="M3 13 C 50 3, 120 3, 217 9" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+              </svg>
+            </span>
+            {h.depois}
+          </h1>
+          <p className="mt-7 max-w-xl text-[1.05rem] leading-relaxed">{site.tagline[locale]}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={`/${locale}/#projetos`} className="inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95">
+            <Link href={`/${locale}/#projetos`} className="inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-sm font-semibold text-white shadow-[0_12px_24px_-10px_rgba(242,106,27,0.7)] transition hover:bg-accent-2 active:scale-95">
               {t("cta_work", locale)} <span aria-hidden="true">↗</span>
             </Link>
-            <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="inline-flex h-11 items-center gap-2 rounded-lg border border-ink/20 bg-surface px-5 text-sm font-semibold text-ink transition-colors hover:border-ink active:scale-95">
-              {t("cta_linkedin", locale)}
+            <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-white transition hover:bg-ink-2 active:scale-95">
+              {t("cta_talk", locale)}
             </a>
           </div>
           <p className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">{t("tech_i_use", locale)}</p>
@@ -35,7 +50,9 @@ export function Hero({ locale }: { locale: Locale }) {
             ))}
           </ul>
         </div>
-        <Portrait />
+        <div className="order-first md:order-none">
+          <Portrait locale={locale} />
+        </div>
       </div>
     </section>
   );
