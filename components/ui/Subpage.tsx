@@ -15,7 +15,7 @@ export function Subpage({ locale, path, children }: { locale: Locale; path: stri
 export function SubSection({ titulo, children }: { titulo: string; children: React.ReactNode }) {
   return (
     <section className="mt-16">
-      <h2 className="mb-8 text-sm font-bold uppercase tracking-widest text-accent-ink">{titulo}</h2>
+      <h2 className="mb-8 font-sans text-sm font-bold uppercase tracking-widest text-accent-ink">{titulo}</h2>
       {children}
     </section>
   );

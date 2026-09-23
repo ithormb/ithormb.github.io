@@ -23,7 +23,7 @@ export function About({ locale }: { locale: Locale }) {
           {site.stats.map((s) => (
             <div key={s.rotulo.pt} className="flex flex-col rounded-2xl border border-rule bg-surface-2/50 p-5">
               <span className="flex size-10 items-center justify-center rounded-lg bg-accent-soft text-accent-ink"><StatIcon kind={s.icone} /></span>
-              <dd className="order-2 mt-4 text-3xl font-bold tracking-tight text-ink">{s.valor}</dd>
+              <dd className="order-2 mt-4 font-display text-4xl font-semibold text-ink">{s.valor}</dd>
               <dt className="order-3 mt-1 text-sm leading-snug">{s.rotulo[locale]}</dt>
             </div>
           ))}

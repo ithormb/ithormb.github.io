@@ -15,7 +15,7 @@ export function Contact({ locale }: { locale: Locale }) {
         <div className="grid gap-6 rounded-3xl bg-surface-2 p-8 md:grid-cols-[1.2fr_1fr_0.8fr] md:p-10">
           <div>
             <Eyebrow>{t("contact_eyebrow", locale)}</Eyebrow>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl">{t("contact_title", locale)}</h2>
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{t("contact_title", locale)}</h2>
             <p className="mt-3 text-sm leading-relaxed">{t("contact_body", locale)}</p>
             <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95">
               {t("cta_linkedin", locale)} <span aria-hidden="true">↗</span>
