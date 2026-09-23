@@ -22,7 +22,7 @@ function Card({ p, i, locale }: { p: Projeto; i: number; locale: Locale }) {
         <p className="mt-2 text-sm leading-relaxed">{p.descricao[locale]}</p>
         <ul className="mt-4 flex flex-wrap gap-1.5">
           {p.tags.map((tag) => (
-            <li key={tag} className="rounded-md bg-surface-2 px-2 py-0.5 text-[0.7rem] text-ink-2">{tag}</li>
+            <li key={tag} className="rounded-md border border-rule px-2 py-0.5 text-[0.7rem] text-ink-2">{tag}</li>
           ))}
         </ul>
         <span className="mt-auto pt-5 text-right text-sm font-semibold text-accent-ink">
@@ -31,7 +31,7 @@ function Card({ p, i, locale }: { p: Projeto; i: number; locale: Locale }) {
       </div>
     </>
   );
-  const cls = "group flex h-full flex-col overflow-hidden rounded-2xl border border-rule bg-surface transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_20px_60px_-20px_rgba(124,58,237,0.45)] motion-reduce:hover:translate-y-0";
+  const cls = "group flex h-full flex-col overflow-hidden rounded-2xl border border-rule bg-surface transition hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_20px_50px_-24px_rgba(242,106,27,0.5)] motion-reduce:hover:translate-y-0";
   return externo ? (
     <a href={href} target="_blank" rel="noreferrer noopener" className={cls}>{inner}</a>
   ) : (

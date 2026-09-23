@@ -13,8 +13,8 @@ export type Agente = {
 export const hub = {
   nome: { pt: "Hub de agentes de IA", en: "AI agents hub" } satisfies Text,
   resumo: {
-    pt: "Uma plataforma web interna que reúne, num lugar só, os agentes de RH, tesouraria, contabilidade, bancos e indústria de um grupo com três unidades fabris. Cada agente lê o ERP, o MES ou planilhas, entrega o número com carimbo de origem e data, e — quando precisa agir — abre tarefa no gerenciador corporativo ou responde no WhatsApp.",
-    en: "An internal web platform gathering, in one place, the HR, treasury, accounting, banking and manufacturing agents of a group with three plants. Each agent reads the ERP, the MES or spreadsheets, delivers the number stamped with source and date, and — when it needs to act — opens a task in the corporate task manager or replies on WhatsApp.",
+    pt: "Uma plataforma web interna que reúne, num lugar só, os agentes de RH, tesouraria, contabilidade, bancos e indústria de um grupo com cinco unidades fabris. Cada agente lê o ERP, o MES ou planilhas, entrega o número com carimbo de origem e data, e — quando precisa agir — abre tarefa no gerenciador corporativo ou responde no WhatsApp.",
+    en: "An internal web platform gathering, in one place, the HR, treasury, accounting, banking and manufacturing agents of a group with five plants. Each agent reads the ERP, the MES or spreadsheets, delivers the number stamped with source and date, and — when it needs to act — opens a task in the corporate task manager or replies on WhatsApp.",
   } satisfies Text,
   stack: ["Python", "LLMs", "SQL", "PostgreSQL", "BigQuery", "SQL Server (leitura)", "Docker"],
   garantias: [

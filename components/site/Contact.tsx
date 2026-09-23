@@ -12,7 +12,7 @@ export function Contact({ locale }: { locale: Locale }) {
   return (
     <section id="contato" className="border-t border-rule/60">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <div className="grid gap-6 rounded-3xl border border-rule bg-gradient-to-br from-surface to-surface-2 p-8 md:grid-cols-[1.2fr_1fr_0.8fr] md:p-10">
+        <div className="grid gap-6 rounded-3xl bg-surface-2 p-8 md:grid-cols-[1.2fr_1fr_0.8fr] md:p-10">
           <div>
             <Eyebrow>{t("contact_eyebrow", locale)}</Eyebrow>
             <h2 className="mt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl">{t("contact_title", locale)}</h2>
@@ -21,11 +21,11 @@ export function Contact({ locale }: { locale: Locale }) {
               {t("cta_linkedin", locale)} <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <figure className="rounded-2xl border border-rule bg-bg/60 p-6">
+          <figure className="rounded-2xl bg-surface p-6 shadow-[0_8px_24px_-16px_rgba(23,18,14,0.3)]">
             <span aria-hidden="true" className="text-4xl leading-none text-accent">&ldquo;</span>
             <blockquote className="mt-1 text-lg font-semibold leading-snug text-ink">{t("quote", locale)}</blockquote>
             <figcaption className="mt-4 flex items-center gap-3 text-sm">
-              <span className="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-2 text-xs font-bold text-white">TB</span>
+              <span className="flex size-9 items-center justify-center rounded-full bg-ink text-xs font-bold text-white">T<span className="text-accent">B</span></span>
               <span>
                 <span className="block font-semibold text-ink">{site.name}</span>
                 <span className="text-xs text-muted">{t("quote_note", locale)}</span>

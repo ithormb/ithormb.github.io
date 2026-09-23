@@ -17,7 +17,7 @@ const MAPA: Record<string, { path: string; hex: string } | undefined> = {
   Docker: si.siDocker,
   Git: si.siGit,
   "Google Cloud": si.siGooglecloud,
-  GitHub: { path: si.siGithub.path, hex: "FFFFFF" },
+  GitHub: si.siGithub,
 };
 
 const ARQUIVO: Record<string, string> = {
@@ -62,12 +62,12 @@ export function TechBadge({ nome }: { nome: string }) {
     <span
       tabIndex={0}
       aria-label={nome}
-      className="group relative flex size-12 items-center justify-center rounded-xl bg-white shadow-[0_4px_14px_-4px_rgba(139,92,246,0.45)] ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-6px_rgba(139,92,246,0.7)] focus-visible:-translate-y-0.5 motion-reduce:hover:translate-y-0"
+      className="group relative flex size-12 items-center justify-center rounded-xl border border-rule bg-white shadow-[0_4px_12px_-6px_rgba(23,18,14,0.2)] transition hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-[0_10px_22px_-8px_rgba(242,106,27,0.45)] focus-visible:-translate-y-0.5 motion-reduce:hover:translate-y-0"
     >
       <TechIcon nome={nome} size={26} />
       <span
         role="tooltip"
-        className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-md bg-ink px-2 py-1 text-xs font-semibold text-bg opacity-0 shadow-lg transition group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+        className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-md bg-ink px-2 py-1 text-xs font-semibold text-white opacity-0 shadow-lg transition group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
       >
         {nome}
       </span>

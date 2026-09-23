@@ -23,8 +23,8 @@ export function Portrait() {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[420px]">
       <div aria-hidden="true" className="dots absolute -right-2 top-4 h-28 w-28 opacity-60" />
-      <div aria-hidden="true" className="absolute inset-[8%] rounded-full bg-gradient-to-br from-accent via-accent-2 to-[#1e1b4b] opacity-90 blur-[2px]" />
-      <div aria-hidden="true" className="absolute inset-[8%] rounded-full shadow-[0_0_120px_40px_rgba(124,58,237,0.35)]" />
+      <div aria-hidden="true" className="absolute inset-[8%] rounded-full bg-gradient-to-br from-[#ffd2ae] via-[#ff9a5a] to-accent" />
+      <div aria-hidden="true" className="absolute inset-[8%] rounded-full shadow-[0_30px_80px_-20px_rgba(242,106,27,0.45)]" />
       {site.foto ? (
         <>
           {/* Duas cópias da mesma foto na mesma posição: a de cima mostra tudo acima do
@@ -38,25 +38,25 @@ export function Portrait() {
       )}
 
       {/* card de "código": a regra do hub escrita como objeto */}
-      <div className="absolute -right-1 top-[50%] hidden w-52 rounded-xl border border-rule bg-surface/95 p-3 font-mono text-[11px] leading-5 shadow-2xl backdrop-blur sm:block lg:-right-8">
-        <div className="mb-1.5 flex items-center justify-between text-muted">
+      <div className="absolute -right-1 top-[50%] hidden w-52 rounded-xl bg-[#17120e] p-3 font-mono text-[11px] leading-5 text-[#d6cfc7] shadow-2xl sm:block lg:-right-8">
+        <div className="mb-1.5 flex items-center justify-between text-[#8a7f76]">
           <span>{"</>"} agente.py</span>
           <span className="flex gap-1">
-            <span className="size-2 rounded-full bg-c3/70" />
-            <span className="size-2 rounded-full bg-c2/70" />
-            <span className="size-2 rounded-full bg-c1/70" />
+            <span className="size-2 rounded-full bg-[#fb7185]" />
+            <span className="size-2 rounded-full bg-[#fbbf24]" />
+            <span className="size-2 rounded-full bg-[#34d399]" />
           </span>
         </div>
-        <div><span className="text-ink">agente</span> = {"{"}</div>
-        <div className="pl-3"><span className="text-c1">&quot;fonte&quot;</span>: <span className="text-c1">&quot;ERP · MES&quot;</span>,</div>
-        <div className="pl-3"><span className="text-c1">&quot;sugere&quot;</span>: <span className="text-c1">&quot;modelo&quot;</span>,</div>
-        <div className="pl-3"><span className="text-c1">&quot;decide&quot;</span>: <span className="text-c1">&quot;código&quot;</span>,</div>
-        <div className="pl-3"><span className="text-c1">&quot;confirma&quot;</span>: <span className="text-c1">&quot;pessoa&quot;</span>,</div>
+        <div><span className="text-white">agente</span> = {"{"}</div>
+        <div className="pl-3"><span className="text-[#fdba74]">&quot;fonte&quot;</span>: <span className="text-[#fdba74]">&quot;ERP · MES&quot;</span>,</div>
+        <div className="pl-3"><span className="text-[#fdba74]">&quot;sugere&quot;</span>: <span className="text-[#fdba74]">&quot;modelo&quot;</span>,</div>
+        <div className="pl-3"><span className="text-[#fdba74]">&quot;decide&quot;</span>: <span className="text-[#fdba74]">&quot;código&quot;</span>,</div>
+        <div className="pl-3"><span className="text-[#fdba74]">&quot;confirma&quot;</span>: <span className="text-[#fdba74]">&quot;pessoa&quot;</span>,</div>
         <div>{"}"}</div>
       </div>
 
       {/* selo de números */}
-      <div className="absolute bottom-[10%] -left-1 flex items-center gap-3 rounded-xl border border-rule bg-surface/95 px-4 py-3 shadow-2xl backdrop-blur lg:-left-6">
+      <div className="absolute bottom-[10%] -left-1 flex items-center gap-3 rounded-xl border border-rule bg-surface px-4 py-3 shadow-[0_12px_30px_-10px_rgba(23,18,14,0.25)] lg:-left-6">
         <span className="font-mono text-2xl font-semibold text-ink">135</span>
         <span className="text-xs leading-tight text-ink-2">workflows<br />em produção</span>
       </div>
