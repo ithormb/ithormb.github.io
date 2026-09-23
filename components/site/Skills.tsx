@@ -14,7 +14,7 @@ export function Skills({ locale }: { locale: Locale }) {
             <ul className="mt-5 grid grid-cols-2 gap-3">
               {g.itens.map((n) => (
                 <li key={n} className="flex items-center gap-2.5 text-sm text-ink">
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-surface-2"><TechIcon nome={n} size={16} /></span>
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white"><TechIcon nome={n} size={20} /></span>
                   {n}
                 </li>
               ))}

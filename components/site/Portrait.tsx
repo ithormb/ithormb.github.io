@@ -1,6 +1,23 @@
 import { site } from "@/content/site";
 import { withBase } from "@/lib/paths";
 
+// Quadrado que vai de 8% acima da caixa até a base do círculo: nele o círculo tem
+// centro em (50%, 58%) e raio de 42%, os mesmos números dos dois clip-paths.
+function FotoCamada({ estilo }: { estilo: React.CSSProperties }) {
+  return (
+    <div className="absolute inset-x-0 bottom-[8%] top-[-8%]" style={estilo} aria-hidden={estilo.clipPath?.toString().startsWith("circle") ? undefined : true}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={withBase(site.foto!)}
+        alt={estilo.clipPath?.toString().startsWith("circle") ? site.name : ""}
+        className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2"
+        width={400}
+        height={400}
+      />
+    </div>
+  );
+}
+
 // Foto sobre o círculo em degradê; sem foto, as iniciais ocupam o mesmo lugar.
 export function Portrait() {
   return (
@@ -9,11 +26,13 @@ export function Portrait() {
       <div aria-hidden="true" className="absolute inset-[8%] rounded-full bg-gradient-to-br from-accent via-accent-2 to-[#1e1b4b] opacity-90 blur-[2px]" />
       <div aria-hidden="true" className="absolute inset-[8%] rounded-full shadow-[0_0_120px_40px_rgba(124,58,237,0.35)]" />
       {site.foto ? (
-        // Recorte sem fundo: a base acompanha a curva do círculo e a cabeça pode passar da borda de cima.
-        <div className="absolute inset-x-[8%] bottom-[8%] top-[-14%] overflow-hidden rounded-b-full">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={withBase(site.foto)} alt={site.name} className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain" width={800} height={800} />
-        </div>
+        <>
+          {/* Duas cópias da mesma foto na mesma posição: a de cima mostra tudo acima do
+              centro do círculo (cabeça e ombros sem corte); a de baixo, só o que cai
+              dentro do círculo. A união dá o recorte do modelo, sem aresta reta. */}
+          <FotoCamada estilo={{ clipPath: "inset(0 0 42% 0)" }} />
+          <FotoCamada estilo={{ clipPath: "circle(42% at 50% 58%)" }} />
+        </>
       ) : (
         <div className="absolute inset-[8%] flex items-center justify-center rounded-full text-7xl font-bold tracking-tight text-white/90">TB</div>
       )}

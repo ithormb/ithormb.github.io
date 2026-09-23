@@ -35,8 +35,8 @@ export const site = {
   name: "Thomas Barbosa",
   role: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" } satisfies Text,
   tagline: {
-    pt: "Especialista de dados com MBA pela USP. Ligo ERP, MES e planilhas a agentes de IA e automações que entregam o número certo — com data e origem — pelo WhatsApp, por e-mail ou na tela.",
-    en: "Data specialist with an MBA from USP. I connect ERP, MES and spreadsheets to AI agents and automations that deliver the right number — with date and source — on WhatsApp, by e-mail or on screen.",
+    pt: "Mais de 5 anos transformando dados dispersos em decisão de negócio — do pricing na Coca-Cola ao chão de fábrica. Hoje lidero o time de Dados e IA de um grupo industrial com três fábricas: 10 agentes de IA e 135 automações em produção ligando ERP, MES e BI a quem decide.",
+    en: "5+ years turning scattered data into business decisions — from pricing at Coca-Cola to the factory floor. Today I lead the Data & AI team of a manufacturing group with three plants: 10 AI agents and 135 automations in production connecting ERP, MES and BI to decision-makers.",
   } satisfies Text,
   // Foto em public/img. Sem ela, o retrato mostra as iniciais.
   foto: "/img/foto.webp" as string | null,
@@ -72,7 +72,7 @@ export const site = {
     },
     {
       grupo: { pt: "Dados e BI", en: "Data and BI" },
-      itens: ["SQL", "Python", "Pandas", "scikit-learn", "BigQuery", "Power BI", "Looker"],
+      itens: ["SQL", "Python", "Pandas", "scikit-learn", "BigQuery", "Power BI", "Microsoft Fabric", "Looker"],
     },
     {
       grupo: { pt: "Engenharia de dados", en: "Data engineering" },
@@ -82,8 +82,8 @@ export const site = {
 
   sobre: [
     {
-      pt: `Trabalho onde dados, IA e operação se encontram. Hoje construo, dentro de um grupo industrial com três fábricas, um hub com ${hub.agentes.length} agentes de IA e a malha de automações que leva o dado do ERP, do MES e das planilhas até quem decide — pela tela, pelo WhatsApp, por e-mail ou como tarefa com prazo.`,
-      en: `I work where data, AI and operations meet. Inside a manufacturing group with three plants, I build a hub of ${hub.agentes.length} AI agents and the web of automations that takes data from the ERP, the MES and spreadsheets to the people who decide — on screen, on WhatsApp, by e-mail or as a task with a deadline.`,
+      pt: `Trabalho onde dados, IA e operação se encontram. Hoje lidero o time de Dados e IA de um grupo industrial com três fábricas: construímos um hub com ${hub.agentes.length} agentes de IA e a malha de automações que leva o dado do ERP, do MES e das planilhas até quem decide — pela tela, pelo WhatsApp, por e-mail ou como tarefa com prazo.`,
+      en: `I work where data, AI and operations meet. I lead the Data & AI team of a manufacturing group with three plants: we built a hub of ${hub.agentes.length} AI agents and the web of automations that takes data from the ERP, the MES and spreadsheets to the people who decide — on screen, on WhatsApp, by e-mail or as a task with a deadline.`,
     },
     {
       pt: "Sou engenheiro mecânico pela UFC e fiz MBA em Data Science e Analytics na USP/ESALQ. Antes disso foram mais de cinco anos em dados: BI e projetos numa plataforma de educação, depois inteligência de mercado e pricing na Solar Coca-Cola. De lá trouxe duas regras que guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
@@ -95,18 +95,18 @@ export const site = {
     },
   ] as Text[],
 
-  // Do LinkedIn, lido em 23/09/2026. A empresa atual fica anônima por decisão.
+  // Do LinkedIn, lido em 23/09/2026. A empresa atual aparece pelo nome a pedido do Thomas (23/09/2026).
   experiencia: [
     {
       periodo: { pt: "2025 — hoje", en: "2025 — present" },
-      onde: { pt: "Grupo industrial de transformação de plásticos", en: "Plastics manufacturing group" },
+      onde: { pt: "Grupo Raposo Plásticos", en: "Grupo Raposo Plásticos" },
       local: { pt: "remoto", en: "remote" },
       cargos: [{ titulo: { pt: "Especialista de Dados", en: "Data Specialist" }, periodo: { pt: "set 2025 — hoje", en: "Sep 2025 — present" } }],
       descricao: {
-        pt: "Construo o hub de agentes de IA e a malha de automações desta página: leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n, para três fábricas.",
-        en: "I build the AI agents hub and the automation web shown on this page: ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows, for three plants.",
+        pt: "Lidero o time de Dados e IA que leva soluções às fábricas do grupo: o hub de agentes de IA e a malha de automações desta página — leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n.",
+        en: "I lead the Data & AI team that brings solutions to the group's plants: the AI agents hub and the automation web shown on this page — ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows.",
       },
-      tags: ["n8n", "Python", "SQL", "BigQuery", "PostgreSQL", "LLMs"],
+      tags: ["Liderança de time", "n8n", "Python", "SQL", "BigQuery", "LLMs"],
     },
     {
       periodo: { pt: "2024 — 2025", en: "2024 — 2025" },

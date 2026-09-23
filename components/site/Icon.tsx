@@ -1,6 +1,9 @@
 import * as si from "simple-icons";
+import { withBase } from "@/lib/paths";
 
-// Logos oficiais (simple-icons). O que não tem logo livre vira monograma.
+// Logos oficiais, na cor da marca, pensados para fundo claro.
+// simple-icons não traz marcas da Microsoft: Power BI e Fabric vêm do pacote
+// oficial @fabric-msft/svg-icons (MIT), copiados para public/icons.
 const MAPA: Record<string, { path: string; hex: string } | undefined> = {
   n8n: si.siN8n,
   Python: si.siPython,
@@ -10,10 +13,6 @@ const MAPA: Record<string, { path: string; hex: string } | undefined> = {
   Looker: si.siLooker,
   Gemini: si.siGooglegemini,
   WhatsApp: si.siWhatsapp,
-  FastAPI: si.siFastapi,
-  TypeScript: si.siTypescript,
-  NestJS: si.siNestjs,
-  "Next.js": { path: si.siNextdotjs.path, hex: "FFFFFF" },
   PostgreSQL: si.siPostgresql,
   Docker: si.siDocker,
   Git: si.siGit,
@@ -21,51 +20,57 @@ const MAPA: Record<string, { path: string; hex: string } | undefined> = {
   GitHub: { path: si.siGithub.path, hex: "FFFFFF" },
 };
 
-// Logo muito escuro some no fundo azul-noite: clareia mantendo o matiz aproximado.
-function legivel(hex: string) {
-  const n = parseInt(hex, 16);
-  const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
-  const lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-  if (lum >= 0.3) return `#${hex}`;
-  const mix = (c: number) => Math.round(c + (255 - c) * 0.55);
-  return `rgb(${mix(r)}, ${mix(g)}, ${mix(b)})`;
-}
+const ARQUIVO: Record<string, string> = {
+  "Power BI": "/icons/power-bi.svg",
+  "Microsoft Fabric": "/icons/fabric.svg",
+};
 
 const MONO: Record<string, { txt: string; cor: string }> = {
-  SQL: { txt: "SQL", cor: "#60a5fa" },
-  "Power BI": { txt: "BI", cor: "#f2c811" },
-  LLMs: { txt: "AI", cor: "#a78bfa" },
-  Whisper: { txt: "W", cor: "#e2e8f0" },
-  "APIs REST": { txt: "API", cor: "#2dd4bf" },
-  "SQL Server": { txt: "SQL", cor: "#f87171" },
-  ETL: { txt: "ETL", cor: "#a78bfa" },
+  SQL: { txt: "SQL", cor: "#1d4ed8" },
+  LLMs: { txt: "AI", cor: "#7c3aed" },
+  Whisper: { txt: "W", cor: "#111827" },
+  "APIs REST": { txt: "API", cor: "#0f766e" },
+  "SQL Server": { txt: "SQL", cor: "#b91c1c" },
+  ETL: { txt: "ETL", cor: "#6d28d9" },
 };
 
 export function TechIcon({ nome, size = 20 }: { nome: string; size?: number }) {
+  const arq = ARQUIVO[nome];
+  if (arq)
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={withBase(arq)} alt="" width={size} height={size} aria-hidden="true" />;
   const ic = MAPA[nome];
-  if (ic) {
-    const fill = legivel(ic.hex);
+  if (ic)
     return (
-      <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" fill={fill}>
+      <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" fill={`#${ic.hex}`}>
         <path d={ic.path} />
       </svg>
     );
-  }
-  const m = MONO[nome] ?? { txt: nome.slice(0, 2), cor: "#a3aed0" };
+  const m = MONO[nome] ?? { txt: nome.slice(0, 2), cor: "#334155" };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true">
-      <text x="12" y="16.5" textAnchor="middle" fontSize={m.txt.length > 2 ? 8.5 : 11} fontWeight="700" fill={m.cor} fontFamily="ui-sans-serif, system-ui">
+      <text x="12" y="16.5" textAnchor="middle" fontSize={m.txt.length > 2 ? 8.5 : 11} fontWeight="800" fill={m.cor} fontFamily="ui-sans-serif, system-ui">
         {m.txt}
       </text>
     </svg>
   );
 }
 
+// Selo claro com o logo; o nome aparece ao passar o mouse ou ao focar pelo teclado.
 export function TechBadge({ nome }: { nome: string }) {
   return (
-    <span title={nome} className="flex size-10 items-center justify-center rounded-lg border border-rule bg-surface">
-      <TechIcon nome={nome} />
-      <span className="sr-only">{nome}</span>
+    <span
+      tabIndex={0}
+      aria-label={nome}
+      className="group relative flex size-12 items-center justify-center rounded-xl bg-white shadow-[0_4px_14px_-4px_rgba(139,92,246,0.45)] ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-6px_rgba(139,92,246,0.7)] focus-visible:-translate-y-0.5 motion-reduce:hover:translate-y-0"
+    >
+      <TechIcon nome={nome} size={26} />
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-md bg-ink px-2 py-1 text-xs font-semibold text-bg opacity-0 shadow-lg transition group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+      >
+        {nome}
+      </span>
     </span>
   );
 }

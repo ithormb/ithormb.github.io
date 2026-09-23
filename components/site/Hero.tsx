@@ -4,7 +4,7 @@ import { t, type Locale } from "@/lib/i18n";
 import { Portrait } from "./Portrait";
 import { TechBadge } from "./Icon";
 
-const DESTAQUE = ["n8n", "Python", "SQL", "BigQuery", "Power BI", "Looker", "Pandas", "PostgreSQL"];
+const DESTAQUE = ["n8n", "Python", "SQL", "Power BI", "Microsoft Fabric", "BigQuery", "Looker", "Pandas", "PostgreSQL"];
 
 export function Hero({ locale }: { locale: Locale }) {
   return (
@@ -29,7 +29,7 @@ export function Hero({ locale }: { locale: Locale }) {
             </a>
           </div>
           <p className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">{t("tech_i_use", locale)}</p>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul className="mt-4 flex flex-wrap gap-3">
             {DESTAQUE.map((n) => (
               <li key={n}><TechBadge nome={n} /></li>
             ))}
