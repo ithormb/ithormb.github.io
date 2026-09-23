@@ -39,7 +39,7 @@ export const site = {
     en: "Data specialist with an MBA from USP. I connect ERP, MES and spreadsheets to AI agents and automations that deliver the right number — with date and source — on WhatsApp, by e-mail or on screen.",
   } satisfies Text,
   // Foto em public/img. Sem ela, o retrato mostra as iniciais.
-  foto: null as string | null,
+  foto: "/img/foto.webp" as string | null,
   local: { pt: "Fortaleza, Ceará", en: "Fortaleza, Brazil" } satisfies Text,
   saudacao: { pt: "Olá, sou o", en: "Hi, I'm" } satisfies Text,
   primeiroNome: "Thomas",

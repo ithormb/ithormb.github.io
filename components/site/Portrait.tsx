@@ -8,17 +8,18 @@ export function Portrait() {
       <div aria-hidden="true" className="dots absolute -right-2 top-4 h-28 w-28 opacity-60" />
       <div aria-hidden="true" className="absolute inset-[8%] rounded-full bg-gradient-to-br from-accent via-accent-2 to-[#1e1b4b] opacity-90 blur-[2px]" />
       <div aria-hidden="true" className="absolute inset-[8%] rounded-full shadow-[0_0_120px_40px_rgba(124,58,237,0.35)]" />
-      <div className="absolute inset-[8%] overflow-hidden rounded-full">
-        {site.foto ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={withBase(site.foto)} alt={site.name} className="h-full w-full object-cover" width={420} height={420} />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-7xl font-bold tracking-tight text-white/90">TB</div>
-        )}
-      </div>
+      {site.foto ? (
+        // Recorte sem fundo: a base acompanha a curva do círculo e a cabeça pode passar da borda de cima.
+        <div className="absolute inset-x-[8%] bottom-[8%] top-[-14%] overflow-hidden rounded-b-full">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={withBase(site.foto)} alt={site.name} className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain" width={800} height={800} />
+        </div>
+      ) : (
+        <div className="absolute inset-[8%] flex items-center justify-center rounded-full text-7xl font-bold tracking-tight text-white/90">TB</div>
+      )}
 
       {/* card de "código": a regra do hub escrita como objeto */}
-      <div className="absolute -right-1 top-[14%] hidden w-52 rounded-xl border border-rule bg-surface/95 p-3 font-mono text-[11px] leading-5 shadow-2xl backdrop-blur sm:block lg:-right-8">
+      <div className="absolute -right-1 top-[50%] hidden w-52 rounded-xl border border-rule bg-surface/95 p-3 font-mono text-[11px] leading-5 shadow-2xl backdrop-blur sm:block lg:-right-8">
         <div className="mb-1.5 flex items-center justify-between text-muted">
           <span>{"</>"} agente.py</span>
           <span className="flex gap-1">
