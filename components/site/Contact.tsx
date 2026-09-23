@@ -25,7 +25,7 @@ export function Contact({ locale }: { locale: Locale }) {
             <span aria-hidden="true" className="text-4xl leading-none text-accent">&ldquo;</span>
             <blockquote className="mt-1 text-lg font-semibold leading-snug text-ink">{t("quote", locale)}</blockquote>
             <figcaption className="mt-4 flex items-center gap-3 text-sm">
-              <span className="flex size-9 items-center justify-center rounded-full bg-ink text-xs font-bold text-white">T<span className="text-accent">B</span></span>
+              <span className="flex size-9 items-center justify-center rounded-full bg-ink text-xs font-bold text-white">TB</span>
               <span>
                 <span className="block font-semibold text-ink">{site.name}</span>
                 <span className="text-xs text-muted">{t("quote_note", locale)}</span>
