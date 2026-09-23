@@ -16,15 +16,24 @@ export type Projeto = {
 
 export type Experiencia = {
   periodo: Text;
-  cargo: Text;
   onde: Text;
+  local?: Text;
+  // do cargo mais recente para o mais antigo
+  cargos: { titulo: Text; periodo: Text }[];
   descricao: Text;
   tags: string[];
 };
 
+export type Formacao = {
+  periodo: Text;
+  titulo: Text;
+  onde: Text;
+  nota?: Text;
+};
+
 export const site = {
   name: "Thomas Barbosa",
-  role: { pt: "Dados, IA & Automação", en: "Data, AI & Automation" } satisfies Text,
+  role: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" } satisfies Text,
   tagline: {
     pt: "Construo agentes de IA e automações que rodam em produção dentro da indústria.",
     en: "I build AI agents and automations that run in production inside manufacturing.",
@@ -41,8 +50,8 @@ export const site = {
       en: `I work where data, AI and operations meet. Inside a manufacturing group with three plants, I build a hub of ${hub.agentes.length} AI agents and the web of automations that takes data from the ERP, the MES and spreadsheets to the people who decide — on screen, on WhatsApp, by e-mail or as a task with a deadline.`,
     },
     {
-      pt: "Venho da análise de dados: ETL, BI e machine learning aplicado. De lá trouxe duas regras que guiam tudo o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
-      en: "I come from data analysis: ETL, BI and applied machine learning. From there I brought two rules that guide everything I build: a number without a date and a source is useless for decisions, and the language model advises — code executes, with a person confirming.",
+      pt: "Sou engenheiro mecânico pela UFC e fiz MBA em Data Science e Analytics na USP/ESALQ. Antes disso foram mais de cinco anos em dados: BI e projetos numa plataforma de educação, depois inteligência de mercado e pricing na Solar Coca-Cola. De lá trouxe duas regras que guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
+      en: "I'm a mechanical engineer from UFC with an MBA in Data Science and Analytics from USP/ESALQ. Before this came more than five years in data: BI and projects at an education platform, then market intelligence and pricing at Solar Coca-Cola. From there I brought two rules that guide what I build: a number without a date and a source is useless for decisions, and the language model advises — code executes, with a person confirming.",
     },
     {
       pt: `Em seis meses foram ${numeros.workflows} workflows no n8n, integrando ERP, BigQuery, Microsoft 365, Google, WhatsApp e APIs públicas. Os projetos de estudo em BI e machine learning estão logo abaixo.`,
@@ -50,8 +59,93 @@ export const site = {
     },
   ] as Text[],
 
-  // Preencher com o LinkedIn. A seção e o item de menu só aparecem quando houver ao menos uma entrada.
-  experiencia: [] as Experiencia[],
+  // Do LinkedIn, lido em 23/09/2026. A empresa atual fica anônima por decisão.
+  experiencia: [
+    {
+      periodo: { pt: "2025 — hoje", en: "2025 — present" },
+      onde: { pt: "Grupo industrial de transformação de plásticos", en: "Plastics manufacturing group" },
+      local: { pt: "remoto", en: "remote" },
+      cargos: [{ titulo: { pt: "Especialista de Dados", en: "Data Specialist" }, periodo: { pt: "set 2025 — hoje", en: "Sep 2025 — present" } }],
+      descricao: {
+        pt: "Construo o hub de agentes de IA e a malha de automações desta página: leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n, para três fábricas.",
+        en: "I build the AI agents hub and the automation web shown on this page: ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows, for three plants.",
+      },
+      tags: ["n8n", "NestJS", "Python", "BigQuery", "PostgreSQL", "LLM"],
+    },
+    {
+      periodo: { pt: "2024 — 2025", en: "2024 — 2025" },
+      onde: { pt: "Solar Coca-Cola", en: "Solar Coca-Cola" },
+      local: { pt: "Fortaleza", en: "Fortaleza, Brazil" },
+      cargos: [
+        { titulo: { pt: "Analista Sênior de Pricing", en: "Senior Pricing Analyst" }, periodo: { pt: "mai — set 2025", en: "May — Sep 2025" } },
+        { titulo: { pt: "Analista Pleno de Inteligência de Mercado", en: "Market Intelligence Analyst" }, periodo: { pt: "mar 2024 — abr 2025", en: "Mar 2024 — Apr 2025" } },
+      ],
+      descricao: {
+        pt: "Inteligência de mercado e Revenue Growth Management: SQL sobre as bases de varejo da Scanntech e da Nielsen, ETL de várias fontes para antecipar riscos e oportunidades de receita, e painéis em Power BI que orientavam a precificação do portfólio.",
+        en: "Market intelligence and Revenue Growth Management: SQL over Scanntech and Nielsen retail data, ETL from many sources to anticipate revenue risks and opportunities, and Power BI dashboards that guided portfolio pricing.",
+      },
+      tags: ["SQL", "Power BI", "ETL", "Pricing"],
+    },
+    {
+      periodo: { pt: "2020 — 2024", en: "2020 — 2024" },
+      onde: { pt: "SAS Plataforma de Educação", en: "SAS Education Platform" },
+      local: { pt: "Fortaleza", en: "Fortaleza, Brazil" },
+      cargos: [
+        { titulo: { pt: "Analista Pleno de Projetos e BI", en: "Projects and BI Analyst" }, periodo: { pt: "dez 2023 — mar 2024", en: "Dec 2023 — Mar 2024" } },
+        { titulo: { pt: "Analista de Projetos I", en: "Projects Analyst I" }, periodo: { pt: "abr 2021 — dez 2023", en: "Apr 2021 — Dec 2023" } },
+        { titulo: { pt: "Estagiário de Gestão de Avaliações", en: "Assessment Management Intern" }, periodo: { pt: "mar 2020 — abr 2021", en: "Mar 2020 — Apr 2021" } },
+      ],
+      descricao: {
+        pt: "Dados da produção de material didático em SQL Server (procedures e SSIS) e BigQuery; painéis de produtividade, custo e qualidade em Power BI e Looker para coordenação e gerência; e automações em Python e SQL que tiraram rotinas manuais da equipe de gestão.",
+        en: "Production data for teaching materials in SQL Server (procedures and SSIS) and BigQuery; productivity, cost and quality dashboards in Power BI and Looker for coordinators and managers; and Python and SQL automations that removed manual routines from the management team.",
+      },
+      tags: ["SQL Server", "SSIS", "BigQuery", "Power BI", "Looker", "Python"],
+    },
+    {
+      periodo: { pt: "2017 — 2021", en: "2017 — 2021" },
+      onde: { pt: "EXPeduca", en: "EXPeduca" },
+      local: { pt: "Fortaleza", en: "Fortaleza, Brazil" },
+      cargos: [
+        { titulo: { pt: "CEO", en: "CEO" }, periodo: { pt: "ago 2018 — jan 2021", en: "Aug 2018 — Jan 2021" } },
+        { titulo: { pt: "COO", en: "COO" }, periodo: { pt: "ago 2017 — mar 2019", en: "Aug 2017 — Mar 2019" } },
+      ],
+      descricao: {
+        pt: "Operação e, depois, direção da empresa, em meio período, durante a graduação.",
+        en: "Ran operations and later the company, part-time, while in university.",
+      },
+      tags: [],
+    },
+  ] as Experiencia[],
+
+  formacao: [
+    {
+      periodo: { pt: "2024 — 2025", en: "2024 — 2025" },
+      titulo: { pt: "MBA em Data Science e Analytics", en: "MBA in Data Science and Analytics" },
+      onde: { pt: "USP / ESALQ", en: "University of São Paulo (USP/ESALQ)" },
+      nota: {
+        pt: "Engenharia de dados, machine learning supervisionado e não supervisionado, web scraping, pesquisa operacional e cloud.",
+        en: "Data engineering, supervised and unsupervised machine learning, web scraping, operations research and cloud.",
+      },
+    },
+    {
+      periodo: { pt: "2025", en: "2025" },
+      titulo: { pt: "Artigo aceito no SBPO 2025", en: "Paper accepted at SBPO 2025" },
+      onde: { pt: "LVII Simpósio Brasileiro de Pesquisa Operacional", en: "57th Brazilian Symposium on Operations Research" },
+      nota: {
+        pt: "Segmentação de varejo integrando geovisualização aos modelos RFM e K-Means. Coautor.",
+        en: "Retail segmentation integrating geovisualization with RFM and K-Means models. Co-author.",
+      },
+    },
+    {
+      periodo: { pt: "2016 — 2021", en: "2016 — 2021" },
+      titulo: { pt: "Engenharia Mecânica", en: "B.Eng. in Mechanical Engineering" },
+      onde: { pt: "Universidade Federal do Ceará", en: "Federal University of Ceará" },
+      nota: {
+        pt: "Bolsista do PET Engenharia Mecânica e líder de estabilidade e controle na equipe de Aerodesign.",
+        en: "PET Mechanical Engineering scholar and stability and control lead on the Aerodesign team.",
+      },
+    },
+  ] as Formacao[],
 
   projetos: [
     {
@@ -90,8 +184,8 @@ export const site = {
     {
       titulo: { pt: "Vendas Walmart: ETL, BI e clusterização", en: "Walmart sales: ETL, BI and clustering" },
       descricao: {
-        pt: "Projeto de ponta a ponta: extração pela API do Kaggle, ETL em SQL e Python, painel de performance para a diretoria e K-Means para agrupar as filiais por perfil.",
-        en: "End-to-end project: Kaggle API extraction, ETL in SQL and Python, a performance dashboard for leadership and K-Means to group stores by profile.",
+        pt: "Projeto de ponta a ponta, em dupla: extração pela API do Kaggle, ETL em SQL e Python, painel de performance em Power BI e segmentação RFM com K-Means e geolocalização, que chegou a 12 segmentos.",
+        en: "End-to-end project, built as a pair: Kaggle API extraction, ETL in SQL and Python, a Power BI performance dashboard and RFM segmentation with K-Means and geolocation, reaching 12 segments.",
       },
       tags: ["SQL", "Python", "Power BI", "scikit-learn"],
       ano: "2025",
@@ -114,8 +208,8 @@ export const site = {
     {
       titulo: { pt: "Previsão do varejo com machine learning", en: "Retail forecasting with machine learning" },
       descricao: {
-        pt: "TCC: previsão do volume de vendas do varejo (PMC/IBGE) a partir de 13 séries macroeconômicas — Selic, IPCA, desemprego, crédito e confiança.",
-        en: "Thesis: forecasting retail sales volume (IBGE's PMC) from 13 macroeconomic series — interest rate, inflation, unemployment, credit and confidence.",
+        pt: "TCC do MBA: previsão do volume de vendas do varejo (PMC/IBGE) a partir de 13 séries macroeconômicas — Selic, IPCA, desemprego, crédito e confiança.",
+        en: "MBA thesis: forecasting retail sales volume (IBGE's PMC) from 13 macroeconomic series — interest rate, inflation, unemployment, credit and confidence.",
       },
       tags: ["Python", "Machine Learning", "Séries temporais"],
       ano: "2025",
