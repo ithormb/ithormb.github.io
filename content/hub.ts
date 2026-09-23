@@ -16,7 +16,7 @@ export const hub = {
     pt: "Uma plataforma web interna que reúne, num lugar só, os agentes de RH, tesouraria, contabilidade, bancos e indústria de um grupo com três unidades fabris. Cada agente lê o ERP, o MES ou planilhas, entrega o número com carimbo de origem e data, e — quando precisa agir — abre tarefa no gerenciador corporativo ou responde no WhatsApp.",
     en: "An internal web platform gathering, in one place, the HR, treasury, accounting, banking and manufacturing agents of a group with three plants. Each agent reads the ERP, the MES or spreadsheets, delivers the number stamped with source and date, and — when it needs to act — opens a task in the corporate task manager or replies on WhatsApp.",
   } satisfies Text,
-  stack: ["Next.js", "NestJS", "Python / FastAPI", "PostgreSQL", "Docker", "BigQuery", "SQL Server (leitura)"],
+  stack: ["Python", "LLMs", "SQL", "PostgreSQL", "BigQuery", "SQL Server (leitura)", "Docker"],
   garantias: [
     {
       pt: "Toda resposta com número diz, na primeira linha, de quando é o dado e de onde veio — montado em código, não pelo modelo.",

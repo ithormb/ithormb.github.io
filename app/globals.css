@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0b1220;
-  --surface: #111a2e;
-  --ink: #e2e8f0;
-  --ink-2: #94a3b8;
-  --muted: #64748b;
-  --rule: #1e293b;
-  --accent: #fcd34d;
-  --accent-soft: rgba(251, 191, 36, 0.1);
+  --bg: #070b1a;
+  --surface: #0d1330;
+  --surface-2: #121a3d;
+  --ink: #eef2ff;
+  --ink-2: #a3aed0;
+  --muted: #6b7699;
+  --rule: #1c2547;
+  --accent: #8b5cf6;
+  --accent-2: #6366f1;
+  --accent-ink: #c4b5fd;
+  --accent-soft: rgba(139, 92, 246, 0.12);
   /* paleta de dados validada para daltonismo, clareada para fundo escuro */
   --c1: #2dd4bf;
   --c2: #818cf8;
@@ -18,11 +21,14 @@
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
   --color-rule: var(--rule);
   --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-ink: var(--accent-ink);
   --color-accent-soft: var(--accent-soft);
   --color-c1: var(--c1);
   --color-c2: var(--c2);
@@ -31,7 +37,7 @@
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
-html { color-scheme: dark; scroll-behavior: smooth; }
+html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 5rem; }
 
 body {
   background: var(--bg);
@@ -40,12 +46,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: var(--accent); color: var(--bg); }
+::selection { background: var(--accent); color: #fff; }
 
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--accent);
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent-ink);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #a78bfa, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dots {
+  background-image: radial-gradient(rgba(165, 180, 252, 0.35) 1px, transparent 1px);
+  background-size: 14px 14px;
 }
 
 @media (prefers-reduced-motion: reduce) {
