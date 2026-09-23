@@ -6,7 +6,7 @@ export function SectionHeader({ eyebrow, title, center = false }: { eyebrow: str
   return (
     <div className={center ? "text-center" : ""}>
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">{title}</h2>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h2>
       <span aria-hidden="true" className={`mt-4 block h-1 w-12 rounded-full bg-accent ${center ? "mx-auto" : ""}`} />
     </div>
   );

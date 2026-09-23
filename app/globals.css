@@ -34,8 +34,9 @@
   --color-c1: var(--c1);
   --color-c2: var(--c2);
   --color-c3: var(--c3);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: var(--font-plex), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
 html { color-scheme: light; scroll-behavior: smooth; scroll-padding-top: 5rem; }
@@ -56,6 +57,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 }
 
 .text-gradient { color: var(--accent); }
+
+/* Títulos em Fraunces; rótulos pequenos em caixa alta continuam na Plex (font-sans). */
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
 
 .dots {
   background-image: radial-gradient(rgba(242, 106, 27, 0.35) 1px, transparent 1px);

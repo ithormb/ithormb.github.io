@@ -15,10 +15,10 @@ export function Hero({ locale }: { locale: Locale }) {
           <span className="inline-flex items-center rounded-full bg-accent-soft px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-widest text-accent-ink">
             {t("role_pill", locale)}
           </span>
-          <p className="mt-6 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+          <p className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
             {site.saudacao[locale]} <span className="text-gradient">{site.primeiroNome}</span>
           </p>
-          <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">{site.headline[locale]}</h1>
+          <h1 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">{site.headline[locale]}</h1>
           <p className="mt-5 max-w-lg text-lg leading-relaxed">{site.tagline[locale]}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href={`/${locale}/#projetos`} className="inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95">
