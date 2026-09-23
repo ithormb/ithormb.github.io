@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/home/Sidebar";
 import { SectionTitle } from "@/components/home/SectionTitle";
 import { Projects } from "@/components/home/Projects";
 import { Experience } from "@/components/home/Experience";
+import { Education } from "@/components/home/Education";
 import { Numbers } from "@/components/catalogo/Numbers";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -41,6 +42,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <section id="projetos" aria-label={t("nav_projects", l)} className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
             <SectionTitle>{t("nav_projects", l)}</SectionTitle>
             <Projects locale={l} />
+          </section>
+
+          <section id="formacao" aria-label={t("nav_education", l)} className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+            <SectionTitle>{t("nav_education", l)}</SectionTitle>
+            <Education locale={l} />
           </section>
 
           <section id="numeros" aria-label={t("nav_numbers", l)} className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">

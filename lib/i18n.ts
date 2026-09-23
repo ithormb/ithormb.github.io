@@ -8,6 +8,8 @@ export const ui = {
   nav_about: { pt: "Sobre", en: "About" },
   nav_experience: { pt: "Experiência", en: "Experience" },
   nav_projects: { pt: "Projetos", en: "Projects" },
+  nav_education: { pt: "Formação", en: "Education" },
+  earlier_roles: { pt: "cargos anteriores", en: "earlier roles" },
   nav_numbers: { pt: "Em números", en: "In numbers" },
   back_home: { pt: "Thomas Barbosa", en: "Thomas Barbosa" },
   see_details: { pt: "Ver em detalhe", en: "See in detail" },

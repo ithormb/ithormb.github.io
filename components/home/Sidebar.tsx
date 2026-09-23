@@ -10,6 +10,7 @@ export function Sidebar({ locale }: { locale: Locale }) {
     { id: "sobre", label: t("nav_about", locale) },
     ...(site.experiencia.length ? [{ id: "experiencia", label: t("nav_experience", locale) }] : []),
     { id: "projetos", label: t("nav_projects", locale) },
+    { id: "formacao", label: t("nav_education", locale) },
     { id: "numeros", label: t("nav_numbers", locale) },
   ];
   const social = [
