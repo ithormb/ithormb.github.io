@@ -65,20 +65,34 @@ export const site = {
     { valor: "5", rotulo: { pt: "fábricas atendidas", en: "plants served" }, icone: "factory" },
   ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" }[],
 
+  // Do mais próximo da IA ao mais próximo do dado bruto.
   tecnologias: [
     {
-      grupo: { pt: "IA e automação", en: "AI and automation" },
-      itens: ["n8n", "LLMs", "Gemini", "Whisper", "WhatsApp", "APIs REST"],
+      grupo: { pt: "Modelos e agentes de IA", en: "AI models and agents" },
+      nota: { pt: "Multi-provedor: o modelo certo para cada tarefa", en: "Multi-provider: the right model for each task" },
+      itens: ["OpenAI", "Claude", "Gemini", "Mistral", "LangChain", "LangGraph", "Whisper"],
+    },
+    {
+      grupo: { pt: "Desenvolvimento com IA", en: "AI-assisted development" },
+      nota: { pt: "Agentes de código no dia a dia", en: "Coding agents, every day" },
+      itens: ["Claude Code", "Antigravity", "VS Code", "GitHub", "Git"],
+    },
+    {
+      grupo: { pt: "Automação e integração", en: "Automation and integration" },
+      nota: { pt: "Orquestração e entrega onde a pessoa está", en: "Orchestration and delivery where people are" },
+      itens: ["n8n", "APIs REST", "Webhooks", "WhatsApp", "Docker"],
     },
     {
       grupo: { pt: "Dados e BI", en: "Data and BI" },
-      itens: ["SQL", "Python", "Pandas", "scikit-learn", "BigQuery", "Power BI", "Microsoft Fabric", "Looker"],
+      nota: { pt: "Da análise ao painel de decisão", en: "From analysis to decision dashboards" },
+      itens: ["SQL", "Python", "Pandas", "scikit-learn", "Power BI", "Microsoft Fabric", "Looker"],
     },
     {
-      grupo: { pt: "Engenharia de dados", en: "Data engineering" },
-      itens: ["PostgreSQL", "SQL Server", "Google Cloud", "ETL", "Docker", "Git"],
+      grupo: { pt: "Engenharia de dados e nuvem", en: "Data engineering and cloud" },
+      nota: { pt: "Pipelines, bancos e plataforma", en: "Pipelines, databases and platform" },
+      itens: ["BigQuery", "Google Cloud", "PostgreSQL", "SQL Server", "ETL"],
     },
-  ] as { grupo: Text; itens: string[] }[],
+   ] as { grupo: Text; nota: Text; itens: string[] }[],
 
   sobre: [
     {
