@@ -3,6 +3,7 @@ import { site } from "@/content/site";
 import { t, type Locale } from "@/lib/i18n";
 import { Portrait } from "./Portrait";
 import { TechBadge } from "./Icon";
+import { withBase } from "@/lib/paths";
 
 const DESTAQUE = ["n8n", "Python", "SQL", "Power BI", "Microsoft Fabric", "BigQuery", "OpenAI", "Claude Code", "LangChain"];
 
@@ -34,6 +35,10 @@ export function Hero({ locale }: { locale: Locale }) {
             </Link>
             <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-white transition hover:bg-ink-2 active:scale-95">
               {t("cta_talk", locale)}
+            </a>
+            <a href={withBase(site.links.cv[locale])} target="_blank" rel="noopener" className="inline-flex h-12 items-center gap-2 rounded-full border border-ink/20 bg-surface px-6 text-sm font-semibold text-ink transition hover:border-ink active:scale-95">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></svg>
+              {t("cta_cv", locale)}
             </a>
           </div>
           <p className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">{t("tech_i_use", locale)}</p>

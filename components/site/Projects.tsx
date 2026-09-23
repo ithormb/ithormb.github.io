@@ -20,6 +20,12 @@ function Card({ p, i, locale }: { p: Projeto; i: number; locale: Locale }) {
         </div>
         <h3 className="mt-2 font-semibold leading-snug text-ink transition-colors group-hover:text-accent-ink">{p.titulo[locale]}</h3>
         <p className="mt-2 text-sm leading-relaxed">{p.descricao[locale]}</p>
+        {p.resultado && (
+          <div className="mt-4 rounded-lg border-l-4 border-accent bg-surface-2 px-3 py-2.5">
+            <p className="text-[0.7rem] font-bold uppercase tracking-widest text-accent-ink">{t("result_label", locale)}</p>
+            <p className="mt-1 text-sm font-medium leading-snug text-ink">{p.resultado[locale]}</p>
+          </div>
+        )}
         <ul className="mt-4 flex flex-wrap gap-1.5">
           {p.tags.map((tag) => (
             <li key={tag} className="rounded-md border border-rule px-2 py-0.5 text-[0.7rem] text-ink-2">{tag}</li>

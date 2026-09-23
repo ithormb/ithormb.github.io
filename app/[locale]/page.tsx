@@ -6,6 +6,7 @@ import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
 import { TrustBar } from "@/components/site/TrustBar";
 import { Skills } from "@/components/site/Skills";
+import { HowIWork } from "@/components/site/HowIWork";
 import { Experience } from "@/components/site/Experience";
 import { Projects } from "@/components/site/Projects";
 import { Education } from "@/components/site/Education";
@@ -28,6 +29,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Hero locale={l} />
         <TrustBar locale={l} />
         <About locale={l} />
+        <HowIWork locale={l} />
         <Skills locale={l} />
         <Experience locale={l} />
         <Projects locale={l} />

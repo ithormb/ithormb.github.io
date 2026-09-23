@@ -7,6 +7,8 @@ export type Thumb = "hub" | "whatsapp" | "n8n" | "clusters" | "bi" | "forecast";
 export type Projeto = {
   titulo: Text;
   descricao: Text;
+  // O que mudou no negócio. Só fato verificável: número medido ou comportamento observado, nunca estimativa.
+  resultado?: Text;
   tags: string[];
   ano: string;
   thumb: Thumb;
@@ -37,8 +39,8 @@ export const site = {
   name: "Thomas Barbosa",
   role: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" } satisfies Text,
   tagline: {
-    pt: "Há mais de 8 anos transformo dados dispersos em decisões de negócio — com passagens pela Arco Educação, pela Solar Coca-Cola e, hoje, pela indústria. No Grupo Raposo Plásticos, lidero o time de Dados e IA que atende cinco fábricas: mais de 130 automações em produção orquestram o pipeline de ponta a ponta, da alimentação do ERP e do MES até painéis de BI e agentes de IA analíticos que direcionam o olhar estratégico do grupo.",
-    en: "For 8+ years I've turned scattered data into business decisions — at Arco Educação, Solar Coca-Cola and now in manufacturing. At Grupo Raposo Plásticos I lead the Data & AI team serving five plants: 130+ automations in production orchestrate the pipeline end to end, from ERP and MES data entry to BI dashboards and analytical AI agents that steer the group's strategy.",
+    pt: "Lidero o time de Dados e IA do Grupo Raposo Plásticos: 130+ automações e 10 agentes de IA em produção, do ERP ao painel de decisão. Antes, pricing e inteligência de mercado na Solar Coca-Cola e BI na Arco Educação.",
+    en: "I lead the Data & AI team at Grupo Raposo Plásticos: 130+ automations and 10 AI agents in production, from the ERP to the decision dashboard. Before that, pricing and market intelligence at Solar Coca-Cola and BI at Arco Educação.",
   } satisfies Text,
   // Foto em public/img. Sem ela, o retrato mostra as iniciais.
   foto: "/img/foto.webp" as string | null,
@@ -63,6 +65,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/thomas-barbosa-silva/",
     github: "https://github.com/ithormb",
     email: null as string | null,
+    cv: { pt: "/cv/thomas-barbosa-cv.pdf", en: "/cv/thomas-barbosa-cv-en.pdf" },
   },
 
   sobreTitulo: {
@@ -108,8 +111,8 @@ export const site = {
 
   sobre: [
     {
-      pt: `Trabalho onde dados, IA e operação se encontram. Hoje lidero o time de Dados e IA de um grupo industrial com cinco fábricas: construímos um hub com ${hub.agentes.length} agentes de IA e a malha de automações que leva o dado do ERP, do MES e das planilhas até quem decide — pela tela, pelo WhatsApp, por e-mail ou como tarefa com prazo.`,
-      en: `I work where data, AI and operations meet. I lead the Data & AI team of a manufacturing group with five plants: we built a hub of ${hub.agentes.length} AI agents and the web of automations that takes data from the ERP, the MES and spreadsheets to the people who decide — on screen, on WhatsApp, by e-mail or as a task with a deadline.`,
+      pt: "Há mais de 8 anos transformo dados dispersos em decisões de negócio — com passagens pela Arco Educação, pela Solar Coca-Cola e, hoje, pela indústria. No Grupo Raposo Plásticos, lidero o time de Dados e IA que atende cinco fábricas: mais de 130 automações em produção orquestram o pipeline de ponta a ponta, da alimentação do ERP e do MES até painéis de BI e agentes de IA analíticos que direcionam o olhar estratégico do grupo.",
+      en: "For 8+ years I've turned scattered data into business decisions — at Arco Educação, Solar Coca-Cola and now in manufacturing. At Grupo Raposo Plásticos I lead the Data & AI team serving five plants: 130+ automations in production orchestrate the pipeline end to end, from ERP and MES data entry to BI dashboards and analytical AI agents that steer the group's strategy.",
     },
     {
       pt: "Sou engenheiro mecânico pela UFC, com MBA em Data Science e Analytics pela USP/ESALQ. São mais de oito anos com dados — BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. Desse caminho trouxe duas regras que guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
@@ -130,8 +133,8 @@ export const site = {
       local: { pt: "remoto", en: "remote" },
       cargos: [{ titulo: { pt: "Especialista de Dados", en: "Data Specialist" }, periodo: { pt: "set 2025 — hoje", en: "Sep 2025 — present" } }],
       descricao: {
-        pt: "Lidero o time de Dados e IA que leva soluções às fábricas do grupo: o hub de agentes de IA e a malha de automações desta página — leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n.",
-        en: "I lead the Data & AI team that brings solutions to the group's plants: the AI agents hub and the automation web shown on this page — ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows.",
+        pt: "Lidero o time de Dados e IA que leva soluções às fábricas do grupo: um hub de agentes de IA e a malha de automações do grupo — leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n.",
+        en: "I lead the Data & AI team that brings solutions to the group's plants: an AI agents hub and the group's automation web — ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows.",
       },
       tags: ["Liderança de time", "n8n", "Python", "SQL", "BigQuery", "LLMs"],
     },
@@ -218,8 +221,12 @@ export const site = {
     {
       titulo: { pt: "Hub de agentes de IA", en: "AI agents hub" },
       descricao: {
-        pt: `Plataforma web com ${hub.agentes.length} agentes de RH, tesouraria, contabilidade, bancos e indústria. Toda resposta diz de quando é o dado e de onde veio; a IA endereça, o código executa.`,
-        en: `Web platform with ${hub.agentes.length} agents for HR, treasury, accounting, banking and manufacturing. Every answer states when the data is from and where it came from; AI routes, code executes.`,
+        pt: `Cinco áreas (RH, tesouraria, contabilidade, bancos e indústria) dependiam de planilha e consulta manual ao ERP. Construí uma plataforma com ${hub.agentes.length} agentes que leem ERP, MES e planilhas e respondem com data e origem do dado; a IA endereça, o código executa.`,
+        en: `Five areas (HR, treasury, accounting, banking and manufacturing) depended on spreadsheets and manual ERP lookups. I built a platform with ${hub.agentes.length} agents that read the ERP, the MES and spreadsheets and answer with the data's date and source; AI routes, code executes.`,
+      },
+      resultado: {
+        pt: "Na primeira rodada, o agente contábil achou 622 cadastros errados em 33 mil, ao vivo, em 12 segundos. O de banco de horas revelou 685 horas negativas que o saldo consolidado escondia.",
+        en: "On its first run, the accounting agent found 622 wrong records out of 33,000, live, in 12 seconds. The hour-bank agent surfaced 685 negative hours hidden by the consolidated balance.",
       },
       tags: ["Python", "LLMs", "SQL", "PostgreSQL", "Docker"],
       ano: "2026",
@@ -229,8 +236,12 @@ export const site = {
     {
       titulo: { pt: "Agente de tarefas no WhatsApp", en: "Task agent on WhatsApp" },
       descricao: {
-        pt: "Texto ou áudio viram tarefa real no gerenciador corporativo — criar, editar e concluir — com eco do que o sistema entendeu antes de gravar qualquer coisa.",
-        en: "Text or voice become real tasks in the corporate task manager — create, edit, complete — echoing what the system understood before writing anything.",
+        pt: "Líderes de fábrica não abrem o gerenciador de tarefas no chão de fábrica. Um agente no WhatsApp entende texto e áudio e cria, edita e conclui tarefas reais — com eco do que entendeu antes de gravar, porque transcrição alucina.",
+        en: "Plant leaders don't open the task manager on the factory floor. A WhatsApp agent understands text and voice and creates, edits and completes real tasks — echoing what it understood before writing, because transcription hallucinates.",
+      },
+      resultado: {
+        pt: "Concluir uma tarefa virou foto + legenda pelo celular, com a evidência que a régua da empresa exige. Prazo e responsável são lidos em código e conferidos contra a lista real; nome que não existe vira pergunta, nunca tarefa errada.",
+        en: "Completing a task became photo + caption from the phone, with the evidence the company's rules require. Deadline and owner are parsed in code and checked against the real list; an unknown name becomes a question, never a wrong task.",
       },
       tags: ["LLMs", "Whisper", "WhatsApp", "n8n"],
       ano: "2026",
@@ -240,8 +251,12 @@ export const site = {
     {
       titulo: { pt: `${numeros.workflows} automações em n8n`, en: `${numeros.workflows} n8n automations` },
       descricao: {
-        pt: `${numeros.nos.toLocaleString("pt-BR")} nós e ${numeros.credenciais} credenciais: relatórios em imagem e PDF, conciliações e tarefas automáticas ligando ERP, BigQuery, Microsoft 365 e Google.`,
-        en: `${numeros.nos.toLocaleString("en-US")} nodes and ${numeros.credenciais} credentials: image and PDF reports, reconciliations and automatic tasks connecting ERP, BigQuery, Microsoft 365 and Google.`,
+        pt: `Relatórios que ninguém abria e conferências que dependiam de uma pessoa. ${numeros.nos.toLocaleString("pt-BR")} nós ligando ERP, BigQuery, Microsoft 365 e Google entregam imagem, PDF e tarefa com prazo onde a pessoa já está — WhatsApp e e-mail — todo dia útil, sem ninguém apertar botão.`,
+        en: `Reports nobody opened and checks that depended on one person. ${numeros.nos.toLocaleString("en-US")} nodes connecting ERP, BigQuery, Microsoft 365 and Google deliver images, PDFs and tasks with deadlines where people already are — WhatsApp and e-mail — every business day, with nobody pressing a button.`,
+      },
+      resultado: {
+        pt: "Cada ordem de produção atrasada virou tarefa com dono e prazo; na semana de estreia, o estoque de atrasadas de uma unidade foi de 50 para 9. A conferência de canhotos de nota fiscal roda sozinha em três unidades, sem abrir um PDF.",
+        en: "Every late production order became a task with an owner and a deadline; in the launch week, one plant's backlog of late orders went from 50 to 9. Invoice-receipt reconciliation runs on its own across three plants, without opening a single PDF.",
       },
       tags: ["n8n", "BigQuery", "Graph API", "Gotenberg"],
       ano: "2026",
