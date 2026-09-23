@@ -16,7 +16,7 @@ export function Navbar({ locale, path = "/" }: { locale: Locale; path?: string }
     <header className="sticky top-0 z-40 border-b border-rule bg-bg/85 backdrop-blur">
       <nav aria-label="principal" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         <Link href={home} className="flex items-center gap-2 font-bold tracking-tight text-ink">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-ink text-xs text-white">T<span className="text-accent">B</span></span>
+          <span className="flex size-8 items-center justify-center rounded-lg bg-ink text-xs text-white">TB</span>
           <span className="hidden sm:inline">{site.name}</span>
         </Link>
         <ul className="hidden items-center gap-7 text-sm md:flex">
