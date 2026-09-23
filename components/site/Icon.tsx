@@ -11,25 +11,35 @@ const MAPA: Record<string, { path: string; hex: string } | undefined> = {
   "scikit-learn": si.siScikitlearn,
   BigQuery: si.siGooglebigquery,
   Looker: si.siLooker,
-  Gemini: si.siGooglegemini,
   WhatsApp: si.siWhatsapp,
   PostgreSQL: si.siPostgresql,
   Docker: si.siDocker,
   Git: si.siGit,
+  LangChain: si.siLangchain,
   "Google Cloud": si.siGooglecloud,
   GitHub: si.siGithub,
 };
 
+// Logos fora do simple-icons, todos MIT: Microsoft (@fabric-msft/svg-icons),
+// marcas de IA (@lobehub/icons-static-svg) e VS Code (devicon).
 const ARQUIVO: Record<string, string> = {
   "Power BI": "/icons/power-bi.svg",
   "Microsoft Fabric": "/icons/fabric.svg",
+  OpenAI: "/icons/openai.svg",
+  Claude: "/icons/claude.svg",
+  "Claude Code": "/icons/claude-code.svg",
+  Gemini: "/icons/gemini.svg",
+  Mistral: "/icons/mistral.svg",
+  LangGraph: "/icons/langgraph.svg",
+  Antigravity: "/icons/antigravity.svg",
+  "VS Code": "/icons/vscode.svg",
 };
 
 const MONO: Record<string, { txt: string; cor: string }> = {
   SQL: { txt: "SQL", cor: "#1d4ed8" },
-  LLMs: { txt: "AI", cor: "#7c3aed" },
   Whisper: { txt: "W", cor: "#111827" },
   "APIs REST": { txt: "API", cor: "#0f766e" },
+  Webhooks: { txt: "WH", cor: "#c2410c" },
   "SQL Server": { txt: "SQL", cor: "#b91c1c" },
   ETL: { txt: "ETL", cor: "#6d28d9" },
 };

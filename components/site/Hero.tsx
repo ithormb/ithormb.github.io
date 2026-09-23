@@ -4,7 +4,7 @@ import { t, type Locale } from "@/lib/i18n";
 import { Portrait } from "./Portrait";
 import { TechBadge } from "./Icon";
 
-const DESTAQUE = ["n8n", "Python", "SQL", "Power BI", "Microsoft Fabric", "BigQuery", "Looker", "Pandas", "PostgreSQL"];
+const DESTAQUE = ["n8n", "Python", "SQL", "Power BI", "Microsoft Fabric", "BigQuery", "OpenAI", "Claude Code", "LangChain"];
 
 export function Hero({ locale }: { locale: Locale }) {
   return (
