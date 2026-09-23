@@ -32,7 +32,7 @@ export default async function HubPage({ params }: { params: Promise<{ locale: st
             {hub.garantias.map((g, i) => (
               <li key={i} className="flex gap-4 text-sm leading-normal">
                 <span className="font-mono text-accent">{String(i + 1).padStart(2, "0")}</span>
-                <p>{g[l]}</p>
+                <p><strong className="text-ink">{g.titulo[l]}.</strong> {g[l]}</p>
               </li>
             ))}
           </ol>

@@ -19,22 +19,26 @@ export const hub = {
   stack: ["Python", "LLMs", "SQL", "PostgreSQL", "BigQuery", "SQL Server (leitura)", "Docker"],
   garantias: [
     {
+      titulo: { pt: "Número com data e origem", en: "Numbers with a date and a source" },
       pt: "Toda resposta com número diz, na primeira linha, de quando é o dado e de onde veio — montado em código, não pelo modelo.",
       en: "Every numeric answer states, on its first line, when the data is from and where it came from — assembled in code, not by the model.",
     },
     {
+      titulo: { pt: "A IA sugere, o código decide", en: "AI suggests, code decides" },
       pt: "O modelo classifica intenção e endereça; quem executa é código determinístico, com confirmação humana antes de qualquer disparo.",
       en: "The model classifies intent and routes; execution is deterministic code, with human confirmation before anything fires.",
     },
     {
+      titulo: { pt: "Sistema de origem intocado", en: "Source systems untouched" },
       pt: "O ERP é somente leitura, por princípio. Uma régua de permissão só, no backend — a tela apenas esconde o que daria 403.",
       en: "The ERP is read-only, on principle. A single permission ruler, in the backend — the UI only hides what would return 403.",
     },
     {
+      titulo: { pt: "Custo auditado por chamada", en: "Cost audited per call" },
       pt: "Modelo escolhido por custo e por perfil de quem pergunta, com auditoria de custo por chamada.",
       en: "Model chosen by cost and by who is asking, with per-call cost auditing.",
     },
-  ] as Text[],
+  ] as (Text & { titulo: Text })[],
   agentes: [
     {
       area: { pt: "RH", en: "HR" },

@@ -59,7 +59,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .text-gradient { color: var(--accent); }
 
 /* Títulos em Fraunces; rótulos pequenos em caixa alta continuam na Plex (font-sans). */
-h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+@layer base {
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
 
 .dots {
   background-image: radial-gradient(rgba(242, 106, 27, 0.35) 1px, transparent 1px);
