@@ -1,6 +1,7 @@
 import { site } from "@/content/site";
 import { t, type Locale } from "@/lib/i18n";
 import { Band, SectionHeader } from "./SectionHeader";
+import { withBase } from "@/lib/paths";
 
 export function Experience({ locale }: { locale: Locale }) {
   return (
@@ -18,8 +19,16 @@ export function Experience({ locale }: { locale: Locale }) {
                   {e.local && <p className="text-xs text-muted">{e.local[locale]}</p>}
                 </div>
                 <div className="rounded-2xl border border-rule bg-bg p-5">
-                  <h3 className="font-semibold leading-snug text-ink">{atual.titulo[locale]}</h3>
-                  <p className="text-sm text-ink-2">{e.onde[locale]}</p>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-semibold leading-snug text-ink">{atual.titulo[locale]}</h3>
+                      <p className="text-sm text-ink-2">{e.onde[locale]}</p>
+                    </div>
+                    {e.logo && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={withBase(e.logo)} alt={e.onde[locale]} className="h-9 w-auto max-w-[120px] shrink-0 object-contain" loading="lazy" />
+                    )}
+                  </div>
                   {anteriores.length > 0 && (
                     <ul className="mt-2 space-y-0.5 text-xs text-muted">
                       {anteriores.map((c) => (

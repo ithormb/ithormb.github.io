@@ -14,7 +14,6 @@ export const ui = {
   nav_skills: { pt: "Tecnologias", en: "Skills" },
   nav_contact: { pt: "Contato", en: "Contact" },
   role_pill: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" },
-  open_to_work: { pt: "Aberto a novas oportunidades", en: "Open to new opportunities" },
   hello: { pt: "Olá, sou o", en: "Hi, I'm" },
   cta_talk: { pt: "Falar comigo", en: "Get in touch" },
   trust_label: { pt: "Trajetória construída em", en: "Career built at" },

@@ -13,14 +13,7 @@ export function Hero({ locale }: { locale: Locale }) {
       <div aria-hidden="true" className="pointer-events-none absolute -top-40 right-[-10%] h-[640px] w-[640px] rounded-full bg-[#ffe4d0] opacity-70 blur-3xl" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-10 md:gap-14 sm:px-8 md:grid-cols-[1.15fr_1fr] md:pt-16">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#bbf7d0] bg-[#f0fdf4] px-3.5 py-1.5 text-xs font-semibold text-[#166534]">
-            <span className="relative flex size-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22c55e] opacity-60 motion-reduce:animate-none" />
-              <span className="relative inline-flex size-2.5 rounded-full bg-[#16a34a]" />
-            </span>
-            {t("open_to_work", locale)}
-          </span>
-          <p className="mt-6 text-lg text-ink-2">
+          <p className="text-lg text-ink-2">
             {t("hello", locale)} <span className="font-semibold text-ink">{site.name}</span>
           </p>
           <p className="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-accent-ink">{t("role_pill", locale)}</p>
