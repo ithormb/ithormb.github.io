@@ -9,6 +9,7 @@ export function Navbar({ locale, path = "/" }: { locale: Locale; path?: string }
     { href: `${home}#sobre`, label: t("nav_about", locale) },
     { href: `${home}#experiencia`, label: t("nav_experience", locale) },
     { href: `${home}#projetos`, label: t("nav_projects", locale) },
+    { href: `/${locale}/bi/`, label: t("nav_bi", locale) },
     { href: `/${locale}/automacoes/`, label: t("section_automations", locale) },
     { href: `${home}#contato`, label: t("nav_contact", locale) },
   ];
