@@ -3,6 +3,7 @@ import { site, type Projeto } from "@/content/site";
 import { t, type Locale } from "@/lib/i18n";
 import { Band, SectionHeader } from "./SectionHeader";
 import { Thumb } from "@/components/thumbs/Thumb";
+import { withBase } from "@/lib/paths";
 
 function Card({ p, i, locale }: { p: Projeto; i: number; locale: Locale }) {
   const externo = !!p.href && p.href.startsWith("http");
@@ -11,7 +12,12 @@ function Card({ p, i, locale }: { p: Projeto; i: number; locale: Locale }) {
     <>
       <div className="relative border-b border-rule bg-surface-2 p-4">
         <span className="absolute left-4 top-3 z-10 font-mono text-xs font-semibold text-accent-ink">{String(i + 1).padStart(2, "0")}</span>
-        <Thumb kind={p.thumb} />
+        {p.imagem ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={withBase(p.imagem)} alt="" width={1536} height={864} loading="lazy" className="block aspect-[200/120] w-full rounded-lg object-cover object-left-top shadow-[0_10px_24px_-12px_rgba(23,18,14,0.45)]" />
+        ) : (
+          <Thumb kind={p.thumb} />
+        )}
       </div>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center gap-2 text-xs text-muted">

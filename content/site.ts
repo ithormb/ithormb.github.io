@@ -12,6 +12,7 @@ export type Projeto = {
   tags: string[];
   ano: string;
   thumb: Thumb;
+  imagem?: string; // reprodução real (dados fictícios) no lugar da miniatura desenhada
   href?: string; // relativo ao idioma (começa com /) ou URL externa; sem href, o card não é link
   estudo?: boolean;
   noCv?: boolean; // fica fora do CV de uma página
@@ -271,12 +272,13 @@ export const site = {
     {
       titulo: { pt: "Dashboards industriais em Power BI", en: "Industrial dashboards in Power BI" },
       descricao: {
-        pt: "Mais de 60 dashboards organizados por frente — visão geral, produção, OEE, paradas, estoques, logística, custos, controle de lote e rastreabilidade —, sobre fonte única no BigQuery, com modelagem dimensional, DAX e projeto versionado em PBIP/TMDL.",
+        pt: "Mais de 60 dashboards organizados por frente — visão geral, produção, OEE, paradas, estoques, logística, custos, controle de lote, rastreabilidade, contabilidade e tarefas —, sobre fonte única no BigQuery, com modelagem dimensional, DAX e projeto versionado em PBIP/TMDL.",
         en: "More than 60 dashboards organized by area — overview, production, OEE, downtime, inventory, logistics, costs, batch control and traceability — on a single BigQuery source, with dimensional modelling, DAX and PBIP/TMDL version-controlled projects.",
       },
       tags: ["Power BI", "DAX", "Power Query", "BigQuery"],
       ano: "2026",
       thumb: "oee",
+      imagem: "/bi/controle-geral.webp",
       href: "/bi/",
     },
     {
