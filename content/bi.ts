@@ -10,13 +10,34 @@ export type Frente = {
   mostra: Text[]; // o que aparece nos dashboards da frente
 };
 
+// Telas reconstruídas a partir dos painéis reais, com DADOS FICTÍCIOS: mesmo layout e
+// mesmos visuais; números, produtos, pessoas e marca trocados. Os prints originais não
+// entram no repositório. O gerador fica fora do site (scratchpad), só as imagens vêm.
+export type Tela = { arquivo: string; titulo: Text; frente: string; legenda: Text };
+
 export const bi = {
   nome: { pt: "Dashboards industriais em Power BI", en: "Industrial dashboards in Power BI" } satisfies Text,
   resumo: {
-    pt: "Mais de 60 dashboards, organizados por frente, que acompanham uma operação industrial de ponta a ponta: da matéria-prima que entra até o produto que sai, passando por produção, eficiência, estoque e custo. Cada frente responde uma pergunta de negócio e é usada por quem decide sobre ela — da reunião diária de produção à gerência industrial.",
-    en: "More than 60 dashboards, organized by area, that follow an industrial operation end to end: from the raw material that comes in to the product that goes out, through production, efficiency, inventory and cost. Each area answers a business question and is used by whoever decides on it — from the daily production meeting to plant management.",
+    pt: "Mais de 60 dashboards, organizados por frente, que acompanham uma operação industrial de ponta a ponta — da matéria-prima que entra até o produto que sai, passando por produção, eficiência, estoque e custo — e também a contabilidade, as despesas e a gestão de tarefas. Cada frente responde uma pergunta de negócio e é usada por quem decide sobre ela.",
+    en: "More than 60 dashboards, organized by area, that follow an industrial operation end to end — from the raw material that comes in to the product that goes out, through production, efficiency, inventory and cost — plus accounting, expenses and task management. Each area answers a business question and is used by whoever decides on it.",
   } satisfies Text,
   stack: ["Power BI", "DAX", "Power Query (M)", "BigQuery", "Modelagem dimensional", "PBIP / TMDL"],
+  telas: [
+    { arquivo: "/bi/controle-geral.webp", frente: "visao-geral", titulo: { pt: "Controle geral da fábrica", en: "Plant control panel" },
+      legenda: { pt: "Entradas, saídas, quebras e saldo; inventário contado × estoque virtual; balanço de cada etapa (lavação e extrusão).", en: "Inflows, outflows, losses and balance; counted inventory × virtual stock; balance per stage (washing and extrusion)." } },
+    { arquivo: "/bi/oee.webp", frente: "oee", titulo: { pt: "OEE da extrusão", en: "Extrusion OEE" },
+      legenda: { pt: "Disponibilidade, performance e qualidade contra a meta, com o OEE diário e mensal.", en: "Availability, performance and quality against target, with daily and monthly OEE." } },
+    { arquivo: "/bi/producao.webp", frente: "producao", titulo: { pt: "Produção da extrusão", en: "Extrusion production" },
+      legenda: { pt: "Produção por produto, por turno e por dia, produto acabado × resíduo, e os fatores do OEE lote a lote.", en: "Output by product, shift and day, finished product × scrap, and OEE factors batch by batch." } },
+    { arquivo: "/bi/estoque-mp.webp", frente: "estoques", titulo: { pt: "Estoque de matéria-prima", en: "Raw material inventory" },
+      legenda: { pt: "Saldo por produto e por setor de movimentação, com o sinal resolvido na carga.", en: "Balance by product and by movement sector, with the sign resolved at load time." } },
+    { arquivo: "/bi/ativos.webp", frente: "financeiro", titulo: { pt: "Detalhamento dos ativos", en: "Assets breakdown" },
+      legenda: { pt: "Balanço em hierarquia de contas, com saldo anterior, débito, crédito e evolução mensal.", en: "Balance sheet in account hierarchy, with opening balance, debit, credit and monthly trend." } },
+    { arquivo: "/bi/despesas.webp", frente: "financeiro", titulo: { pt: "Despesas gerais", en: "General expenses" },
+      legenda: { pt: "Despesa total e despesa sobre faturamento líquido contra a meta, aberta por grupo e conta, mês a mês.", en: "Total expense and expense over net revenue against target, broken down by group and account, month by month." } },
+    { arquivo: "/bi/tarefas.webp", frente: "tarefas", titulo: { pt: "Painel de tarefas", en: "Task dashboard" },
+      legenda: { pt: "Volume, atraso e entregáveis por status, setor, data e pessoa — base para o painel em HTML que o substituiu.", en: "Volume, delays and deliverables by status, sector, date and person — the basis for the HTML dashboard that replaced it." } },
+  ] as Tela[],
   frentes: [
     {
       id: "visao-geral",
@@ -106,6 +127,26 @@ export const bi = {
         { pt: "Do produto acabado até a matéria-prima de origem", en: "From finished product back to the source raw material" },
         { pt: "Rendimento por etapa", en: "Yield per stage" },
         { pt: "Tempo de atravessamento entre etapas", en: "Throughput time between stages" },
+      ],
+    },
+    {
+      id: "financeiro",
+      nome: { pt: "Contabilidade e financeiro", en: "Accounting and finance" },
+      pergunta: { pt: "Como está o balanço, e onde a despesa pesa?", en: "How does the balance sheet look, and where do expenses weigh?" },
+      mostra: [
+        { pt: "Balanço em hierarquia de contas, com débito, crédito e saldo", en: "Balance sheet in account hierarchy, with debit, credit and balance" },
+        { pt: "Despesa sobre faturamento líquido contra a meta", en: "Expense over net revenue against target" },
+        { pt: "Abertura por grupo e conta, mês a mês", en: "Breakdown by group and account, month by month" },
+      ],
+    },
+    {
+      id: "tarefas",
+      nome: { pt: "Gestão de tarefas", en: "Task management" },
+      pergunta: { pt: "O que está atrasado, e com quem?", en: "What is late, and with whom?" },
+      mostra: [
+        { pt: "Volume por status, setor e data de criação", en: "Volume by status, sector and creation date" },
+        { pt: "Atrasos e entregáveis concluídos com evidência", en: "Delays and deliverables completed with evidence" },
+        { pt: "Ranking de quem cria e de quem executa", en: "Ranking of who creates and who executes" },
       ],
     },
   ] as Frente[],
