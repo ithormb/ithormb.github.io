@@ -1,8 +1,9 @@
-import { hub } from "@/content/hub";
+import { site } from "@/content/site";
 import { t, type Locale } from "@/lib/i18n";
 import { Band, SectionHeader } from "./SectionHeader";
 
-// As garantias do hub, trazidas para a home: é o que o recrutador lê como governança de IA.
+// Quem eu sou no trabalho: cada princípio junta o lado humano e o técnico.
+// As garantias técnicas do hub continuam na página /hub.
 export function HowIWork({ locale }: { locale: Locale }) {
   return (
     <Band id="como-trabalho">
@@ -12,11 +13,11 @@ export function HowIWork({ locale }: { locale: Locale }) {
           <p className="mt-6 leading-relaxed">{t("how_lead", locale)}</p>
         </div>
         <ol className="grid gap-4 sm:grid-cols-2">
-          {hub.garantias.map((g, i) => (
+          {site.principios.map((g, i) => (
             <li key={g.titulo.pt} className="rounded-2xl border border-rule bg-surface p-5 shadow-[0_8px_24px_-18px_rgba(23,18,14,0.3)]">
               <span className="font-display text-3xl font-semibold text-accent">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-2 text-lg font-semibold leading-snug text-ink">{g.titulo[locale]}</h3>
-              <p className="mt-2 text-sm leading-relaxed">{g[locale]}</p>
+              <p className="mt-2 text-sm leading-relaxed">{g.texto[locale]}</p>
             </li>
           ))}
         </ol>

@@ -20,6 +20,11 @@ export function Education({ locale }: { locale: Locale }) {
             <h3 className="mt-3 font-semibold leading-snug text-ink">{f.titulo[locale]}</h3>
             <p className="text-sm text-ink-2">{f.onde[locale]}</p>
             {f.nota && <p className="mt-3 text-sm leading-relaxed text-muted">{f.nota[locale]}</p>}
+            {f.link && (
+              <a href={f.link} target="_blank" rel="noreferrer noopener" className="mt-3 inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-accent-ink hover:underline active:scale-95">
+                {t("read_paper", locale)} <span aria-hidden="true">↗</span>
+              </a>
+            )}
           </li>
         ))}
       </ul>
