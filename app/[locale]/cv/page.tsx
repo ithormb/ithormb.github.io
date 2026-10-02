@@ -25,7 +25,7 @@ function Titulo({ children }: { children: React.ReactNode }) {
 export default async function CV({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const l: Locale = isLocale(locale) ? locale : "pt";
-  const projetos = site.projetos.filter((p) => !p.estudo);
+  const projetos = site.projetos.filter((p) => !p.estudo && !p.noCv);
   return (
     <>
       <style>{`@page { size: A4; margin: 0 } html, body { background: #fff !important; }`}</style>

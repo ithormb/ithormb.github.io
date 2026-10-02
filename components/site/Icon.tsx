@@ -42,6 +42,8 @@ const MONO: Record<string, { txt: string; cor: string }> = {
   Webhooks: { txt: "WH", cor: "#c2410c" },
   "SQL Server": { txt: "SQL", cor: "#b91c1c" },
   ETL: { txt: "ETL", cor: "#6d28d9" },
+  DAX: { txt: "DAX", cor: "#b45309" },
+  "Power Query": { txt: "PQ", cor: "#a16207" },
 };
 
 export function TechIcon({ nome, size = 20 }: { nome: string; size?: number }) {

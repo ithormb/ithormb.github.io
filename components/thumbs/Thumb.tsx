@@ -168,6 +168,76 @@ function Forecast() {
   );
 }
 
+function Oee() {
+  const arco = (cx: number, frac: number, cor: string) => {
+    const r = 22, a0 = Math.PI, a1 = Math.PI * (1 - frac);
+    const x0 = cx + r * Math.cos(a0), y0 = 62 + r * Math.sin(a0) * -1;
+    const x1 = cx + r * Math.cos(a1), y1 = 62 - r * Math.sin(a1);
+    return (
+      <g>
+        <path d={`M${cx - r} 62 A${r} ${r} 0 0 1 ${cx + r} 62`} fill="none" stroke={line} strokeWidth="6" strokeLinecap="round" />
+        <path d={`M${x0} ${y0} A${r} ${r} 0 0 1 ${x1} ${y1}`} fill="none" stroke={cor} strokeWidth="6" strokeLinecap="round" />
+      </g>
+    );
+  };
+  return (
+    <Frame label="Ilustração: medidores de OEE por fator">
+      {arco(40, 0.82, "var(--c1)")}
+      {arco(100, 0.68, "var(--c2)")}
+      {arco(160, 0.9, "var(--accent)")}
+      {[40, 100, 160].map((x) => (
+        <rect key={x} x={x - 12} y="70" width="24" height="4" rx="2" fill={soft} opacity="0.6" />
+      ))}
+      {[18, 26, 22, 34, 30, 38, 28, 40, 36, 44].map((h, i) => (
+        <rect key={i} x={14 + i * 17.5} y={112 - h / 1.6} width="11" height={h / 1.6} rx="1.5" fill="var(--c1)" opacity={0.3 + i * 0.06} />
+      ))}
+    </Frame>
+  );
+}
+
+function App() {
+  return (
+    <Frame label="Ilustração: app de apontamento no celular">
+      <rect x="70" y="8" width="60" height="104" rx="9" fill="#101824" stroke={line} strokeWidth="1.5" />
+      <rect x="92" y="13" width="16" height="3" rx="1.5" fill={soft} />
+      <rect x="78" y="24" width="30" height="5" rx="2" fill="var(--accent)" />
+      {[36, 52, 68].map((y, i) => (
+        <g key={y}>
+          <rect x="78" y={y} width="20" height="3" rx="1.5" fill={soft} opacity="0.7" />
+          <rect x="78" y={y + 5} width="44" height="7" rx="2" fill="none" stroke={line} />
+          <rect x="81" y={y + 7.5} width={[18, 26, 12][i]} height="2.5" rx="1" fill="var(--ink)" opacity="0.6" />
+        </g>
+      ))}
+      <rect x="78" y="90" width="44" height="10" rx="3" fill="var(--c1)" />
+      <path d="M144 44 h28 M144 60 h20 M144 76 h24" stroke={soft} strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+      <path d="M26 58 l10 0 M30 52 l6 6 l-6 6" fill="none" stroke="var(--c2)" strokeWidth="2" />
+      <rect x="14" y="44" width="10" height="28" rx="2" fill="var(--c2)" opacity="0.5" />
+    </Frame>
+  );
+}
+
+function Kanban() {
+  const col = (x: number, n: number, cor: string) => (
+    <g>
+      <rect x={x} y="12" width="56" height="7" rx="2" fill={cor} opacity="0.85" />
+      {Array.from({ length: n }).map((_, i) => (
+        <g key={i} transform={`translate(${x} ${26 + i * 22})`}>
+          <rect width="56" height="18" rx="3" fill="#101824" stroke={line} />
+          <rect x="5" y="5" width={[38, 30, 44, 26][i % 4]} height="3" rx="1.5" fill="var(--ink)" opacity="0.6" />
+          <rect x="5" y="11" width="14" height="3" rx="1.5" fill={cor} opacity="0.7" />
+        </g>
+      ))}
+    </g>
+  );
+  return (
+    <Frame label="Ilustração: quadro de tarefas por etapa">
+      {col(8, 4, "var(--c2)")}
+      {col(72, 3, "var(--accent)")}
+      {col(136, 2, "var(--c1)")}
+    </Frame>
+  );
+}
+
 export function Thumb({ kind }: { kind: Kind }) {
   switch (kind) {
     case "hub": return <Hub />;
@@ -176,5 +246,8 @@ export function Thumb({ kind }: { kind: Kind }) {
     case "clusters": return <Clusters />;
     case "bi": return <Bi />;
     case "forecast": return <Forecast />;
+    case "oee": return <Oee />;
+    case "app": return <App />;
+    case "kanban": return <Kanban />;
   }
 }

@@ -2,7 +2,7 @@ import type { Text } from "@/lib/i18n";
 import { numeros } from "./automacoes";
 import { hub } from "./hub";
 
-export type Thumb = "hub" | "whatsapp" | "n8n" | "clusters" | "bi" | "forecast";
+export type Thumb = "hub" | "whatsapp" | "n8n" | "clusters" | "bi" | "forecast" | "oee" | "app" | "kanban";
 
 export type Projeto = {
   titulo: Text;
@@ -12,8 +12,9 @@ export type Projeto = {
   tags: string[];
   ano: string;
   thumb: Thumb;
-  href: string; // relativo ao idioma (começa com /) ou URL externa
+  href?: string; // relativo ao idioma (começa com /) ou URL externa; sem href, o card não é link
   estudo?: boolean;
+  noCv?: boolean; // fica fora do CV de uma página
 };
 
 export type Experiencia = {
@@ -100,7 +101,7 @@ export const site = {
     {
       grupo: { pt: "Dados e BI", en: "Data and BI" },
       nota: { pt: "Da análise ao painel de decisão", en: "From analysis to decision dashboards" },
-      itens: ["SQL", "Python", "Pandas", "scikit-learn", "Power BI", "Microsoft Fabric", "Looker"],
+      itens: ["SQL", "Python", "Pandas", "scikit-learn", "Power BI", "DAX", "Power Query", "Microsoft Fabric", "Looker"],
     },
     {
       grupo: { pt: "Engenharia de dados e nuvem", en: "Data engineering and cloud" },
@@ -234,19 +235,49 @@ export const site = {
       href: "/hub/",
     },
     {
-      titulo: { pt: "Agente de tarefas no WhatsApp", en: "Task agent on WhatsApp" },
+      titulo: { pt: "Dashboards industriais em Power BI", en: "Industrial dashboards in Power BI" },
       descricao: {
-        pt: "Líderes de fábrica não abrem o gerenciador de tarefas no chão de fábrica. Um agente no WhatsApp entende texto e áudio e cria, edita e conclui tarefas reais — com eco do que entendeu antes de gravar, porque transcrição alucina.",
-        en: "Plant leaders don't open the task manager on the factory floor. A WhatsApp agent understands text and voice and creates, edits and completes real tasks — echoing what it understood before writing, because transcription hallucinates.",
+        pt: "Mais de 60 dashboards organizados por frente — visão geral, produção, OEE, paradas, estoques, logística, custos, controle de lote e rastreabilidade —, sobre fonte única no BigQuery, com modelagem dimensional, DAX e projeto versionado em PBIP/TMDL.",
+        en: "More than 60 dashboards organized by area — overview, production, OEE, downtime, inventory, logistics, costs, batch control and traceability — on a single BigQuery source, with dimensional modelling, DAX and PBIP/TMDL version-controlled projects.",
       },
-      resultado: {
-        pt: "Concluir uma tarefa virou foto + legenda pelo celular, com a evidência que a régua da empresa exige. Prazo e responsável são lidos em código e conferidos contra a lista real; nome que não existe vira pergunta, nunca tarefa errada.",
-        en: "Completing a task became photo + caption from the phone, with the evidence the company's rules require. Deadline and owner are parsed in code and checked against the real list; an unknown name becomes a question, never a wrong task.",
+      tags: ["Power BI", "DAX", "Power Query", "BigQuery"],
+      ano: "2026",
+      thumb: "oee",
+      href: "/bi/",
+    },
+    {
+      titulo: { pt: "App de apontamento de chão de fábrica", en: "Shop-floor data entry app" },
+      descricao: {
+        pt: "A fábrica apontava produção, logística e ensaios em formulários soltos. Construímos um app próprio com módulos de produção, manutenção e qualidade, que grava direto no BigQuery e virou a fonte única dos dashboards e dos agentes de IA.",
+        en: "The plant logged production, logistics and lab tests in scattered forms. We built our own app with production, maintenance and quality modules, writing straight to BigQuery — now the single source for the dashboards and the AI agents.",
+      },
+      tags: ["BigQuery", "Google Cloud", "Modelagem de dados"],
+      ano: "2026",
+      thumb: "app",
+      noCv: true,
+    },
+    {
+      titulo: { pt: "Plataforma de gestão de tarefas", en: "Task management platform" },
+      descricao: {
+        pt: "Substituímos o planner em Power Apps por uma plataforma própria, com o histórico importado sem perda. Os agentes de IA do hub criam tarefas nela sozinhos, com dono, prazo e evidência; o painel de acompanhamento, que era Power BI, foi refeito em HTML dentro do hub.",
+        en: "We replaced the Power Apps planner with our own platform, importing the history with no loss. The hub's AI agents create tasks in it on their own, with owner, deadline and evidence; the tracking dashboard, formerly Power BI, was rebuilt in HTML inside the hub.",
+      },
+      tags: ["PostgreSQL", "APIs REST", "n8n"],
+      ano: "2026",
+      thumb: "kanban",
+      noCv: true,
+    },
+    {
+      titulo: { pt: "IA no WhatsApp", en: "AI on WhatsApp" },
+      descricao: {
+        pt: "Um número só para a empresa: entende texto e áudio, descobre qual agente responde, respeita a permissão de cada pessoa e dispara as automações que ela pode usar. Em piloto, um agente que cria, edita e conclui tarefas reais pela conversa, com eco do que entendeu antes de gravar — porque transcrição alucina.",
+        en: "One number for the whole company: understands text and voice, finds which agent should answer, respects each person's permissions and triggers the automations they may use. In pilot, an agent that creates, edits and completes real tasks through the chat, echoing what it understood before writing — because transcription hallucinates.",
       },
       tags: ["LLMs", "Whisper", "WhatsApp", "n8n"],
       ano: "2026",
       thumb: "whatsapp",
       href: "/hub/",
+      noCv: true,
     },
     {
       titulo: { pt: `${numeros.workflows} automações em n8n`, en: `${numeros.workflows} n8n automations` },
