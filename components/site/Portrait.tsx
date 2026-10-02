@@ -6,7 +6,7 @@ import { t, type Locale } from "@/lib/i18n";
 import { StatIcon } from "./Icon";
 
 // Selo flutuante com um número que vende: ícone laranja, número grande, rótulo curto.
-function Chip({ valor, rotulo, icone, className, delay }: { valor: string; rotulo: string; icone: "chart" | "bot" | "flow"; className: string; delay: string }) {
+function Chip({ valor, rotulo, icone, className, delay }: { valor: string; rotulo: string; icone: "chart" | "bot" | "flow" | "calendar"; className: string; delay: string }) {
   return (
     <div
       className={`float absolute z-20 flex items-center gap-2 rounded-xl border border-rule bg-surface px-2.5 py-2 shadow-[0_18px_40px_-16px_rgba(23,18,14,0.35)] sm:gap-3 sm:rounded-2xl sm:px-4 sm:py-3 ${className}`}
@@ -40,9 +40,10 @@ export function Portrait({ locale }: { locale: Locale }) {
       ) : (
         <div className="absolute inset-x-[8%] bottom-0 top-[14%] z-10 flex items-center justify-center rounded-t-full text-7xl font-bold text-white/90">TB</div>
       )}
-      <Chip valor="8+" rotulo={t("chip_years", locale)} icone="chart" className="-left-10 top-[28%] sm:-left-10" delay="0s" />
+      <Chip valor="8+" rotulo={t("chip_years", locale)} icone="calendar" className="-left-10 top-[28%] sm:-left-10" delay="0s" />
       <Chip valor={`${Math.floor(numeros.workflows / 10) * 10}+`} rotulo={t("chip_auto", locale)} icone="flow" className="-right-10 top-[52%] sm:-right-10" delay="1.2s" />
       <Chip valor={String(hub.agentes.length)} rotulo={t("chip_agents", locale)} icone="bot" className="-left-8 bottom-[6%] sm:-left-6" delay="2.4s" />
+      <Chip valor="50+" rotulo={t("chip_bi", locale)} icone="chart" className="-right-10 top-[74%] sm:-right-12" delay="3.6s" />
     </div>
   );
 }

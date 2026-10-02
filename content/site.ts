@@ -77,11 +77,11 @@ export const site = {
   } satisfies Text,
 
   stats: [
-    { valor: "8+", rotulo: { pt: "anos com dados", en: "years in data" }, icone: "chart" },
+    { valor: "8+", rotulo: { pt: "anos com dados", en: "years in data" }, icone: "calendar" },
     { valor: String(hub.agentes.length), rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" },
     { valor: String(numeros.workflows), rotulo: { pt: "workflows no n8n", en: "n8n workflows" }, icone: "flow" },
-    { valor: "5", rotulo: { pt: "fábricas atendidas", en: "plants served" }, icone: "factory" },
-  ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" }[],
+    { valor: "50+", rotulo: { pt: "painéis de BI em Power BI e Looker Studio", en: "BI dashboards in Power BI and Looker Studio" }, icone: "chart" },
+  ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" | "calendar" }[],
 
   // Do mais próximo da IA ao mais próximo do dado bruto.
   tecnologias: [
@@ -108,7 +108,7 @@ export const site = {
     {
       grupo: { pt: "Engenharia de dados e nuvem", en: "Data engineering and cloud" },
       nota: { pt: "Pipelines, bancos e plataforma", en: "Pipelines, databases and platform" },
-      itens: ["BigQuery", "Google Cloud", "PostgreSQL", "SQL Server", "ETL"],
+      itens: ["BigQuery", "dbt", "Google Cloud", "PostgreSQL", "SQL Server", "ETL"],
     },
    ] as { grupo: Text; nota: Text; itens: string[] }[],
 
@@ -270,12 +270,12 @@ export const site = {
       href: "/hub/",
     },
     {
-      titulo: { pt: "Dashboards industriais em Power BI", en: "Industrial dashboards in Power BI" },
+      titulo: { pt: "Painéis de BI e pipeline de dados", en: "BI dashboards and data pipeline" },
       descricao: {
-        pt: "Mais de 60 dashboards organizados por frente — visão geral, produção, OEE, paradas, estoques, logística, custos, controle de lote, rastreabilidade, contabilidade e tarefas —, sobre fonte única no BigQuery, com modelagem dimensional, DAX e projeto versionado em PBIP/TMDL.",
-        en: "More than 60 dashboards organized by area — overview, production, OEE, downtime, inventory, logistics, costs, batch control and traceability — on a single BigQuery source, with dimensional modelling, DAX and PBIP/TMDL version-controlled projects.",
+        pt: "Mais de 50 painéis de BI em Power BI e Looker Studio ao longo da carreira. Os industriais cobrem visão geral, produção, OEE, paradas, estoques, logística, custos, controle de lote, rastreabilidade, contabilidade e tarefas, sobre um pipeline com extração, camada bruta, dbt, testes e modelo dimensional.",
+        en: "More than 50 BI dashboards in Power BI and Looker Studio throughout my career. The industrial ones cover overview, production, OEE, downtime, inventory, logistics, costs, batch control, traceability, accounting and tasks, on a pipeline with extraction, a raw layer, dbt, tests and a dimensional model.",
       },
-      tags: ["Power BI", "DAX", "Power Query", "BigQuery"],
+      tags: ["Power BI", "Looker", "dbt", "DAX", "BigQuery"],
       ano: "2026",
       thumb: "oee",
       imagem: "/bi/controle-geral.webp",

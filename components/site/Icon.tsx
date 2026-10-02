@@ -43,6 +43,7 @@ const MONO: Record<string, { txt: string; cor: string }> = {
   "SQL Server": { txt: "SQL", cor: "#b91c1c" },
   ETL: { txt: "ETL", cor: "#6d28d9" },
   DAX: { txt: "DAX", cor: "#b45309" },
+  dbt: { txt: "dbt", cor: "#ff694b" },
   "Power Query": { txt: "PQ", cor: "#a16207" },
 };
 
@@ -88,7 +89,7 @@ export function TechBadge({ nome }: { nome: string }) {
 }
 
 // Ícones de traço para os cards de números.
-export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" }) {
+export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" | "calendar" }) {
   const p = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
   switch (kind) {
     case "chart":
@@ -97,6 +98,8 @@ export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" 
       return <svg {...p}><rect x="4" y="8" width="16" height="12" rx="3" /><path d="M12 4v4M9 14h.01M15 14h.01" /></svg>;
     case "flow":
       return <svg {...p}><rect x="2" y="3" width="7" height="6" rx="1.5" /><rect x="15" y="3" width="7" height="6" rx="1.5" /><rect x="8.5" y="15" width="7" height="6" rx="1.5" /><path d="M5.5 9v2.5a1.5 1.5 0 0 0 1.5 1.5h10a1.5 1.5 0 0 0 1.5-1.5V9M12 13v2" /></svg>;
+    case "calendar":
+      return <svg {...p}><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M3 10h18M8 3v4M16 3v4" /></svg>;
     case "factory":
       return <svg {...p}><path d="M2 20V9l6 4V9l6 4V5h4l2 15z" /><path d="M2 20h20" /></svg>;
   }
