@@ -52,6 +52,43 @@ export default async function BiPage({ params }: { params: Promise<{ locale: str
         </ul>
       </SubSection>
 
+      <SubSection titulo={t("bi_looker", l)}>
+        <figure>
+          <a href={withBase(bi.looker.imagem)} target="_blank" rel="noopener" className="block overflow-hidden rounded-xl border border-rule shadow-[0_18px_40px_-24px_rgba(23,18,14,0.45)] transition hover:border-accent/50">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={withBase(bi.looker.imagem)} alt={bi.looker.titulo[l]} width={1227} height={687} loading="lazy" className="block h-auto w-full" />
+          </a>
+          <figcaption className="mt-2 text-xs text-muted">{bi.looker.fonte[l]}</figcaption>
+        </figure>
+        <h3 className="mt-5 text-lg font-semibold text-ink">{bi.looker.titulo[l]}</h3>
+        <p className="mt-2 text-sm leading-relaxed">{bi.looker.descricao[l]}</p>
+        <ul className="mt-3 space-y-1.5 text-sm">
+          {bi.looker.mostra.map((m) => (
+            <li key={m.pt} className="flex gap-2">
+              <span aria-hidden="true" className="mt-[0.45rem] size-1.5 shrink-0 rounded-full bg-accent" />
+              {m[l]}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-xs font-bold uppercase tracking-widest text-accent-ink">{t("bi_pipeline_short", l)}</p>
+        <ol className="mt-2 flex flex-wrap items-center gap-y-2 text-sm">
+          {bi.looker.etapas.map((e, i) => (
+            <li key={e} className="flex items-center">
+              {i > 0 && <span aria-hidden="true" className="mx-2 text-accent">→</span>}
+              <span className="rounded-md border border-rule bg-surface px-2.5 py-1 text-ink">{e}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <a href={bi.looker.relatorio} target="_blank" rel="noreferrer noopener" className="inline-flex h-11 items-center gap-2 rounded-full bg-accent px-5 text-sm font-semibold text-white transition hover:bg-accent-2 active:scale-95">
+            {t("bi_open_report", l)} <span aria-hidden="true">↗</span>
+          </a>
+          <a href={bi.looker.codigo} target="_blank" rel="noreferrer noopener" className="inline-flex h-11 items-center gap-2 rounded-full border border-ink/20 bg-surface px-5 text-sm font-semibold text-ink transition hover:border-ink active:scale-95">
+            {t("bi_see_code", l)} <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </SubSection>
+
       <SubSection titulo={t("bi_fronts", l)}>
         <ol className="grid gap-4 sm:grid-cols-2">
           {bi.frentes.map((f, i) => (

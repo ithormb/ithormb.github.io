@@ -150,6 +150,25 @@ export const bi = {
       ],
     },
   ] as Frente[],
+  // Projeto de estudo em Looker Studio, sobre dado PÚBLICO (Olist, Kaggle): aqui vai o print real.
+  looker: {
+    titulo: { pt: "E-commerce — visão geral de performance", en: "E-commerce — performance overview" },
+    imagem: "/bi/looker-ecommerce.webp",
+    fonte: { pt: "Projeto de estudo · dados públicos de e-commerce brasileiro (Olist, via Kaggle)", en: "Study project · public Brazilian e-commerce data (Olist, via Kaggle)" },
+    descricao: {
+      pt: "O mesmo painel construído em Looker Studio e em Power BI, sobre um pipeline automatizado, para comparar as duas ferramentas na prática: facilidade de uso, desempenho, atualização automática, personalização visual, integração e custo.",
+      en: "The same dashboard built in Looker Studio and in Power BI, on an automated pipeline, to compare both tools in practice: ease of use, performance, automatic refresh, visual customization, integration and cost.",
+    },
+    mostra: [
+      { pt: "Receita, pedidos, ticket médio, pedidos em atraso e avaliação dos clientes", en: "Revenue, orders, average ticket, late orders and customer rating" },
+      { pt: "Série temporal da receita e detalhamento por categoria", en: "Revenue time series and breakdown by category" },
+      { pt: "Tipo de pagamento, status dos pedidos e distribuição geográfica em mapa", en: "Payment type, order status and geographic distribution on a map" },
+    ],
+    etapas: ["API do Kaggle", "Python (ETL no Colab)", "BigQuery + views SQL", "Looker Studio"],
+    relatorio: "https://lookerstudio.google.com/reporting/8a85399b-7788-4bd3-959e-3e93ea45def2",
+    codigo: "https://github.com/ithormb/Projeto_Ecommerce_PowerBI_vs_LookerStudio",
+  },
+
   // Do dado bruto ao dashboard: as seis etapas do pipeline, com o que faço em cada uma.
   pipeline: [
     {
