@@ -30,6 +30,7 @@ export type Experiencia = {
 
 export type Formacao = {
   logo?: string;
+  link?: string;
   periodo: Text;
   titulo: Text;
   onde: Text;
@@ -38,7 +39,7 @@ export type Formacao = {
 
 export const site = {
   name: "Thomas Barbosa",
-  role: { pt: "Especialista de Dados · IA & Automação", en: "Data Specialist · AI & Automation" } satisfies Text,
+  role: { pt: "Especialista em Dados, IA & Automações", en: "Data, AI & Automation Specialist" } satisfies Text,
   tagline: {
     pt: "Lidero o time de Dados e IA do Grupo Raposo Plásticos: 130+ automações e 10 agentes de IA em produção, do ERP ao painel de decisão. Antes, pricing e inteligência de mercado na Solar Coca-Cola e BI na Arco Educação.",
     en: "I lead the Data & AI team at Grupo Raposo Plásticos: 130+ automations and 10 AI agents in production, from the ERP to the decision dashboard. Before that, pricing and market intelligence at Solar Coca-Cola and BI at Arco Educação.",
@@ -109,6 +110,38 @@ export const site = {
       itens: ["BigQuery", "Google Cloud", "PostgreSQL", "SQL Server", "ETL"],
     },
    ] as { grupo: Text; nota: Text; itens: string[] }[],
+
+  // Como trabalho: quem eu sou, com o viés técnico e o humano em cada princípio.
+  principios: [
+    {
+      titulo: { pt: "Começo pela dor, não pela ferramenta", en: "I start with the pain, not the tool" },
+      texto: {
+        pt: "Antes de abrir o editor, converso com quem vive o problema no dia a dia. A melhor solução costuma ser a mais simples que resolve a dor de verdade — não a mais sofisticada.",
+        en: "Before opening the editor, I talk to whoever lives the problem every day. The best solution is usually the simplest one that solves the real pain — not the most sophisticated.",
+      },
+    },
+    {
+      titulo: { pt: "Movido a desafio", en: "Driven by challenge" },
+      texto: {
+        pt: "Problema difícil não me afasta, me prende. Resiliência, para mim, é insistir até funcionar em produção, aprender com cada erro e registrar o que não deu certo para ninguém repetir.",
+        en: "A hard problem doesn't push me away, it hooks me. Resilience, to me, is pushing until it works in production, learning from every mistake and writing down what didn't work so nobody repeats it.",
+      },
+    },
+    {
+      titulo: { pt: "Dado em que se pode confiar", en: "Data you can trust" },
+      texto: {
+        pt: "Todo número sai com data e origem, montado em código e conferido contra a fonte. Quem decide precisa saber de onde veio o dado antes de agir sobre ele.",
+        en: "Every number comes with a date and a source, built in code and checked against the origin. Whoever decides needs to know where the data came from before acting on it.",
+      },
+    },
+    {
+      titulo: { pt: "IA que apoia, pessoa que decide", en: "AI supports, people decide" },
+      texto: {
+        pt: "A IA sugere, organiza e acelera; a decisão e a confirmação ficam com quem responde por ela. Tecnologia boa devolve tempo às pessoas sem tirar delas o controle.",
+        en: "AI suggests, organizes and speeds things up; the decision and the confirmation stay with whoever is accountable. Good technology gives people time back without taking control away from them.",
+      },
+    },
+  ] as { titulo: Text; texto: Text }[],
 
   sobre: [
     {
@@ -199,11 +232,12 @@ export const site = {
     },
     {
       periodo: { pt: "2025", en: "2025" },
-      titulo: { pt: "Artigo aceito no SBPO 2025", en: "Paper accepted at SBPO 2025" },
+      titulo: { pt: "Artigo publicado no SBPO 2025", en: "Paper published at SBPO 2025" },
+      link: "https://proceedings.science/sbpo/sbpo-2025/trabalhos/analise-de-segmentacao-de-varejo-integrando-geovisualizacao-e-insights-estrategi?lang=pt-br",
       onde: { pt: "LVII Simpósio Brasileiro de Pesquisa Operacional", en: "57th Brazilian Symposium on Operations Research" },
       nota: {
-        pt: "Segmentação de varejo integrando geovisualização aos modelos RFM e K-Means. Coautor.",
-        en: "Retail segmentation integrating geovisualization with RFM and K-Means models. Co-author.",
+        pt: "Área AS&DS — Análise e Ciência de Dados. Segmentação de varejo integrando geovisualização aos modelos RFM e K-Means. Coautor.",
+        en: "AS&DS track — Data Analysis and Data Science. Retail segmentation integrating geovisualization with RFM and K-Means models. Co-author.",
       },
     },
     {

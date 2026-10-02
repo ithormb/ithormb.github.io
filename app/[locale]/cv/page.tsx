@@ -112,7 +112,7 @@ export default async function CV({ params }: { params: Promise<{ locale: string 
           </section>
           <section className="break-inside-avoid">
             <Titulo>{L.gov[l]}</Titulo>
-            <p>{hub.garantias.map((g) => g.titulo[l]).join(" · ")}.</p>
+            <p>{site.principios.map((g) => g.titulo[l]).join(" · ")}.</p>
           </section>
         </div>
       </main>
