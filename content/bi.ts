@@ -16,12 +16,12 @@ export type Frente = {
 export type Tela = { arquivo: string; titulo: Text; frente: string; legenda: Text };
 
 export const bi = {
-  nome: { pt: "Dashboards industriais em Power BI", en: "Industrial dashboards in Power BI" } satisfies Text,
+  nome: { pt: "Painéis de BI e pipeline de dados", en: "BI dashboards and data pipeline" } satisfies Text,
   resumo: {
-    pt: "Mais de 60 dashboards, organizados por frente, que acompanham uma operação industrial de ponta a ponta — da matéria-prima que entra até o produto que sai, passando por produção, eficiência, estoque e custo — e também a contabilidade, as despesas e a gestão de tarefas. Cada frente responde uma pergunta de negócio e é usada por quem decide sobre ela.",
-    en: "More than 60 dashboards, organized by area, that follow an industrial operation end to end — from the raw material that comes in to the product that goes out, through production, efficiency, inventory and cost — plus accounting, expenses and task management. Each area answers a business question and is used by whoever decides on it.",
+    pt: "Mais de 50 painéis de BI construídos em Power BI e Looker Studio ao longo da carreira — de pricing e inteligência de mercado a produção industrial. Nesta página, os painéis industriais: dashboards organizados por frente que acompanham a operação de ponta a ponta, da matéria-prima que entra ao produto que sai, além da contabilidade, das despesas e da gestão de tarefas.",
+    en: "More than 50 BI dashboards built in Power BI and Looker Studio throughout my career — from pricing and market intelligence to industrial production. This page shows the industrial ones: dashboards organized by area that follow operations end to end, from the raw material that comes in to the product that goes out, plus accounting, expenses and task management.",
   } satisfies Text,
-  stack: ["Power BI", "DAX", "Power Query (M)", "BigQuery", "Modelagem dimensional", "PBIP / TMDL"],
+  stack: ["SQL", "Python", "dbt", "BigQuery", "Power BI", "Looker Studio", "DAX", "Power Query (M)", "Modelagem dimensional", "PBIP / TMDL", "Git"],
   telas: [
     { arquivo: "/bi/controle-geral.webp", frente: "visao-geral", titulo: { pt: "Balanço da planta", en: "Plant balance" },
       legenda: { pt: "Recebido, expedido, refugo e saldo; inventário contado × estoque calculado; balanço de massa de cada etapa do processo.", en: "Received, shipped, scrap and balance; counted inventory × calculated stock; mass balance for each process stage." } },
@@ -150,34 +150,73 @@ export const bi = {
       ],
     },
   ] as Frente[],
-  comoConstruo: [
+  // Do dado bruto ao dashboard: as seis etapas do pipeline, com o que faço em cada uma.
+  pipeline: [
     {
-      titulo: { pt: "Fonte única no BigQuery", en: "Single source on BigQuery" },
-      texto: {
-        pt: "O dado nasce no apontamento do chão de fábrica e chega ao painel sem planilha no meio. Regra de negócio fica em view versionada, não escondida em cada relatório.",
-        en: "Data is born on the shop-floor entry and reaches the dashboard with no spreadsheet in between. Business rules live in versioned views, not hidden in each report.",
-      },
+      id: "extracao",
+      titulo: { pt: "Extração", en: "Extraction" },
+      lema: { pt: "Cada fonte do jeito que ela aguenta", en: "Each source the way it can handle" },
+      praticas: [
+        { pt: "ERP lido só com SELECT e usuário somente leitura, sem travar a operação", en: "ERP read with SELECT only and a read-only user, without locking operations" },
+        { pt: "Extração incremental por data de alteração (watermark), com reprocessamento por janela", en: "Incremental extraction by change date (watermark), with window-based reprocessing" },
+        { pt: "MES, APIs REST e planilhas na mesma esteira, agendada e monitorada", en: "MES, REST APIs and spreadsheets on the same scheduled, monitored track" },
+      ],
+      ferramentas: ["SQL", "Python", "n8n", "APIs REST"],
     },
     {
-      titulo: { pt: "Modelo antes do gráfico", en: "Model before charts" },
-      texto: {
-        pt: "Modelagem dimensional com lote, produto, máquina, turno e calendário como dimensões; medidas DAX organizadas por fator e roteadas pelo tipo de produção.",
-        en: "Dimensional modelling with batch, product, machine, shift and calendar as dimensions; DAX measures organized by factor and routed by production type.",
-      },
+      id: "bruta",
+      titulo: { pt: "Camada bruta", en: "Raw layer" },
+      lema: { pt: "O dado como veio, para sempre reconstruível", en: "Data as it came, always rebuildable" },
+      praticas: [
+        { pt: "Carga sem transformação no BigQuery, com origem e horário de cada carga", en: "Untransformed load into BigQuery, with source and time of every load" },
+        { pt: "Cargas idempotentes: rodar de novo não duplica nada", en: "Idempotent loads: running again duplicates nothing" },
+        { pt: "Fotografia diária do que a fonte não guarda em histórico", en: "Daily snapshot of whatever the source doesn't keep in history" },
+      ],
+      ferramentas: ["BigQuery", "Python", "PostgreSQL"],
     },
     {
-      titulo: { pt: "Painel como código", en: "Dashboards as code" },
-      texto: {
-        pt: "Projetos em PBIP/TMDL: modelo e relatório em texto, versionados, com diferença legível entre uma versão e outra.",
-        en: "PBIP/TMDL projects: model and report as text, versioned, with readable diffs between versions.",
-      },
+      id: "dbt",
+      titulo: { pt: "Transformação em dbt", en: "Transformation in dbt" },
+      lema: { pt: "staging → intermediate → marts", en: "staging → intermediate → marts" },
+      praticas: [
+        { pt: "Staging: tipagem, datas, separador decimal, chaves e sinal de entrada/saída resolvidos uma vez", en: "Staging: types, dates, decimal separator, keys and in/out sign resolved once" },
+        { pt: "Intermediate: regras de negócio — balanço de massa, classificação de parada, custo por lote", en: "Intermediate: business rules — mass balance, downtime classification, cost per batch" },
+        { pt: "Marts por domínio (produção, estoque, custo, financeiro), incrementais, com macros para regra repetida", en: "Marts by domain (production, inventory, cost, finance), incremental, with macros for repeated rules" },
+      ],
+      ferramentas: ["dbt", "SQL", "Jinja", "BigQuery"],
     },
     {
-      titulo: { pt: "Manual com as pendências à vista", en: "A manual with open issues in plain sight" },
-      texto: {
-        pt: "Cada painel tem manual técnico: fontes, modelo, regras, diagnóstico rápido por sintoma e as pendências numeradas. O que não está resolvido está escrito.",
-        en: "Each dashboard has a technical manual: sources, model, rules, quick diagnosis by symptom and numbered open issues. What isn't solved is written down.",
-      },
+      id: "testes",
+      titulo: { pt: "Testes e documentação", en: "Tests and documentation" },
+      lema: { pt: "Nenhum número chega ao painel sem teste", en: "No number reaches the dashboard untested" },
+      praticas: [
+        { pt: "Testes de schema: unique, not_null, relationships e accepted_values", en: "Schema tests: unique, not_null, relationships and accepted_values" },
+        { pt: "Testes de negócio: estoque fecha pelas origens, OEE nunca passa de 100%, a soma das partes bate o total", en: "Business tests: inventory closes by origin, OEE never exceeds 100%, parts add up to the total" },
+        { pt: "Reconciliação contra a fonte, e linhagem e dicionário gerados pelo dbt docs", en: "Reconciliation against the source, with lineage and data dictionary from dbt docs" },
+      ],
+      ferramentas: ["dbt tests", "dbt docs", "SQL"],
     },
-  ],
+    {
+      id: "semantico",
+      titulo: { pt: "Modelo semântico", en: "Semantic model" },
+      lema: { pt: "Star schema antes do gráfico", en: "Star schema before the chart" },
+      praticas: [
+        { pt: "Fatos e dimensões conformadas: calendário, item, lote, máquina, turno, unidade", en: "Conformed facts and dimensions: calendar, item, batch, machine, shift, plant" },
+        { pt: "Power Query só para conectar — a regra mora no dbt, não escondida no relatório", en: "Power Query only to connect — rules live in dbt, not hidden in the report" },
+        { pt: "Medidas DAX por domínio, com variáveis, divisão protegida e relações 1:N", en: "DAX measures by domain, with variables, safe division and 1:N relationships" },
+      ],
+      ferramentas: ["Power BI", "DAX", "Power Query", "Modelagem dimensional"],
+    },
+    {
+      id: "entrega",
+      titulo: { pt: "Entrega e operação", en: "Delivery and operations" },
+      lema: { pt: "Painel tratado como produto", en: "Dashboards treated as products" },
+      praticas: [
+        { pt: "Projeto PBIP/TMDL versionado em Git, com revisão por diferença entre versões", en: "PBIP/TMDL project versioned in Git, reviewed by diff between versions" },
+        { pt: "Atualização agendada, carimbo de última atualização em cada tela e aviso quando a carga falha", en: "Scheduled refresh, last-update stamp on every screen and an alert when a load fails" },
+        { pt: "Manual técnico por painel: fontes, regras, diagnóstico por sintoma e pendências numeradas", en: "Technical manual per dashboard: sources, rules, symptom-based diagnosis and numbered open issues" },
+      ],
+      ferramentas: ["Git", "PBIP / TMDL", "Power BI"],
+    },
+  ] as { id: string; titulo: Text; lema: Text; praticas: Text[]; ferramentas: string[] }[],
 };
