@@ -7,7 +7,7 @@ export type Thumb = "hub" | "whatsapp" | "n8n" | "clusters" | "bi" | "forecast" 
 export type Projeto = {
   titulo: Text;
   descricao: Text;
-  // O que mudou no negócio. Só fato verificável: número medido ou comportamento observado, nunca estimativa.
+  // O que mudou no negócio, como capacidade observada. Nunca número interno da empresa (decisão do Thomas, 04/10/2026).
   resultado?: Text;
   tags: string[];
   ano: string;
@@ -266,8 +266,8 @@ export const site = {
         en: `Six areas (HR, treasury, accounting, banking, management and manufacturing) depended on spreadsheets and manual ERP lookups. I built a platform with ${hub.agentes.length} agents that read the ERP, the MES and spreadsheets and answer with the data's date and source; AI routes, code executes.`,
       },
       resultado: {
-        pt: "Na primeira rodada, o agente contábil achou 622 cadastros errados em 33 mil, ao vivo, em 12 segundos. O de banco de horas revelou 685 horas negativas que o saldo consolidado escondia.",
-        en: "On its first run, the accounting agent found 622 wrong records out of 33,000, live, in 12 seconds. The hour-bank agent surfaced 685 negative hours hidden by the consolidated balance.",
+        pt: "Erros que nenhuma rotina manual pegava passaram a aparecer sozinhos: o agente contábil confere dezenas de milhares de cadastros ao vivo, em segundos, e o de banco de horas mostra o que o saldo consolidado escondia.",
+        en: "Errors no manual routine caught now surface on their own: the accounting agent checks tens of thousands of records live, in seconds, and the hour-bank agent shows what the consolidated balance was hiding.",
       },
       tags: ["Python", "LLMs", "SQL", "PostgreSQL", "Docker"],
       ano: "2026",
@@ -327,8 +327,8 @@ export const site = {
         en: `Reports nobody opened and checks that depended on one person. ${numeros.nos.toLocaleString("en-US")} nodes connecting ERP, BigQuery, Microsoft 365 and Google deliver images, PDFs and tasks with deadlines where people already are — WhatsApp and e-mail — every business day, with nobody pressing a button.`,
       },
       resultado: {
-        pt: "Cada ordem de produção atrasada virou tarefa com dono e prazo; na semana de estreia, o estoque de atrasadas de uma unidade foi de 50 para 9. A conferência de canhotos de nota fiscal roda sozinha em três unidades, sem abrir um PDF.",
-        en: "Every late production order became a task with an owner and a deadline; in the launch week, one plant's backlog of late orders went from 50 to 9. Invoice-receipt reconciliation runs on its own across three plants, without opening a single PDF.",
+        pt: "Cada ordem de produção atrasada vira tarefa com dono e prazo, e o acúmulo de atrasadas passou a ser cobrado todo dia em vez de descoberto no fim do mês. A conferência de canhotos de nota fiscal roda sozinha em três unidades, sem abrir um PDF.",
+        en: "Every late production order becomes a task with an owner and a deadline, so the backlog is followed up every day instead of discovered at month-end. Invoice-receipt reconciliation runs on its own across three plants, without opening a single PDF.",
       },
       tags: ["n8n", "BigQuery", "Graph API", "Gotenberg"],
       ano: "2026",
