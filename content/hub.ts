@@ -30,8 +30,8 @@ export const hub = {
     },
     {
       titulo: { pt: "Sistema de origem intocado", en: "Source systems untouched" },
-      pt: "O ERP é somente leitura, por princípio. Uma régua de permissão só, no backend — a tela apenas esconde o que daria 403.",
-      en: "The ERP is read-only, on principle. A single permission ruler, in the backend — the UI only hides what would return 403.",
+      pt: "O ERP é somente leitura, por princípio. Cada pessoa só vê o que tem permissão para ver, com a mesma regra em todas as telas e canais.",
+      en: "The ERP is read-only, on principle. Each person only sees what they are allowed to see, with the same rule across every screen and channel.",
     },
     {
       titulo: { pt: "Custo auditado por chamada", en: "Cost audited per call" },

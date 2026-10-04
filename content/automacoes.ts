@@ -81,8 +81,8 @@ export const automacoes = {
   } satisfies Text,
   amostraTitulo: { pt: "Uma amostra", en: "A sample" } satisfies Text,
   amostraResumo: {
-    pt: "Sete das que rodam todo dia, para dar ideia do formato: o que faz, quando roda e por onde passa o dado.",
-    en: "Seven of the ones that run every day, to give a sense of the shape: what it does, when it runs and where the data flows.",
+    pt: "Sete exemplos, para dar ideia do formato: o que faz, quando roda e por onde passa o dado.",
+    en: "Seven examples, to give a sense of the shape: what it does, when it runs and where the data flows.",
   } satisfies Text,
   itens: [
     {

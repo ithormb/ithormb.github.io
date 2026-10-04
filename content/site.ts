@@ -43,8 +43,8 @@ export const site = {
   name: "Thomas Barbosa",
   role: { pt: "Especialista em Dados, IA & Automações", en: "Data, AI & Automation Specialist" } satisfies Text,
   tagline: {
-    pt: "Lidero o time de Dados e IA do Grupo Raposo Plásticos: 130+ automações e 10 agentes de IA em produção, do ERP ao painel de decisão. Antes, pricing e inteligência de mercado na Solar Coca-Cola e BI na Arco Educação.",
-    en: "I lead the Data & AI team at Grupo Raposo Plásticos: 130+ automations and 10 AI agents in production, from the ERP to the decision dashboard. Before that, pricing and market intelligence at Solar Coca-Cola and BI at Arco Educação.",
+    pt: "Lidero o time de Dados e IA do Grupo Raposo Plásticos: 10 agentes de IA em produção e 130+ automações construídas, do ERP ao painel de decisão. Antes, pricing e inteligência de mercado na Solar Coca-Cola e BI na Arco Educação.",
+    en: "I lead the Data & AI team at Grupo Raposo Plásticos: 10 AI agents in production and 130+ automations built, from the ERP to the decision dashboard. Before that, pricing and market intelligence at Solar Coca-Cola and BI at Arco Educação.",
   } satisfies Text,
   // Foto em public/img. Sem ela, o retrato mostra as iniciais.
   foto: "/img/foto.webp" as string | null,
@@ -79,7 +79,7 @@ export const site = {
 
   // Os números do retrato (anos, automações, agentes, painéis) não se repetem aqui.
   stats: [
-    { valor: String(numeros.workflows), rotulo: { pt: "workflows no n8n em seis meses", en: "n8n workflows in six months" }, icone: "flow" },
+    { valor: String(numeros.workflows), rotulo: { pt: "workflows construídos no n8n", en: "n8n workflows built" }, icone: "flow" },
     { valor: "5", rotulo: { pt: "fábricas atendidas pelo time", en: "plants served by the team" }, icone: "factory" },
     { valor: "6", rotulo: { pt: "áreas com agentes de IA", en: "business areas with AI agents" }, icone: "bot" },
     { valor: "SBPO", rotulo: { pt: "artigo publicado em 2025", en: "paper published in 2025" }, icone: "paper" },
@@ -148,8 +148,8 @@ export const site = {
 
   sobre: [
     {
-      pt: `Há mais de 8 anos transformo dados dispersos em decisão de negócio: BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. No Grupo Raposo Plásticos — seis empresas e cinco fábricas — lidero o time de Dados e IA: em seis meses foram ${numeros.workflows} workflows no n8n e ${hub.agentes.length} agentes de IA que levam o dado do ERP e do MES até o painel e a conversa no WhatsApp.`,
-      en: `For 8+ years I've turned scattered data into business decisions: BI and projects at Arco Educação, market intelligence and pricing at Solar Coca-Cola and, now, manufacturing. At Grupo Raposo Plásticos — six companies and five plants — I lead the Data & AI team: in six months, ${numeros.workflows} n8n workflows and ${hub.agentes.length} AI agents that take data from the ERP and the MES to dashboards and WhatsApp conversations.`,
+      pt: `Há mais de 8 anos transformo dados dispersos em decisão de negócio: BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. No Grupo Raposo Plásticos — seis empresas e cinco fábricas — lidero o time de Dados e IA: são ${numeros.workflows} workflows no n8n e ${hub.agentes.length} agentes de IA que levam o dado do ERP e do MES até o painel e a conversa no WhatsApp.`,
+      en: `For 8+ years I've turned scattered data into business decisions: BI and projects at Arco Educação, market intelligence and pricing at Solar Coca-Cola and, now, manufacturing. At Grupo Raposo Plásticos — six companies and five plants — I lead the Data & AI team: ${numeros.workflows} n8n workflows and ${hub.agentes.length} AI agents that take data from the ERP and the MES to dashboards and WhatsApp conversations.`,
     },
     {
       pt: "Sou engenheiro mecânico pela UFC, com MBA em Data Science e Analytics pela USP/ESALQ. Duas regras guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
@@ -172,7 +172,7 @@ export const site = {
       destaques: [
         { pt: "Lidero um time de 3 pessoas, formado internamente, que atende as cinco fábricas do grupo.", en: "I lead a team of 3, trained in-house, serving the group's five plants." },
         { pt: `Hub com ${hub.agentes.length} agentes de IA em RH, tesouraria, contabilidade, bancos, gestão e indústria, lendo ERP e MES com data e origem em cada número.`, en: `Hub with ${hub.agentes.length} AI agents across HR, treasury, accounting, banking, management and manufacturing, reading the ERP and MES with a date and source on every number.` },
-        { pt: `${numeros.workflows} workflows em n8n em seis meses: relatórios, conferências e tarefas com prazo entregues por WhatsApp e e-mail.`, en: `${numeros.workflows} n8n workflows in six months: reports, checks and tasks with deadlines delivered via WhatsApp and e-mail.` },
+        { pt: `${numeros.workflows} workflows em n8n: relatórios, conferências e tarefas com prazo entregues por WhatsApp e e-mail.`, en: `${numeros.workflows} n8n workflows: reports, checks and tasks with deadlines delivered via WhatsApp and e-mail.` },
         { pt: "Plataformas próprias no lugar de Power Apps e formulários: gestão de tarefas e apontamento de chão de fábrica, sem licença nova.", en: "In-house platforms replacing Power Apps and forms: task management and shop-floor data capture, with no new licences." },
         { pt: "Governança: ERP somente leitura, auditoria de segurança e política de retenção de dados.", en: "Governance: read-only ERP, security audit and data retention policy." },
       ],
