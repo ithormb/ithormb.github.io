@@ -22,6 +22,11 @@ export function Contact({ locale }: { locale: Locale }) {
             <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95">
               {t("cta_linkedin", locale)} <span aria-hidden="true">↗</span>
             </a>
+            {site.links.email && (
+              <a href={`mailto:${site.links.email}`} className="ml-3 mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-ink/20 bg-surface px-5 text-sm font-semibold text-ink transition-colors hover:border-ink active:scale-95">
+                {t("cta_email", locale)}
+              </a>
+            )}
           </div>
           <figure className="rounded-2xl bg-surface p-6 shadow-[0_8px_24px_-16px_rgba(23,18,14,0.3)]">
             <span aria-hidden="true" className="text-4xl leading-none text-accent">&ldquo;</span>
@@ -39,7 +44,7 @@ export function Contact({ locale }: { locale: Locale }) {
             <ul className="mt-4 space-y-2">
               {redes.map((r) => (
                 <li key={r.label}>
-                  <a href={r.href} target="_blank" rel="noreferrer noopener" className="flex min-h-10 items-center gap-3 text-sm text-ink transition-colors hover:text-accent-ink">
+                  <a href={r.href} {...(r.href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noreferrer noopener" })} className="flex min-h-10 items-center gap-3 text-sm text-ink transition-colors hover:text-accent-ink">
                     <span className="flex size-9 items-center justify-center rounded-lg border border-rule bg-surface">{r.icon}</span>
                     {r.label}
                   </a>

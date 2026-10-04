@@ -8,9 +8,17 @@ const display = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", disp
 const sans = IBM_Plex_Sans({ subsets: ["latin"], variable: "--font-plex", display: "swap", weight: ["400", "500", "600", "700"] });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-plex-mono", display: "swap", weight: ["400", "500", "600"] });
 
+// metadataBase torna absolutas as URLs do cartão de compartilhamento (LinkedIn e WhatsApp exigem).
 export const metadata: Metadata = {
-  title: "Thomas Barbosa",
-  description: "Dados, IA e automação.",
+  metadataBase: new URL("https://ithormb.github.io"),
+  title: "Thomas Barbosa — Especialista em Dados, IA & Automações",
+  description: "Lidero o time de Dados e IA do Grupo Raposo Plásticos: automações, agentes de IA e painéis de BI, do ERP ao painel de decisão. Antes, Solar Coca-Cola e Arco Educação.",
+  openGraph: {
+    type: "website",
+    siteName: "Thomas Barbosa",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Thomas Barbosa — Especialista em Dados, IA & Automações" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.jpg"] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

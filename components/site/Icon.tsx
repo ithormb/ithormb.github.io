@@ -60,12 +60,14 @@ export function TechIcon({ nome, size = 20 }: { nome: string; size?: number }) {
       </svg>
     );
   const m = MONO[nome] ?? { txt: nome.slice(0, 2), cor: "#334155" };
+  // A sigla vem do CSS (attr), não do DOM: leitor de tela e buscador leem só o nome ao lado.
   return (
-    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true">
-      <text x="12" y="16.5" textAnchor="middle" fontSize={m.txt.length > 2 ? 8.5 : 11} fontWeight="800" fill={m.cor} fontFamily="ui-sans-serif, system-ui">
-        {m.txt}
-      </text>
-    </svg>
+    <span
+      aria-hidden="true"
+      data-sigla={m.txt}
+      className="inline-flex items-center justify-center font-extrabold leading-none before:content-[attr(data-sigla)]"
+      style={{ width: size, height: size, color: m.cor, fontSize: size * (m.txt.length > 2 ? 0.43 : 0.55) }}
+    />
   );
 }
 
@@ -89,7 +91,7 @@ export function TechBadge({ nome }: { nome: string }) {
 }
 
 // Ícones de traço para os cards de números.
-export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" | "calendar" }) {
+export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" | "calendar" | "paper" }) {
   const p = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
   switch (kind) {
     case "chart":
@@ -100,6 +102,8 @@ export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" 
       return <svg {...p}><rect x="2" y="3" width="7" height="6" rx="1.5" /><rect x="15" y="3" width="7" height="6" rx="1.5" /><rect x="8.5" y="15" width="7" height="6" rx="1.5" /><path d="M5.5 9v2.5a1.5 1.5 0 0 0 1.5 1.5h10a1.5 1.5 0 0 0 1.5-1.5V9M12 13v2" /></svg>;
     case "calendar":
       return <svg {...p}><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M3 10h18M8 3v4M16 3v4" /></svg>;
+    case "paper":
+      return <svg {...p}><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></svg>;
     case "factory":
       return <svg {...p}><path d="M2 20V9l6 4V9l6 4V5h4l2 15z" /><path d="M2 20h20" /></svg>;
   }

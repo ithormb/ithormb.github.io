@@ -8,7 +8,6 @@ export function Numbers({ locale, comHub = false }: { locale: Locale; comHub?: b
   const itens = [
     ...(comHub ? [{ v: String(hub.agentes.length), l: { pt: "agentes de IA no hub", en: "AI agents in the hub" } }] : []),
     { v: fmt(numeros.workflows, locale), l: { pt: "workflows no n8n", en: "n8n workflows" } },
-    { v: fmt(numeros.ativos, locale), l: { pt: "ativos com gatilho", en: "active with a trigger" } },
     { v: fmt(numeros.nos, locale), l: { pt: "nós, sem contar anotações", en: "nodes, excluding notes" } },
     { v: fmt(numeros.tiposDeNo, locale), l: { pt: "tipos de nó diferentes", en: "distinct node types" } },
     { v: fmt(numeros.credenciais, locale), l: { pt: "credenciais de serviço", en: "service credentials" } },

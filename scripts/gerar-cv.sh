@@ -5,7 +5,7 @@ set -euo pipefail
 GOTENBERG=${GOTENBERG:-http://localhost:3000}
 SITE=${SITE:-http://localhost:8080}
 for l in pt en; do
-  sufixo=$([ "$l" = en ] && echo "-en" || echo "")
+  sufixo=$([ "$l" = en ] && printf %s -en || true)  # printf: o echo do bash engole "-en" como opção
   curl -sf -o "public/cv/thomas-barbosa-cv${sufixo}.pdf" \
     -F url="$SITE/$l/cv/" -F paperWidth=8.27 -F paperHeight=11.7 \
     -F marginTop=0 -F marginBottom=0 -F marginLeft=0 -F marginRight=0 \

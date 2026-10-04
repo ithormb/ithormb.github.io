@@ -26,6 +26,7 @@ export type Experiencia = {
   // do cargo mais recente para o mais antigo
   cargos: { titulo: Text; periodo: Text }[];
   descricao: Text;
+  destaques?: Text[]; // tópicos de impacto; no site aparecem no lugar da descrição
   tags: string[];
 };
 
@@ -58,7 +59,7 @@ export const site = {
   // Onde a trajetória foi construída: a faixa de credibilidade logo abaixo do hero.
   // Logos oficiais dos sites de cada instituição (USP e UFC pela Wikimedia Commons).
   trajetoria: [
-    { tipo: "carreira", nome: "Grupo Raposo Plásticos", logo: "/logos/raposo.webp", legenda: { pt: "Especialista de Dados", en: "Data Specialist" } },
+    { tipo: "carreira", nome: "Grupo Raposo Plásticos", logo: "/logos/raposo.webp", legenda: { pt: "Especialista em Dados · líder do time de Dados e IA", en: "Data Specialist · Data & AI team lead" } },
     { tipo: "carreira", nome: "Solar Coca-Cola", logo: "/logos/solar.webp", legenda: { pt: "Pricing e Inteligência de Mercado", en: "Pricing and Market Intelligence" } },
     { tipo: "carreira", nome: "Arco Educação", logo: "/logos/arco.svg", legenda: { pt: "SAS Educação · Projetos e BI", en: "SAS Educação · Projects and BI" } },
     { tipo: "formacao", nome: "USP / ESALQ", logo: "/logos/usp.svg", legenda: { pt: "MBA em Data Science e Analytics", en: "MBA in Data Science and Analytics" } },
@@ -67,7 +68,7 @@ export const site = {
   links: {
     linkedin: "https://www.linkedin.com/in/thomas-barbosa-silva/",
     github: "https://github.com/ithormb",
-    email: null as string | null,
+    email: "thomasbarbosaeng@alu.ufc.br" as string | null,
     cv: { pt: "/cv/thomas-barbosa-cv.pdf", en: "/cv/thomas-barbosa-cv-en.pdf" },
   },
 
@@ -76,12 +77,13 @@ export const site = {
     en: "Data that becomes decisions — and decisions that become action.",
   } satisfies Text,
 
+  // Os números do retrato (anos, automações, agentes, painéis) não se repetem aqui.
   stats: [
-    { valor: "8+", rotulo: { pt: "anos com dados", en: "years in data" }, icone: "calendar" },
-    { valor: String(hub.agentes.length), rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" },
-    { valor: String(numeros.workflows), rotulo: { pt: "workflows no n8n", en: "n8n workflows" }, icone: "flow" },
-    { valor: "50+", rotulo: { pt: "painéis de BI em Power BI e Looker Studio", en: "BI dashboards in Power BI and Looker Studio" }, icone: "chart" },
-  ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" | "calendar" }[],
+    { valor: String(numeros.workflows), rotulo: { pt: "workflows no n8n em seis meses", en: "n8n workflows in six months" }, icone: "flow" },
+    { valor: "5", rotulo: { pt: "fábricas atendidas pelo time", en: "plants served by the team" }, icone: "factory" },
+    { valor: "6", rotulo: { pt: "áreas com agentes de IA", en: "business areas with AI agents" }, icone: "bot" },
+    { valor: "SBPO", rotulo: { pt: "artigo publicado em 2025", en: "paper published in 2025" }, icone: "paper" },
+  ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" | "calendar" | "paper" }[],
 
   // Do mais próximo da IA ao mais próximo do dado bruto.
   tecnologias: [
@@ -146,16 +148,12 @@ export const site = {
 
   sobre: [
     {
-      pt: "Há mais de 8 anos transformo dados dispersos em decisões de negócio — com passagens pela Arco Educação, pela Solar Coca-Cola e, hoje, pela indústria. No Grupo Raposo Plásticos, lidero o time de Dados e IA que atende cinco fábricas: mais de 130 automações em produção orquestram o pipeline de ponta a ponta, da alimentação do ERP e do MES até painéis de BI e agentes de IA analíticos que direcionam o olhar estratégico do grupo.",
-      en: "For 8+ years I've turned scattered data into business decisions — at Arco Educação, Solar Coca-Cola and now in manufacturing. At Grupo Raposo Plásticos I lead the Data & AI team serving five plants: 130+ automations in production orchestrate the pipeline end to end, from ERP and MES data entry to BI dashboards and analytical AI agents that steer the group's strategy.",
+      pt: `Há mais de 8 anos transformo dados dispersos em decisão de negócio: BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. No Grupo Raposo Plásticos — seis empresas e cinco fábricas — lidero o time de Dados e IA: em seis meses foram ${numeros.workflows} workflows no n8n e ${hub.agentes.length} agentes de IA que levam o dado do ERP e do MES até o painel e a conversa no WhatsApp.`,
+      en: `For 8+ years I've turned scattered data into business decisions: BI and projects at Arco Educação, market intelligence and pricing at Solar Coca-Cola and, now, manufacturing. At Grupo Raposo Plásticos — six companies and five plants — I lead the Data & AI team: in six months, ${numeros.workflows} n8n workflows and ${hub.agentes.length} AI agents that take data from the ERP and the MES to dashboards and WhatsApp conversations.`,
     },
     {
-      pt: "Sou engenheiro mecânico pela UFC, com MBA em Data Science e Analytics pela USP/ESALQ. São mais de oito anos com dados — BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. Desse caminho trouxe duas regras que guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
-      en: "I'm a mechanical engineer from UFC with an MBA in Data Science and Analytics from USP/ESALQ. That's more than eight years in data — BI and projects at Arco Educação, market intelligence and pricing at Solar Coca-Cola and, now, manufacturing. From that path I brought two rules that guide what I build: a number without a date and a source is useless for decisions, and the language model advises — code executes, with a person confirming.",
-    },
-    {
-      pt: `Em seis meses foram ${numeros.workflows} workflows no n8n, integrando ERP, BigQuery, Microsoft 365, Google, WhatsApp e APIs públicas. Os projetos de estudo em BI e machine learning estão logo abaixo.`,
-      en: `In six months that added up to ${numeros.workflows} n8n workflows, connecting the ERP, BigQuery, Microsoft 365, Google, WhatsApp and public APIs. My BI and machine learning study projects are right below.`,
+      pt: "Sou engenheiro mecânico pela UFC, com MBA em Data Science e Analytics pela USP/ESALQ. Duas regras guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
+      en: "I'm a mechanical engineer from UFC with an MBA in Data Science and Analytics from USP/ESALQ. Two rules guide what I build: a number without a date and a source is useless for decisions, and the language model advises — code executes, with a person confirming.",
     },
   ] as Text[],
 
@@ -166,11 +164,18 @@ export const site = {
       periodo: { pt: "2025 — hoje", en: "2025 — present" },
       onde: { pt: "Grupo Raposo Plásticos", en: "Grupo Raposo Plásticos" },
       local: { pt: "remoto", en: "remote" },
-      cargos: [{ titulo: { pt: "Especialista de Dados", en: "Data Specialist" }, periodo: { pt: "set 2025 — hoje", en: "Sep 2025 — present" } }],
+      cargos: [{ titulo: { pt: "Especialista em Dados · líder do time de Dados e IA", en: "Data Specialist · Data & AI team lead" }, periodo: { pt: "set 2025 — hoje", en: "Sep 2025 — present" } }],
       descricao: {
         pt: "Lidero o time de Dados e IA que leva soluções às fábricas do grupo: um hub de agentes de IA e a malha de automações do grupo — leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n.",
         en: "I lead the Data & AI team that brings solutions to the group's plants: an AI agents hub and the group's automation web — ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows.",
       },
+      destaques: [
+        { pt: "Lidero um time de 3 pessoas, formado internamente, que atende as cinco fábricas do grupo.", en: "I lead a team of 3, trained in-house, serving the group's five plants." },
+        { pt: `Hub com ${hub.agentes.length} agentes de IA em RH, tesouraria, contabilidade, bancos, gestão e indústria, lendo ERP e MES com data e origem em cada número.`, en: `Hub with ${hub.agentes.length} AI agents across HR, treasury, accounting, banking, management and manufacturing, reading the ERP and MES with a date and source on every number.` },
+        { pt: `${numeros.workflows} workflows em n8n em seis meses: relatórios, conferências e tarefas com prazo entregues por WhatsApp e e-mail.`, en: `${numeros.workflows} n8n workflows in six months: reports, checks and tasks with deadlines delivered via WhatsApp and e-mail.` },
+        { pt: "Plataformas próprias no lugar de Power Apps e formulários: gestão de tarefas e apontamento de chão de fábrica, sem licença nova.", en: "In-house platforms replacing Power Apps and forms: task management and shop-floor data capture, with no new licences." },
+        { pt: "Governança: ERP somente leitura, auditoria de segurança e política de retenção de dados.", en: "Governance: read-only ERP, security audit and data retention policy." },
+      ],
       tags: ["Liderança de time", "n8n", "Python", "SQL", "BigQuery", "LLMs"],
     },
     {
@@ -257,8 +262,8 @@ export const site = {
     {
       titulo: { pt: "Hub de agentes de IA", en: "AI agents hub" },
       descricao: {
-        pt: `Cinco áreas (RH, tesouraria, contabilidade, bancos e indústria) dependiam de planilha e consulta manual ao ERP. Construí uma plataforma com ${hub.agentes.length} agentes que leem ERP, MES e planilhas e respondem com data e origem do dado; a IA endereça, o código executa.`,
-        en: `Five areas (HR, treasury, accounting, banking and manufacturing) depended on spreadsheets and manual ERP lookups. I built a platform with ${hub.agentes.length} agents that read the ERP, the MES and spreadsheets and answer with the data's date and source; AI routes, code executes.`,
+        pt: `Seis áreas (RH, tesouraria, contabilidade, bancos, gestão e indústria) dependiam de planilha e consulta manual ao ERP. Construí uma plataforma com ${hub.agentes.length} agentes que leem ERP, MES e planilhas e respondem com data e origem do dado; a IA endereça, o código executa.`,
+        en: `Six areas (HR, treasury, accounting, banking, management and manufacturing) depended on spreadsheets and manual ERP lookups. I built a platform with ${hub.agentes.length} agents that read the ERP, the MES and spreadsheets and answer with the data's date and source; AI routes, code executes.`,
       },
       resultado: {
         pt: "Na primeira rodada, o agente contábil achou 622 cadastros errados em 33 mil, ao vivo, em 12 segundos. O de banco de horas revelou 685 horas negativas que o saldo consolidado escondia.",

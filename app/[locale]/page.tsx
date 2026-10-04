@@ -16,7 +16,19 @@ import { Footer } from "@/components/site/Footer";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const l: Locale = isLocale(locale) ? locale : "pt";
-  return { title: `${site.name} — ${site.role[l]}`, description: site.tagline[l] };
+  const title = `${site.name} — ${site.role[l]}`;
+  return {
+    title,
+    description: site.tagline[l],
+    alternates: { canonical: `/${l}/`, languages: { "pt-BR": "/pt/", en: "/en/" } },
+    openGraph: {
+      title,
+      description: site.tagline[l],
+      url: `/${l}/`,
+      locale: l === "pt" ? "pt_BR" : "en_US",
+      images: [{ url: "/og.jpg", width: 1200, height: 630, alt: title }],
+    },
+  };
 }
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {

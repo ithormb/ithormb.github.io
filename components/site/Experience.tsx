@@ -36,7 +36,18 @@ export function Experience({ locale }: { locale: Locale }) {
                       ))}
                     </ul>
                   )}
-                  <p className="mt-3 text-sm leading-relaxed">{e.descricao[locale]}</p>
+                  {e.destaques ? (
+                    <ul className="mt-3 space-y-1.5 text-sm leading-relaxed">
+                      {e.destaques.map((d) => (
+                        <li key={d.pt} className="flex gap-2.5">
+                          <span aria-hidden="true" className="mt-[9px] size-1.5 shrink-0 rounded-full bg-accent" />
+                          <span>{d[locale]}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="mt-3 text-sm leading-relaxed">{e.descricao[locale]}</p>
+                  )}
                   {e.tags.length > 0 && (
                     <ul className="mt-4 flex flex-wrap gap-1.5">
                       {e.tags.map((tag) => (
