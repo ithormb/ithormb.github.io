@@ -34,7 +34,7 @@ export default async function CV({ params }: { params: Promise<{ locale: string 
         <aside className="bg-surface-2 px-[7mm] py-[9mm]">
           {site.foto && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={site.foto} alt="" className="mx-auto mb-4 size-[32mm] rounded-full bg-gradient-to-b from-[#ffb37a] to-accent object-cover object-top" />
+            <img src="/img/foto-cv.webp" alt="" className="mx-auto mb-4 size-[32mm] rounded-full bg-gradient-to-b from-[#ffb37a] to-accent object-cover" />
           )}
           <section className="mb-5">
             <Titulo>{L.contato[l]}</Titulo>

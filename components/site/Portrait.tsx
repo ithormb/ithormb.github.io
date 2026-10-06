@@ -33,8 +33,8 @@ export function Portrait({ locale }: { locale: Locale }) {
         <img
           src={withBase(site.foto)}
           alt={site.name}
-          width={400}
-          height={400}
+          width={796}
+          height={1000}
           className="absolute bottom-0 left-1/2 z-10 h-[92%] w-auto max-w-none -translate-x-1/2 drop-shadow-[0_20px_30px_rgba(23,18,14,0.25)]"
         />
       ) : (
