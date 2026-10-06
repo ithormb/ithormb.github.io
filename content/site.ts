@@ -7,7 +7,7 @@ export type Thumb = "hub" | "whatsapp" | "n8n" | "clusters" | "bi" | "forecast" 
 export type Projeto = {
   titulo: Text;
   descricao: Text;
-  // O que mudou no negócio, como capacidade observada. Nunca número interno da empresa (decisão do Thomas, 04/10/2026).
+  // O que mudou no negócio, como capacidade observada. Sem números internos de empregador.
   resultado?: Text;
   tags: string[];
   ano: string;
@@ -157,7 +157,7 @@ export const site = {
     },
   ] as Text[],
 
-  // Do LinkedIn, lido em 23/09/2026. A empresa atual aparece pelo nome a pedido do Thomas (23/09/2026).
+  // Do mais recente para o mais antigo.
   experiencia: [
     {
       logo: "/logos/raposo.webp",
