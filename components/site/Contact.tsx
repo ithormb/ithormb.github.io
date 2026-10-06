@@ -16,17 +16,22 @@ export function Contact({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <div className="grid gap-6 rounded-3xl bg-surface-2 p-8 md:grid-cols-[1.2fr_1fr_0.8fr] md:p-10">
           <div>
+            {/* Segunda foto do ensaio, pequena: o contato ganha rosto sem repetir o retrato do topo. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={withBase("/img/foto-contato.webp")} alt={site.name} width={80} height={80} loading="lazy" className="mb-5 size-20 rounded-full bg-gradient-to-b from-[#ffb37a] to-accent object-cover ring-4 ring-surface shadow-[0_10px_24px_-12px_rgba(242,106,27,0.6)]" />
             <Eyebrow>{t("contact_eyebrow", locale)}</Eyebrow>
             <h2 className="mt-4 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{t("contact_title", locale)}</h2>
             <p className="mt-3 text-sm leading-relaxed">{t("contact_body", locale)}</p>
-            <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="mt-6 inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95">
+            <div className="mt-6 flex flex-wrap gap-3">
+            <a href={site.links.linkedin} target="_blank" rel="noreferrer noopener" className="inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-accent-2 active:scale-95">
               {t("cta_linkedin", locale)} <span aria-hidden="true">↗</span>
             </a>
             {site.links.email && (
-              <a href={`mailto:${site.links.email}`} className="ml-3 mt-6 inline-flex h-11 items-center gap-2 rounded-lg border border-ink/20 bg-surface px-5 text-sm font-semibold text-ink transition-colors hover:border-ink active:scale-95">
+              <a href={`mailto:${site.links.email}`} className="inline-flex h-11 items-center gap-2 rounded-lg border border-ink/20 bg-surface px-5 text-sm font-semibold text-ink transition-colors hover:border-ink active:scale-95">
                 {t("cta_email", locale)}
               </a>
             )}
+            </div>
           </div>
           <figure className="rounded-2xl bg-surface p-6 shadow-[0_8px_24px_-16px_rgba(23,18,14,0.3)]">
             <span aria-hidden="true" className="text-4xl leading-none text-accent">&ldquo;</span>
