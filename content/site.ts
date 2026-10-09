@@ -43,8 +43,8 @@ export const site = {
   name: "Thomas Barbosa",
   role: { pt: "Especialista em Dados, IA & Automações", en: "Data, AI & Automation Specialist" } satisfies Text,
   tagline: {
-    pt: "Lidero o time de Dados e IA do Grupo Raposo Plásticos: 10 agentes de IA em produção e 130+ automações construídas, do ERP ao painel de decisão. Antes, pricing e inteligência de mercado na Solar Coca-Cola e BI na Arco Educação.",
-    en: "I lead the Data & AI team at Grupo Raposo Plásticos: 10 AI agents in production and 130+ automations built, from the ERP to the decision dashboard. Before that, pricing and market intelligence at Solar Coca-Cola and BI at Arco Educação.",
+    pt: `Lidero o time de Dados e IA do Grupo Raposo Plásticos: ${hub.agentes.length} agentes de IA e ${numeros.fluxosAtivos} automações ativas que devolvem ~142 h/mês às equipes e reduzem ~80% dos custos com ferramentas, do ERP ao painel de decisão. Antes, pricing e inteligência de mercado na Solar Coca-Cola e BI na Arco Educação.`,
+    en: `I lead the Data & AI team at Grupo Raposo Plásticos: ${hub.agentes.length} AI agents and ${numeros.fluxosAtivos} active automations returning ~142 h/mo to teams and cutting tooling costs by ~80%, from the ERP to decision dashboards. Before that, pricing and market intelligence at Solar Coca-Cola and BI at Arco Educação.`,
   } satisfies Text,
   // Foto em public/img. Sem ela, o retrato mostra as iniciais.
   foto: "/img/foto.webp" as string | null,
@@ -148,8 +148,8 @@ export const site = {
 
   sobre: [
     {
-      pt: `Há mais de 8 anos transformo dados dispersos em decisão de negócio: BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. No Grupo Raposo Plásticos — seis empresas e cinco fábricas — lidero o time de Dados e IA: são ${numeros.workflows} workflows no n8n e ${hub.agentes.length} agentes de IA que levam o dado do ERP e do MES até o painel e a conversa no WhatsApp.`,
-      en: `For 8+ years I've turned scattered data into business decisions: BI and projects at Arco Educação, market intelligence and pricing at Solar Coca-Cola and, now, manufacturing. At Grupo Raposo Plásticos — six companies and five plants — I lead the Data & AI team: ${numeros.workflows} n8n workflows and ${hub.agentes.length} AI agents that take data from the ERP and the MES to dashboards and WhatsApp conversations.`,
+      pt: `Há mais de 8 anos transformo dados dispersos em decisão de negócio: BI e projetos na Arco Educação, inteligência de mercado e pricing na Solar Coca-Cola e, hoje, a indústria. No Grupo Raposo Plásticos — seis empresas e cinco fábricas — lidero o time de Dados e IA: 56 rotinas ativas no n8n que devolvem mais de 140 horas/mês às áreas e ${hub.agentes.length} agentes de IA que auditam o ERP e o MES com origem e data em cada número.`,
+      en: `For 8+ years I've turned scattered data into business decisions: BI and projects at Arco Educação, market intelligence and pricing at Solar Coca-Cola and, now, manufacturing. At Grupo Raposo Plásticos — six companies and five plants — I lead the Data & AI team: 56 active n8n routines returning over 140 hours/month to business teams and ${hub.agentes.length} AI agents auditing the ERP and MES with a verified date and source on every number.`,
     },
     {
       pt: "Sou engenheiro mecânico pela UFC, com MBA em Data Science e Analytics pela USP/ESALQ. Duas regras guiam o que construo: número sem data e sem origem não serve para decidir, e o modelo de linguagem aconselha — quem executa é código, com uma pessoa confirmando.",
@@ -170,11 +170,11 @@ export const site = {
         en: "I lead the Data & AI team that brings solutions to the group's plants: an AI agents hub and the group's automation web — ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows.",
       },
       destaques: [
-        { pt: "Lidero um time de 3 pessoas, formado internamente, que atende as cinco fábricas do grupo.", en: "I lead a team of 3, trained in-house, serving the group's five plants." },
-        { pt: `Hub com ${hub.agentes.length} agentes de IA em RH, tesouraria, contabilidade, bancos, gestão e indústria, lendo ERP e MES com data e origem em cada número.`, en: `Hub with ${hub.agentes.length} AI agents across HR, treasury, accounting, banking, management and manufacturing, reading the ERP and MES with a date and source on every number.` },
-        { pt: `${numeros.workflows} workflows em n8n: relatórios, conferências e tarefas com prazo entregues por WhatsApp e e-mail.`, en: `${numeros.workflows} n8n workflows: reports, checks and tasks with deadlines delivered via WhatsApp and e-mail.` },
-        { pt: "Plataformas próprias no lugar de Power Apps e formulários: gestão de tarefas e apontamento de chão de fábrica, sem licença nova.", en: "In-house platforms replacing Power Apps and forms: task management and shop-floor data capture, with no new licences." },
-        { pt: "Governança: ERP somente leitura, auditoria de segurança e política de retenção de dados.", en: "Governance: read-only ERP, security audit and data retention policy." },
+        { pt: "Lidero um time de 3 pessoas, formado internamente, que atende as cinco fábricas do grupo sem terceiros.", en: "I lead a team of 3, trained in-house, serving the group's five plants without external contractors." },
+        { pt: `Hub com ${hub.agentes.length} agentes de IA em RH, tesouraria, contabilidade, fiscal e indústria: auditaram R$ 2M+ em divergências bancárias e corrigiram passivos de banco de horas e 600+ cadastros contábeis.`, en: `Hub with ${hub.agentes.length} AI agents across HR, treasury, accounting, tax and manufacturing: uncovered R$ 2M+ in unrecorded bank reversals and resolved hour-bank discrepancies and 600+ ledger errors.` },
+        { pt: "56 automações ativas no n8n: ~142 h/mês devolvidas às equipes operacionais em relatórios, conferências e tarefas no WhatsApp e e-mail.", en: "56 active n8n workflows: ~142 h/mo returned to operations through automated reports, cross-checks, and WhatsApp/email dispatches." },
+        { pt: "Economia de ~80% no custo de ferramentas (~R$ 40 mil/ano): substituição de Power BI, Power Apps e licenças corporativas por microsserviços próprios e n8n self-hosted.", en: "~80% reduction in tooling costs (~R$ 40k/yr): replaced Power BI, Power Apps, and vendor licenses with in-house microservices and self-hosted n8n." },
+        { pt: "Governança e auditoria: ERP somente leitura, nota de segurança 8,6/10 com 15 de 15 achados fechados e política formal de retenção de dados.", en: "Governance and security: read-only ERP, security audit posture of 8.6/10 with 15/15 closed findings, and formal data retention policy." },
       ],
       tags: ["Liderança de time", "n8n", "Python", "SQL", "BigQuery", "LLMs"],
     },
@@ -266,8 +266,8 @@ export const site = {
         en: `Six areas (HR, treasury, accounting, banking, management and manufacturing) depended on spreadsheets and manual ERP lookups. I built a platform with ${hub.agentes.length} agents that read the ERP, the MES and spreadsheets and answer with the data's date and source; AI routes, code executes.`,
       },
       resultado: {
-        pt: "Erros que nenhuma rotina manual pegava passaram a aparecer sozinhos: o agente contábil confere dezenas de milhares de cadastros ao vivo, em segundos, e o de banco de horas mostra o que o saldo consolidado escondia.",
-        en: "Errors no manual routine caught now surface on their own: the accounting agent checks tens of thousands of records live, in seconds, and the hour-bank agent shows what the consolidated balance was hiding.",
+        pt: "Erros críticos que nenhuma rotina manual pegava passaram a aparecer sozinhos: detecção de estorno não conciliado de R$ 2 mi no banco, 622 cadastros contábeis incorretos auditados ao vivo em 12s e recálculo real do saldo de banco de horas (+1.084h corrigido para +242h), prevenindo passivos trabalhistas.",
+        en: "Critical errors that slipped past manual routines now surface automatically: uncovered an unrecorded R$ 2M bank reversal, audited 622 misconfigured ledger accounts live in 12s, and corrected hour-bank balances (+1,084h to +242h), preventing labor liabilities.",
       },
       tags: ["Python", "LLMs", "SQL", "PostgreSQL", "Docker"],
       ano: "2026",
@@ -292,6 +292,10 @@ export const site = {
         pt: "A fábrica apontava produção, logística e ensaios em formulários soltos. Construímos um app próprio com módulos de produção, manutenção e qualidade, que grava direto no BigQuery e virou a fonte única dos dashboards e dos agentes de IA.",
         en: "The plant logged production, logistics and lab tests in scattered forms. We built our own app with production, maintenance and quality modules, writing straight to BigQuery — now the single source for the dashboards and the AI agents.",
       },
+      resultado: {
+        pt: "Eliminação de formulários em papel e planilhas paralelas de produção, manutenção e laboratório em duas fábricas; centralização no BigQuery alimentando BIs com dados D-0 e agentes de IA.",
+        en: "Complete phase-out of paper forms and loose spreadsheets across production, maintenance, and lab testing in two plants; single BigQuery repository powering real-time BIs and AI agents.",
+      },
       tags: ["BigQuery", "Google Cloud", "Modelagem de dados"],
       ano: "2026",
       thumb: "app",
@@ -302,6 +306,10 @@ export const site = {
       descricao: {
         pt: "Substituímos o planner em Power Apps por uma plataforma própria, com o histórico importado sem perda. Os agentes de IA do hub criam tarefas nela sozinhos, com dono, prazo e evidência; o painel de acompanhamento, que era Power BI, foi refeito em HTML dentro do hub.",
         en: "We replaced the Power Apps planner with our own platform, importing the history with no loss. The hub's AI agents create tasks in it on their own, with owner, deadline and evidence; the tracking dashboard, formerly Power BI, was rebuilt in HTML inside the hub.",
+      },
+      resultado: {
+        pt: "Mais de 48 mil tarefas coordenadas entre 59 usuários ativos com 92% a 97% de conclusão no prazo; tarefas com prazo e evidência abertas e cobradas automaticamente pelos agentes do hub.",
+        en: "Over 48k tasks orchestrated across 59 active users with 92%–97% on-time completion; tasks with deadlines and evidence auto-created and followed up by AI hub agents.",
       },
       tags: ["PostgreSQL", "APIs REST", "n8n"],
       ano: "2026",
@@ -314,6 +322,10 @@ export const site = {
         pt: "Um número só para a empresa: entende texto e áudio, descobre qual agente responde, respeita a permissão de cada pessoa e dispara as automações que ela pode usar. Em piloto, um agente que cria, edita e conclui tarefas reais pela conversa, com eco do que entendeu antes de gravar — porque transcrição alucina.",
         en: "One number for the whole company: understands text and voice, finds which agent should answer, respects each person's permissions and triggers the automations they may use. In pilot, an agent that creates, edits and completes real tasks through the chat, echoing what it understood before writing — because transcription hallucinates.",
       },
+      resultado: {
+        pt: "Mais de 1.200 mensagens recebidas e 180+ rotinas disparadas; comandos de voz e texto com eco de confirmação permitindo criar e concluir tarefas reais direto do chão de fábrica e da diretoria.",
+        en: "Over 1,200 messages received and 180+ automated dispatches; voice and text commands with intent confirmation allowing real task management straight from the shop floor and executive chat.",
+      },
       tags: ["LLMs", "Whisper", "WhatsApp", "n8n"],
       ano: "2026",
       thumb: "whatsapp",
@@ -321,14 +333,14 @@ export const site = {
       noCv: true,
     },
     {
-      titulo: { pt: `${numeros.workflows} automações em n8n`, en: `${numeros.workflows} n8n automations` },
+      titulo: { pt: `${numeros.workflows} automações em n8n (${numeros.fluxosAtivos} ativas)`, en: `${numeros.workflows} n8n automations (${numeros.fluxosAtivos} active)` },
       descricao: {
-        pt: `Relatórios que ninguém abria e conferências que dependiam de uma pessoa. ${numeros.nos.toLocaleString("pt-BR")} nós ligando ERP, BigQuery, Microsoft 365 e Google entregam imagem, PDF e tarefa com prazo onde a pessoa já está — WhatsApp e e-mail — todo dia útil, sem ninguém apertar botão.`,
-        en: `Reports nobody opened and checks that depended on one person. ${numeros.nos.toLocaleString("en-US")} nodes connecting ERP, BigQuery, Microsoft 365 and Google deliver images, PDFs and tasks with deadlines where people already are — WhatsApp and e-mail — every business day, with nobody pressing a button.`,
+        pt: `${numeros.fluxosAtivos} rotinas em produção contínua devolvem mais de 140 horas/mês às áreas. ${numeros.nos.toLocaleString("pt-BR")} nós ligando ERP, BigQuery, Microsoft 365 e Google entregam imagem, PDF e tarefa com prazo onde a pessoa já está — WhatsApp e e-mail — todo dia útil, sem ninguém apertar botão.`,
+        en: `${numeros.fluxosAtivos} routines in continuous production return over 140 hours/month to business teams. ${numeros.nos.toLocaleString("en-US")} nodes connecting ERP, BigQuery, Microsoft 365, and Google deliver images, PDFs, and tasks where people already are — WhatsApp and email — every business day.`,
       },
       resultado: {
-        pt: "Cada ordem de produção atrasada vira tarefa com dono e prazo, e o acúmulo de atrasadas passou a ser cobrado todo dia em vez de descoberto no fim do mês. A conferência de canhotos de nota fiscal roda sozinha em três unidades, sem abrir um PDF.",
-        en: "Every late production order becomes a task with an owner and a deadline, so the backlog is followed up every day instead of discovered at month-end. Invoice-receipt reconciliation runs on its own across three plants, without opening a single PDF.",
+        pt: "~142 h/mês economizadas em rotinas manuais. Ordens de produção atrasadas caíram de 50 para 9 em 24h na unidade AM; fila de pendências de ponto recuou de 819 para 155; conferência de canhotos roda em 3 fábricas sem abrir PDFs e sem custos de OCR.",
+        en: "~142 h/month saved from manual routines. Overdue manufacturing orders dropped from 50 to 9 in 24h; time-clock backlog plummeted from 819 to 155; invoice receipt reconciliation runs across 3 plants without opening PDFs or paying OCR fees.",
       },
       tags: ["n8n", "BigQuery", "Graph API", "Gotenberg"],
       ano: "2026",

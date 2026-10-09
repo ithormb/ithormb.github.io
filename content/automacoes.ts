@@ -10,15 +10,19 @@ export type Automacao = {
   nome: Text;
   faz: Text;
   quando: Text; // agenda ou gatilho, em linguagem humana
+  ganho?: Text; // horas economizadas, redução de erro ou impacto operacional medido
   cadeia: Passo[];
 };
 
 const p = (tipo: Passo["tipo"], pt: string, en = pt): Passo => ({ tipo, label: { pt, en } });
 
-// Medido na instância do n8n pela API pública. Atualize os números e a data juntos.
+// Medido na instância do n8n pela API pública e validado nos relatórios de impacto.
 export const numeros = {
-  medidoEm: "2026-09-16",
+  medidoEm: "2026-09-27",
   workflows: 135,
+  fluxosAtivos: 56, // rotinas ativas em produção contínua
+  horasEconomizadasMes: 142, // ~142h/mês devolvidas às equipes operacionais
+  errosAuditados: "R$ 2M+", // valor de controle identificado em reconciliações
   nos: 2880, // nós funcionais, sem as anotações (sticky notes)
   tiposDeNo: 43,
   credenciais: 25,
@@ -76,13 +80,13 @@ export const plataformas: { categoria: Text; itens: string[] }[] = [
 export const automacoes = {
   nome: { pt: "Automações em n8n", en: "n8n automations" } satisfies Text,
   resumo: {
-    pt: "Rotinas que rodam sozinhas, em dia útil, e levam o dado até onde a pessoa já está: WhatsApp, e-mail, ou uma tarefa com prazo no gerenciador. Cada uma é idempotente — rodar duas vezes não duplica nada — e falha em voz alta, num workflow de erro que avisa quem cuida.",
-    en: "Routines that run on their own, on business days, and take the data to where people already are: WhatsApp, e-mail, or a task with a deadline in the task manager. Each one is idempotent — running twice duplicates nothing — and fails loudly, through an error workflow that alerts whoever is on call.",
+    pt: "56 rotinas em produção contínua devolvem mais de 140 horas/mês às equipes operacionais, levando o dado do ERP e do chão de fábrica até o WhatsApp, e-mail ou tarefas com prazo. Cada uma é idempotente — rodar duas vezes não duplica nada — e monitorada em tempo real com central de erros.",
+    en: "56 routines in continuous production return over 140 hours/month to business teams, delivering ERP and shop-floor data straight to WhatsApp, email, or tracked tasks. Each one is idempotent — running twice duplicates nothing — and monitored in real time with an error alerts center.",
   } satisfies Text,
   amostraTitulo: { pt: "Uma amostra", en: "A sample" } satisfies Text,
   amostraResumo: {
-    pt: "Sete exemplos, para dar ideia do formato: o que faz, quando roda e por onde passa o dado.",
-    en: "Seven examples, to give a sense of the shape: what it does, when it runs and where the data flows.",
+    pt: "Sete exemplos com impacto medido: o que faz, quando roda, por onde passa o dado e o ganho real de negócio gerado.",
+    en: "Seven examples with measured impact: what it does, when it runs, how data flows, and the tangible business gains delivered.",
   } satisfies Text,
   itens: [
     {
@@ -93,6 +97,10 @@ export const automacoes = {
         en: "Previous day's output across the three plants, with OEE per machine, as one image per plant.",
       },
       quando: { pt: "todo dia às 10:30", en: "daily at 10:30" },
+      ganho: {
+        pt: "~4,6 h/mês economizadas · Unificou 3 BIs fabris em 1 envio executivo diário · Detectou divergência crítica de OEE (4,8% publicado vs. 21,5% real)",
+        en: "~4.6 h/mo saved · Unified 3 disconnected BI dashboards into 1 daily executive dispatch · Flagged critical OEE divergence (4.8% published vs. 21.5% actual)",
+      },
       cadeia: [p("gatilho", "cron"), p("fonte", "MES"), p("fonte", "planilha", "sheets"), p("processo", "OEE"), p("processo", "imagem", "image"), p("saida", "WhatsApp")],
     },
     {
@@ -103,6 +111,10 @@ export const automacoes = {
         en: "One task per late production order, in the planner of whoever owns it, with a business-day deadline.",
       },
       quando: { pt: "dias úteis às 08:00", en: "business days at 08:00" },
+      ganho: {
+        pt: "~5,3 h/mês economizadas · Queda imediata de OPs atrasadas de 50 para 9 em 24h · Eliminação de acúmulo esquecido no ERP",
+        en: "~5.3 h/mo saved · Cut overdue manufacturing orders from 50 to 9 in 24 hours · Eliminated historical backlogs",
+      },
       cadeia: [p("gatilho", "cron"), p("fonte", "ERP"), p("processo", "atraso", "lateness"), p("saida", "tarefa", "task")],
     },
     {
@@ -113,6 +125,10 @@ export const automacoes = {
         en: "The day's lab tests as an image in the quality group; out-of-range results become a task for the owner.",
       },
       quando: { pt: "segunda a sexta às 10:00", en: "Mon–Fri at 10:00" },
+      ganho: {
+        pt: "~6 h/mês economizadas · 8 ações preventivas automáticas disparadas antes da expedição de lotes fora de especificação",
+        en: "~6 h/mo saved · 8 automatic corrective actions triggered before dispatching out-of-specification batches",
+      },
       cadeia: [p("gatilho", "cron"), p("fonte", "MES"), p("processo", "faixa", "range"), p("saida", "WhatsApp"), p("saida", "tarefa", "task")],
     },
     {
@@ -123,6 +139,10 @@ export const automacoes = {
         en: "Matches invoices issued in the ERP against receipts scanned to the cloud; an invoice without a receipt past the deadline becomes an alert and a task.",
       },
       quando: { pt: "todo dia às 16:00", en: "daily at 16:00" },
+      ganho: {
+        pt: "~13,7 h/mês economizadas · Conferência automática em 3 fábricas sem abrir PDFs · Substituição de OCR pago por cruzamento nativo",
+        en: "~13.7 h/mo saved · Automated matching across 3 plants without opening PDFs · Eliminated paid OCR dependencies",
+      },
       cadeia: [p("gatilho", "cron"), p("fonte", "ERP"), p("fonte", "OneDrive"), p("processo", "cruzamento", "match"), p("saida", "WhatsApp"), p("saida", "e-mail"), p("saida", "tarefa", "task")],
     },
     {
@@ -133,6 +153,10 @@ export const automacoes = {
         en: "Ten weeks of due dates per company, as an image and a PDF, delivered on the WhatsApp of whoever asked.",
       },
       quando: { pt: "sob demanda", en: "on demand" },
+      ganho: {
+        pt: "~6 h/mês economizadas · Fotografia diária e conciliação contra 98 mil títulos do ERP · Visibilidade para a diretoria sem consultas manuais",
+        en: "~6 h/mo saved · Daily snapshot and reconciliation against 98k ERP ledger items · Direct executive visibility without manual spreadsheets",
+      },
       cadeia: [p("gatilho", "comando", "command"), p("fonte", "ERP"), p("processo", "imagem", "image"), p("processo", "PDF"), p("saida", "WhatsApp")],
     },
     {
@@ -143,6 +167,10 @@ export const automacoes = {
         en: "Time-clock errors flagged by the ERP become a task for each team leader, and the task closes itself once everything is fixed.",
       },
       quando: { pt: "todo dia às 16:00", en: "daily at 16:00" },
+      ganho: {
+        pt: "~10,5 h/mês economizadas · Redução da fila de pendências de batidas de 819 para 155 · Atribuição automática por líder com auto-fechamento",
+        en: "~10.5 h/mo saved · Reduced punch audit backlog from 819 to 155 entries · Auto-assigned per team leader with automatic resolution",
+      },
       cadeia: [p("gatilho", "cron"), p("fonte", "ERP"), p("processo", "líder", "leader"), p("saida", "tarefa", "task")],
     },
     {
@@ -153,6 +181,10 @@ export const automacoes = {
         en: "Any automation that fails lands here and becomes an alert with the workflow name and the node that broke.",
       },
       quando: { pt: "quando algo quebra", en: "when something breaks" },
+      ganho: {
+        pt: "Monitoramento contínuo das 56 rotinas ativas · Zero falhas silenciosas em processos financeiros, fiscais e fabris",
+        en: "Continuous monitoring of all 56 production routines · Zero silent failures in financial, tax, and manufacturing processes",
+      },
       cadeia: [p("gatilho", "erro", "error"), p("saida", "WhatsApp")],
     },
   ] as Automacao[],

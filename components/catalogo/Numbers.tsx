@@ -8,10 +8,12 @@ export function Numbers({ locale, comHub = false }: { locale: Locale; comHub?: b
   const itens = [
     ...(comHub ? [{ v: String(hub.agentes.length), l: { pt: "agentes de IA no hub", en: "AI agents in the hub" } }] : []),
     { v: fmt(numeros.workflows, locale), l: { pt: "workflows no n8n", en: "n8n workflows" } },
+    { v: String(numeros.fluxosAtivos), l: { pt: "rotinas ativas em produção", en: "active production automations" } },
+    { v: `~${numeros.horasEconomizadasMes}h`, l: { pt: "horas/mês devolvidas às áreas", en: "hours/mo returned to teams" } },
     { v: fmt(numeros.nos, locale), l: { pt: "nós, sem contar anotações", en: "nodes, excluding notes" } },
     { v: fmt(numeros.tiposDeNo, locale), l: { pt: "tipos de nó diferentes", en: "distinct node types" } },
     { v: fmt(numeros.credenciais, locale), l: { pt: "credenciais de serviço", en: "service credentials" } },
-    ...(comHub ? [] : [{ v: `${numeros.mediaNosPorWorkflow} · ${numeros.maiorWorkflow}`, l: { pt: "nós por workflow: média · maior", en: "nodes per workflow: mean · largest" } }]),
+    ...(comHub ? [] : [{ v: numeros.errosAuditados, l: { pt: "em divergências e riscos prevenidos", en: "in reconciled audit discrepancies" } }]),
   ];
   const data = new Date(numeros.medidoEm + "T00:00:00").toLocaleDateString(locale === "pt" ? "pt-BR" : "en-GB");
   return (
@@ -25,7 +27,7 @@ export function Numbers({ locale, comHub = false }: { locale: Locale; comHub?: b
         ))}
       </dl>
       <p className="mt-3 text-xs text-muted">
-        {t("measured_on", locale)} {data} · API do n8n
+        {t("measured_on", locale)} {data} · API do n8n e auditoria de impacto
       </p>
     </div>
   );
