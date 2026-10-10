@@ -104,8 +104,14 @@ export default async function CV({ params }: { params: Promise<{ locale: string 
               {projetos.map((p) => (
                 <li key={p.titulo.pt} className="break-inside-avoid">
                   <p className="font-semibold text-ink">{p.titulo[l]} <span className="font-normal text-muted">· {p.tags.join(", ")}</span></p>
-                  <p className="mt-0.5">{p.descricao[l]}</p>
-                  {p.resultado && <p className="mt-0.5"><span className="font-semibold text-accent-ink">{L.res[l]}:</span> {p.resultado[l]}</p>}
+                  {p.cv ? (
+                    <p className="mt-0.5">{p.cv[l]}</p>
+                  ) : (
+                    <>
+                      <p className="mt-0.5">{p.descricao[l]}</p>
+                      {p.resultado && <p className="mt-0.5"><span className="font-semibold text-accent-ink">{L.res[l]}:</span> {p.resultado[l]}</p>}
+                    </>
+                  )}
                 </li>
               ))}
             </ol>

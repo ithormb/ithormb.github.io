@@ -9,6 +9,7 @@ export type Projeto = {
   descricao: Text;
   // O que mudou no negócio, como capacidade observada. Sem números internos de empregador.
   resultado?: Text;
+  cv?: Text; // versão curta para o CV de uma página; sem ela, o CV usa descrição + resultado
   tags: string[];
   ano: string;
   thumb: Thumb;
@@ -166,8 +167,8 @@ export const site = {
       local: { pt: "remoto", en: "remote" },
       cargos: [{ titulo: { pt: "Especialista em Dados · líder do time de Dados e IA", en: "Data Specialist · Data & AI team lead" }, periodo: { pt: "set 2025 — hoje", en: "Sep 2025 — present" } }],
       descricao: {
-        pt: "Lidero o time de Dados e IA que leva soluções às fábricas do grupo: um hub de agentes de IA e a malha de automações do grupo — leitura do ERP e do MES, agentes que respondem e agem pelo WhatsApp, relatórios em imagem e PDF e mais de cem workflows em n8n.",
-        en: "I lead the Data & AI team that brings solutions to the group's plants: an AI agents hub and the group's automation web — ERP and MES reads, agents that answer and act on WhatsApp, image and PDF reports and more than a hundred n8n workflows.",
+        pt: "Lidero um time de 3 pessoas que atende as cinco fábricas do grupo: hub de agentes de IA, automações em n8n, o Hub Forms para o chão de fábrica e plataformas próprias no lugar de Power Apps e Power BI, sem licença nova, com ERP somente leitura e governança de dados.",
+        en: "I lead a team of 3 serving the group's five plants: an AI agents hub, n8n automations, Hub Forms for the shop floor and in-house platforms replacing Power Apps and Power BI, with no new licences, a read-only ERP and data governance.",
       },
       destaques: [
         { pt: "Lidero um time de 3 pessoas, formado internamente, que atende as cinco fábricas do grupo sem terceiros.", en: "I lead a team of 3, trained in-house, serving the group's five plants without external contractors." },
@@ -261,6 +262,7 @@ export const site = {
   projetos: [
     {
       titulo: { pt: "Hub de agentes de IA", en: "AI agents hub" },
+      cv: { pt: `${hub.agentes.length} agentes de IA para RH, tesouraria, contabilidade, bancos, gestão e indústria, lendo ERP, MES e planilhas com data e origem em cada número; a IA endereça, o código executa. Encontrou 622 cadastros contábeis incorretos ao vivo e corrigiu o saldo real de banco de horas.`, en: `${hub.agentes.length} AI agents for HR, treasury, accounting, banking, management and manufacturing, reading the ERP, MES and spreadsheets with a date and source on every number; AI routes, code executes. Found 622 misconfigured ledger records live and corrected the real hour-bank balance.` },
       descricao: {
         pt: `Seis áreas (RH, tesouraria, contabilidade, bancos, gestão e indústria) dependiam de planilha e consulta manual ao ERP. Construí uma plataforma com ${hub.agentes.length} agentes que leem ERP, MES e planilhas e respondem com data e origem do dado; a IA endereça, o código executa.`,
         en: `Six areas (HR, treasury, accounting, banking, management and manufacturing) depended on spreadsheets and manual ERP lookups. I built a platform with ${hub.agentes.length} agents that read the ERP, the MES and spreadsheets and answer with the data's date and source; AI routes, code executes.`,
@@ -276,6 +278,7 @@ export const site = {
     },
     {
       titulo: { pt: "Painéis de BI e pipeline de dados", en: "BI dashboards and data pipeline" },
+      cv: { pt: "50+ painéis em Power BI e Looker Studio; os industriais cobrem produção, OEE, paradas, estoques, custos e rastreabilidade, sobre pipeline com extração, camada bruta, dbt, testes e modelo dimensional.", en: "50+ dashboards in Power BI and Looker Studio; the manufacturing ones cover production, OEE, downtime, inventory, costs and traceability, on a pipeline with extraction, raw layer, dbt, tests and a dimensional model." },
       descricao: {
         pt: "Mais de 50 painéis de BI em Power BI e Looker Studio ao longo da carreira. Os industriais cobrem visão geral, produção, OEE, paradas, estoques, logística, custos, controle de lote, rastreabilidade, contabilidade e tarefas, sobre um pipeline com extração, camada bruta, dbt, testes e modelo dimensional.",
         en: "More than 50 BI dashboards in Power BI and Looker Studio throughout my career. The industrial ones cover overview, production, OEE, downtime, inventory, logistics, costs, batch control, traceability, accounting and tasks, on a pipeline with extraction, a raw layer, dbt, tests and a dimensional model.",
@@ -288,6 +291,7 @@ export const site = {
     },
     {
       titulo: { pt: "Hub Forms: o chão de fábrica na fonte única de dados", en: "Hub Forms: the shop floor in the single source of truth" },
+      cv: { pt: "App web mobile-first para portaria, logística, produção, qualidade e treinamentos: nota fiscal puxada do TOTVS Protheus, conferência cega, ordem de carregamento travada pelo saldo do lote, ficha oficial em PDF e presença por QR code, no mesmo banco do FlowPilot, do painel de fábrica e da IA.", en: "Mobile-first web app for gatehouse, logistics, production, quality and training: invoice pulled from TOTVS Protheus, blind weighing, loading orders capped by batch balance, official form as PDF and QR-code attendance, in the same database as FlowPilot, the plant dashboard and the AI." },
       descricao: {
         pt: "Portaria, logística, produção, qualidade e treinamentos registravam em papel, planilhas e apps soltos. O Hub Forms é uma aplicação web mobile-first em que cada registro nasce validado contra o TOTVS Protheus, com foto de evidência e horário do servidor, no mesmo banco do FlowPilot, do Painel de fábrica e dos agentes de IA.",
         en: "Gatehouse, logistics, production, quality and training were logged on paper, spreadsheets and scattered apps. Hub Forms is a mobile-first web app where every record is validated against TOTVS Protheus at entry, with photo evidence and a server timestamp, in the same database as FlowPilot, the plant dashboard and the AI agents.",
@@ -300,7 +304,6 @@ export const site = {
       ano: "2026",
       thumb: "app",
       href: "/forms/",
-      noCv: true,
     },
     {
       titulo: { pt: "Plataforma de gestão de tarefas", en: "Task management platform" },
@@ -335,6 +338,7 @@ export const site = {
     },
     {
       titulo: { pt: `${numeros.workflows} automações em n8n (${numeros.fluxosAtivos} ativas)`, en: `${numeros.workflows} n8n automations (${numeros.fluxosAtivos} active)` },
+      cv: { pt: `${numeros.fluxosAtivos} rotinas ativas ligando ERP, BigQuery, Microsoft 365 e Google, que entregam imagem, PDF e tarefa com prazo no WhatsApp e no e-mail, todo dia útil: ~142 h/mês devolvidas às áreas e conferência de canhotos em 3 fábricas sem abrir PDF.`, en: `${numeros.fluxosAtivos} active routines connecting the ERP, BigQuery, Microsoft 365 and Google, delivering images, PDFs and tasks with deadlines over WhatsApp and email every business day: ~142 h/mo returned to teams and invoice-receipt checks across 3 plants without opening a PDF.` },
       descricao: {
         pt: `${numeros.fluxosAtivos} rotinas em produção contínua devolvem mais de 140 horas/mês às áreas. ${numeros.nos.toLocaleString("pt-BR")} nós ligando ERP, BigQuery, Microsoft 365 e Google entregam imagem, PDF e tarefa com prazo onde a pessoa já está — WhatsApp e e-mail — todo dia útil, sem ninguém apertar botão.`,
         en: `${numeros.fluxosAtivos} routines in continuous production return over 140 hours/month to business teams. ${numeros.nos.toLocaleString("en-US")} nodes connecting ERP, BigQuery, Microsoft 365, and Google deliver images, PDFs, and tasks where people already are — WhatsApp and email — every business day.`,
