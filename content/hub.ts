@@ -22,7 +22,7 @@ export const hub = {
   metricas: [
     { valor: "13", rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" as const },
     { valor: "8", rotulo: { pt: "áreas corporativas atendidas", en: "business departments served" }, icone: "factory" as const },
-    { valor: "R$ 2M+", rotulo: { pt: "em divergências e riscos prevenidos", en: "in reconciled audit discrepancies" }, icone: "chart" as const },
+    { valor: "0", rotulo: { pt: "escritas no ERP: leitura apenas", en: "writes to the ERP: read-only" }, icone: "chart" as const },
     { valor: "< R$ 0,05", rotulo: { pt: "custo médio por consulta de IA", en: "average cost per AI query" }, icone: "trending-down" as const },
   ],
   garantias: [
@@ -115,8 +115,8 @@ export const hub = {
         en: "Pulls bank statements, compares them against ERP accounting ledgers per account and company, and triggers automated tasks for discrepancies.",
       },
       impacto: {
-        pt: "Detectou estorno órfão de R$ 2.000.000,00 no BNB e lançamento em duplicidade de R$ 430 mil · Conciliação automática exata no centavo.",
-        en: "Uncovered an unrecorded R$ 2M bank reversal and a duplicate R$ 430k entry · Automated cent-perfect reconciliation.",
+        pt: "Encontra estorno sem par e lançamento em duplicidade que a conferência manual não via · Conciliação automática exata no centavo.",
+        en: "Catches unmatched reversals and duplicate entries that manual checks missed · Automated cent-perfect reconciliation.",
       },
       fontes: ["Extratos Bancários", "TOTVS ERP"],
       canais: ["whatsapp", "tarefa"],

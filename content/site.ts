@@ -90,7 +90,7 @@ export const site = {
     {
       grupo: { pt: "Modelos e agentes de IA", en: "AI models and agents" },
       nota: { pt: "Multi-provedor: o modelo certo para cada tarefa", en: "Multi-provider: the right model for each task" },
-      itens: ["OpenAI", "Claude", "Gemini", "Mistral", "LangChain", "LangGraph", "Whisper"],
+      itens: ["OpenAI", "Claude", "Gemini", "LangChain", "LangGraph", "Whisper"],
     },
     {
       grupo: { pt: "Desenvolvimento com IA", en: "AI-assisted development" },
@@ -171,7 +171,7 @@ export const site = {
       },
       destaques: [
         { pt: "Lidero um time de 3 pessoas, formado internamente, que atende as cinco fábricas do grupo sem terceiros.", en: "I lead a team of 3, trained in-house, serving the group's five plants without external contractors." },
-        { pt: `Hub com ${hub.agentes.length} agentes de IA em RH, tesouraria, contabilidade, fiscal e indústria: auditaram R$ 2M+ em divergências bancárias e corrigiram passivos de banco de horas e 600+ cadastros contábeis.`, en: `Hub with ${hub.agentes.length} AI agents across HR, treasury, accounting, tax and manufacturing: uncovered R$ 2M+ in unrecorded bank reversals and resolved hour-bank discrepancies and 600+ ledger errors.` },
+        { pt: `Hub com ${hub.agentes.length} agentes de IA em RH, tesouraria, contabilidade, fiscal e indústria: encontraram divergências bancárias e corrigiram passivos de banco de horas e 600+ cadastros contábeis.`, en: `Hub with ${hub.agentes.length} AI agents across HR, treasury, accounting, tax and manufacturing: uncovered unrecorded bank reversals and resolved hour-bank discrepancies and 600+ ledger errors.` },
         { pt: "56 automações ativas no n8n: ~142 h/mês devolvidas às equipes operacionais em relatórios, conferências e tarefas no WhatsApp e e-mail.", en: "56 active n8n workflows: ~142 h/mo returned to operations through automated reports, cross-checks, and WhatsApp/email dispatches." },
         { pt: "Economia de ~80% no custo de ferramentas (~R$ 40 mil/ano): substituição de Power BI, Power Apps e licenças corporativas por microsserviços próprios e n8n self-hosted.", en: "~80% reduction in tooling costs (~R$ 40k/yr): replaced Power BI, Power Apps, and vendor licenses with in-house microservices and self-hosted n8n." },
         { pt: "Governança e auditoria: ERP somente leitura, nota de segurança 8,6/10 com 15 de 15 achados fechados e política formal de retenção de dados.", en: "Governance and security: read-only ERP, security audit posture of 8.6/10 with 15/15 closed findings, and formal data retention policy." },
@@ -266,8 +266,8 @@ export const site = {
         en: `Six areas (HR, treasury, accounting, banking, management and manufacturing) depended on spreadsheets and manual ERP lookups. I built a platform with ${hub.agentes.length} agents that read the ERP, the MES and spreadsheets and answer with the data's date and source; AI routes, code executes.`,
       },
       resultado: {
-        pt: "Erros críticos que nenhuma rotina manual pegava passaram a aparecer sozinhos: detecção de estorno não conciliado de R$ 2 mi no banco, 622 cadastros contábeis incorretos auditados ao vivo em 12s e recálculo real do saldo de banco de horas (+1.084h corrigido para +242h), prevenindo passivos trabalhistas.",
-        en: "Critical errors that slipped past manual routines now surface automatically: uncovered an unrecorded R$ 2M bank reversal, audited 622 misconfigured ledger accounts live in 12s, and corrected hour-bank balances (+1,084h to +242h), preventing labor liabilities.",
+        pt: "Erros críticos que nenhuma rotina manual pegava passaram a aparecer sozinhos: detecção de estorno bancário não conciliado, 622 cadastros contábeis incorretos auditados ao vivo em 12s e recálculo real do saldo de banco de horas (+1.084h corrigido para +242h), prevenindo passivos trabalhistas.",
+        en: "Critical errors that slipped past manual routines now surface automatically: uncovered an unrecorded bank reversal, audited 622 misconfigured ledger accounts live in 12s, and corrected hour-bank balances (+1,084h to +242h), preventing labor liabilities.",
       },
       tags: ["Python", "LLMs", "SQL", "PostgreSQL", "Docker"],
       ano: "2026",
@@ -287,18 +287,19 @@ export const site = {
       href: "/bi/",
     },
     {
-      titulo: { pt: "App de apontamento de chão de fábrica", en: "Shop-floor data entry app" },
+      titulo: { pt: "Hub Forms: o chão de fábrica na fonte única de dados", en: "Hub Forms: the shop floor in the single source of truth" },
       descricao: {
-        pt: "A fábrica apontava produção, logística e ensaios em formulários soltos. Construímos um app próprio com módulos de produção, manutenção e qualidade, que grava direto no BigQuery e virou a fonte única dos dashboards e dos agentes de IA.",
-        en: "The plant logged production, logistics and lab tests in scattered forms. We built our own app with production, maintenance and quality modules, writing straight to BigQuery — now the single source for the dashboards and the AI agents.",
+        pt: "Portaria, logística, produção, qualidade e treinamentos registravam em papel, planilhas e apps soltos. O Hub Forms é uma aplicação web mobile-first em que cada registro nasce validado contra o TOTVS Protheus, com foto de evidência e horário do servidor, no mesmo banco do FlowPilot, do Painel de fábrica e dos agentes de IA.",
+        en: "Gatehouse, logistics, production, quality and training were logged on paper, spreadsheets and scattered apps. Hub Forms is a mobile-first web app where every record is validated against TOTVS Protheus at entry, with photo evidence and a server timestamp, in the same database as FlowPilot, the plant dashboard and the AI agents.",
       },
       resultado: {
-        pt: "Eliminação de formulários em papel e planilhas paralelas de produção, manutenção e laboratório em duas fábricas; centralização no BigQuery alimentando BIs com dados D-0 e agentes de IA.",
-        en: "Complete phase-out of paper forms and loose spreadsheets across production, maintenance, and lab testing in two plants; single BigQuery repository powering real-time BIs and AI agents.",
+        pt: "Recebimento e expedição com nota fiscal puxada do ERP e conferência cega, ordem de carregamento travada pelo saldo do lote, ficha oficial gerada em PDF e presença em treinamento por QR code: um padrão só entre as unidades, sem redigitação.",
+        en: "Receiving and shipping with the invoice pulled from the ERP and blind weighing, loading orders capped by batch balance, the official form generated as PDF and QR-code training attendance: one standard across plants, no retyping.",
       },
-      tags: ["BigQuery", "Google Cloud", "Modelagem de dados"],
+      tags: ["Next.js", "NestJS", "PostgreSQL", "TOTVS Protheus", "FlowPilot"],
       ano: "2026",
       thumb: "app",
+      href: "/forms/",
       noCv: true,
     },
     {

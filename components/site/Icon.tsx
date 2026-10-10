@@ -29,7 +29,6 @@ const ARQUIVO: Record<string, string> = {
   Claude: "/icons/claude.svg",
   "Claude Code": "/icons/claude-code.svg",
   Gemini: "/icons/gemini.svg",
-  Mistral: "/icons/mistral.svg",
   LangGraph: "/icons/langgraph.svg",
   Antigravity: "/icons/antigravity.svg",
   "VS Code": "/icons/vscode.svg",

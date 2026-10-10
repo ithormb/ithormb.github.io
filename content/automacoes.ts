@@ -22,7 +22,6 @@ export const numeros = {
   workflows: 135,
   fluxosAtivos: 56, // rotinas ativas em produção contínua
   horasEconomizadasMes: 142, // ~142h/mês devolvidas às equipes operacionais
-  errosAuditados: "R$ 2M+", // valor de controle identificado em reconciliações
   nos: 2880, // nós funcionais, sem as anotações (sticky notes)
   tiposDeNo: 43,
   credenciais: 25,

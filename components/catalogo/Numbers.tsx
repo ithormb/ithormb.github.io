@@ -13,7 +13,6 @@ export function Numbers({ locale, comHub = false }: { locale: Locale; comHub?: b
     { v: fmt(numeros.nos, locale), l: { pt: "nós, sem contar anotações", en: "nodes, excluding notes" } },
     { v: fmt(numeros.tiposDeNo, locale), l: { pt: "tipos de nó diferentes", en: "distinct node types" } },
     { v: fmt(numeros.credenciais, locale), l: { pt: "credenciais de serviço", en: "service credentials" } },
-    ...(comHub ? [] : [{ v: numeros.errosAuditados, l: { pt: "em divergências e riscos prevenidos", en: "in reconciled audit discrepancies" } }]),
   ];
   const data = new Date(numeros.medidoEm + "T00:00:00").toLocaleDateString(locale === "pt" ? "pt-BR" : "en-GB");
   return (
