@@ -91,7 +91,7 @@ export function TechBadge({ nome }: { nome: string }) {
 }
 
 // Ícones de traço para os cards de números.
-export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" | "calendar" | "paper" }) {
+export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" | "calendar" | "paper" | "clock" | "trending-down" }) {
   const p = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
   switch (kind) {
     case "chart":
@@ -106,5 +106,9 @@ export function StatIcon({ kind }: { kind: "chart" | "bot" | "flow" | "factory" 
       return <svg {...p}><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></svg>;
     case "factory":
       return <svg {...p}><path d="M2 20V9l6 4V9l6 4V5h4l2 15z" /><path d="M2 20h20" /></svg>;
+    case "clock":
+      return <svg {...p}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>;
+    case "trending-down":
+      return <svg {...p}><polyline points="23 18 13.5 8.5 8.5 13.5 1 6" /><polyline points="17 18 23 18 23 12" /></svg>;
   }
 }

@@ -81,9 +81,9 @@ export const site = {
   stats: [
     { valor: String(numeros.workflows), rotulo: { pt: "workflows construídos no n8n", en: "n8n workflows built" }, icone: "flow" },
     { valor: "5", rotulo: { pt: "fábricas atendidas pelo time", en: "plants served by the team" }, icone: "factory" },
-    { valor: "6", rotulo: { pt: "áreas com agentes de IA", en: "business areas with AI agents" }, icone: "bot" },
-    { valor: "SBPO", rotulo: { pt: "artigo publicado em 2025", en: "paper published in 2025" }, icone: "paper" },
-  ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" | "calendar" | "paper" }[],
+    { valor: "~142h", rotulo: { pt: "horas/mês devolvidas às equipes", en: "hours/mo returned to teams" }, icone: "clock" },
+    { valor: "-80%", rotulo: { pt: "custo de ferramentas de dados (~R$ 40k/ano)", en: "cut in data tooling costs (~R$ 40k/yr)" }, icone: "trending-down" },
+  ] as { valor: string; rotulo: Text; icone: "chart" | "bot" | "flow" | "factory" | "calendar" | "paper" | "clock" | "trending-down" }[],
 
   // Do mais próximo da IA ao mais próximo do dado bruto.
   tecnologias: [
