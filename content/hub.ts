@@ -15,12 +15,12 @@ export type Agente = {
 export const hub = {
   nome: { pt: "Hub de agentes de IA", en: "AI agents hub" } satisfies Text,
   resumo: {
-    pt: "Plataforma interna que conecta 13 agentes de IA diretamente ao ERP, MES e bancos de dados de seis empresas e cinco fábricas. Cada agente entrega números com carimbo de origem e data auditados, operando sob o princípio de que a IA classifica e sugere, mas o código determinístico executa — eliminando alucinações e garantindo governança.",
-    en: "Internal platform connecting 13 AI agents directly to the ERP, MES, and databases across six companies and five manufacturing plants. Each agent delivers numbers stamped with verified sources and dates, operating under the principle that AI classifies and suggests while deterministic code executes — eliminating hallucinations and ensuring governance.",
+    pt: "Plataforma interna que conecta 11 agentes de IA diretamente ao ERP, MES e bancos de dados de seis empresas e cinco fábricas. Cada agente entrega números com carimbo de origem e data auditados, operando sob o princípio de que a IA classifica e sugere, mas o código determinístico executa — eliminando alucinações e garantindo governança.",
+    en: "Internal platform connecting 11 AI agents directly to the ERP, MES, and databases across six companies and five manufacturing plants. Each agent delivers numbers stamped with verified sources and dates, operating under the principle that AI classifies and suggests while deterministic code executes — eliminating hallucinations and ensuring governance.",
   } satisfies Text,
   stack: ["Python", "LLMs (Multi-provedor)", "SQL Server", "BigQuery", "PostgreSQL", "Docker", "Whisper"],
   metricas: [
-    { valor: "13", rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" as const },
+    { valor: "", rotulo: { pt: "agentes de IA em produção", en: "AI agents in production" }, icone: "bot" as const },
     { valor: "8", rotulo: { pt: "áreas corporativas atendidas", en: "business departments served" }, icone: "factory" as const },
     { valor: "0", rotulo: { pt: "escritas no ERP: leitura apenas", en: "writes to the ERP: read-only" }, icone: "chart" as const },
     { valor: "< R$ 0,05", rotulo: { pt: "custo médio por consulta de IA", en: "average cost per AI query" }, icone: "trending-down" as const },
@@ -212,3 +212,6 @@ export const hub = {
     },
   ] as Agente[],
 };
+
+// O cartão conta a própria lista: número escrito à mão já divergiu dela.
+hub.metricas[0].valor = String(hub.agentes.length);
